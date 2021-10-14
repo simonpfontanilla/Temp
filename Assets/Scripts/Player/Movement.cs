@@ -2,8 +2,11 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float forceAmount = 500;
+    public float forceAmount = 250;
+    public float bounds = 5;
+    public GameObject player;
 
+    private Vector3 offset;
     Rigidbody selectedRigidbody;
     Camera targetCamera;
     Vector3 originalScreenTargetPosition;
@@ -14,6 +17,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         targetCamera = GetComponent<Camera>();
+        offset = transform.position - player.transform.position;
     }
 
     void Update()
@@ -34,12 +38,21 @@ public class Movement : MonoBehaviour
         }
     }
 
+    void LastUpdate(){
+        transform.position = player.transform.position + offset;
+    }
+
     void FixedUpdate()
     {
         if (selectedRigidbody)
         {
             Vector3 mousePositionOffset = targetCamera.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, selectionDistance)) - originalScreenTargetPosition;
-            selectedRigidbody.velocity = (originalRigidbodyPos + mousePositionOffset - selectedRigidbody.transform.position) * forceAmount * Time.deltaTime;
+            if (selectedRigidbody.transform.position.x > bounds){
+                selectedRigidbody.transform.position = new Vector3(bounds, selectedRigidbody.transform.position.y, selectedRigidbody.transform.position.z);
+            }else if (selectedRigidbody.transform.position.x < -bounds){
+                selectedRigidbody.transform.position = new Vector3(-bounds, selectedRigidbody.transform.position.y, selectedRigidbody.transform.position.z);
+            }
+            selectedRigidbody.velocity = (originalRigidbodyPos + mousePositionOffset - selectedRigidbody.transform.position + transform.forward) * forceAmount * Time.deltaTime;
         }
     }
 

@@ -5,7 +5,6 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour
 {
     public float hitPoints = 100f;
-    public float moveRate = 10f;
     // Start is called before the first frame update
     public void Start()
     {
