@@ -17,9 +17,9 @@ public class Spawn : MonoBehaviour
         
     }
 
-    void SpawnBall()
+    void SpawnShip()
     {
-        GameObject go = Instantiate(player).gameObject;
+        GameObject go = Instantiate(player, transform.position, transform.rotation).gameObject;
         go.AddComponent<Destroy>();
 
         go.AddComponent<Follow>();
@@ -34,7 +34,7 @@ public class Spawn : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Respawn"){
-            SpawnBall();
+            SpawnShip();
         }
         else if (other.gameObject.tag == "EditorOnly"){
             transform.position = new Vector3(0,0,2);
