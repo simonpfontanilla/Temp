@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &64896701
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 64896702}
+  m_Layer: 0
+  m_Name: Clone List
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &64896702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64896701}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.10188484, y: 1.1989268, z: -0.17874384}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &450114540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196,6 +226,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea3bd4a921c94b4b9b0c3208bbdfad8, type: 3}
+--- !u!1 &599581628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca6708fa7114e60a1a5fa4d76a446d, type: 3}
+  m_PrefabInstance: {fileID: 1816386703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &599581632
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599581628}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022794744, y: 0.0231581, z: 0.0026251795}
+  m_Center: {x: 0, y: 0, z: 0.0013125897}
 --- !u!1 &972973529
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,8 +678,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bad Stargate Temp
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 06766de1212e9c1acab49ce6063263d2, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06766de1212e9c1acab49ce6063263d2, type: 3}
+--- !u!1 &1815438658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 06766de1212e9c1acab49ce6063263d2, type: 3}
+  m_PrefabInstance: {fileID: 1579045681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1815438662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815438658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.022794744, y: 0.0231581, z: 0.0026251795}
+  m_Center: {x: 0, y: 0, z: 0.0013125897}
 --- !u!1001 &1816386703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -686,6 +756,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1cca6708fa7114e60a1a5fa4d76a446d, type: 3}
       propertyPath: m_Name
       value: Good Stargate Temp(1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1cca6708fa7114e60a1a5fa4d76a446d, type: 3}
+      propertyPath: m_TagString
+      value: Respawn
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cca6708fa7114e60a1a5fa4d76a446d, type: 3}

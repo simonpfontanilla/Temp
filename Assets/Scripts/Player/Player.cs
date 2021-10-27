@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
-    public float hitPoints = 100f;
+    public List<GameObject> children;
     // Start is called before the first frame update
     public void Start()
     {
@@ -13,7 +13,7 @@ public abstract class Player : MonoBehaviour
 
     public void Update()
     {
-
+        
     }
 
     public void OnCollisionEnter(Collision other){

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
+    public float scale = 30.0f;
     public Rigidbody player;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class Spawn : MonoBehaviour
     void SpawnShip()
     {
         GameObject go = Instantiate(player, transform.position, transform.rotation).gameObject;
+        go.transform.localScale = new Vector3(scale, scale, scale);
+        go.tag = "SpawnedShips";
         go.AddComponent<Destroy>();
 
         go.AddComponent<Follow>();

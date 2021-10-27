@@ -11,7 +11,14 @@ public class PlayerChild : Player
         base.Start(); //calls the start method in the parent class
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        GetComponent<BoxCollider>().isTrigger = true;
+        GetComponent<BoxCollider>().isTrigger = false;
+        
+        List<GameObject> lst = GameObject.Find("PlayerShip_FBX").GetComponent<Player>().children;
+        lst.Clear();
+        foreach(GameObject fooObj in GameObject.FindGameObjectsWithTag("SpawnedShips"))
+        {
+            lst.Add(fooObj);
+        }
     }
 
     // Update is called once per frame
