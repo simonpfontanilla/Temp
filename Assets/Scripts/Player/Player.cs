@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Player : MonoBehaviour
 {
     public List<GameObject> children;
+    public int currency;
     // Start is called before the first frame update
     public void Start()
     {
