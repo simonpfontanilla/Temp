@@ -40,14 +40,13 @@ public class Spawn : MonoBehaviour
             SpawnShip();
         }
         else if (other.gameObject.tag == "Currency"){
-            //Debug.Log(other.gameObject);
             SpawnShip();
             Destroy(other.gameObject);
             GameObject.Find("PlayerShip_FBX").GetComponent<Player>().currency += 1;
         }
         else if (other.gameObject.tag == "EditorOnly"){
             transform.position = new Vector3(0,0,2);
-            GameObject.Find("PlayerShip_FBX").GetComponent<Player>().currency = GameObject.Find("PlayerShip_FBX").GetComponent<Player>().currency + GameObject.Find("PlayerShip_FBX").GetComponent<Player>().children.Count * 10;
+            GameObject.Find("PlayerShip_FBX").GetComponent<Player>().currency = GameObject.Find("PlayerShip_FBX").GetComponent<Player>().currency + (GameObject.Find("PlayerShip_FBX").GetComponent<Player>().children.Count + 1) * 10;
         }
     }
 }

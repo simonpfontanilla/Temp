@@ -11,7 +11,7 @@ public class PlayerChild : Player
         base.Start(); //calls the start method in the parent class
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
-        GetComponent<BoxCollider>().isTrigger = false;
+        GetComponent<BoxCollider>().isTrigger = true;
         
         List<GameObject> lst = GameObject.Find("PlayerShip_FBX").GetComponent<Player>().children;
         lst.Clear();
