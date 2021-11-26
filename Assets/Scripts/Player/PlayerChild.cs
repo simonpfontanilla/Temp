@@ -12,13 +12,6 @@ public class PlayerChild : Player
         Rigidbody rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePositionY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
         GetComponent<BoxCollider>().isTrigger = true;
-        
-        List<GameObject> lst = GameObject.Find("PlayerShip_FBX").GetComponent<Player>().children;
-        lst.Clear();
-        foreach(GameObject fooObj in GameObject.FindGameObjectsWithTag("SpawnedShips"))
-        {
-            lst.Add(fooObj);
-        }
     }
 
     // Update is called once per frame
