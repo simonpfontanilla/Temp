@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject [] goodStarGates;
     [SerializeField] private double [] difficultyLevel = {0.2, 0.4, 0.6, 0.8, 1.0};
 
-    [SerializeField] private int maxShips = 0, enemyCount, currentLevel;
+    [SerializeField] private int maxShips = 1, enemyCount, currentLevel;
 
 
     // Start is called before the first frame update

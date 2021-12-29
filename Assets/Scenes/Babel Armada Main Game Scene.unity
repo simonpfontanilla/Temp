@@ -946,7 +946,7 @@ MonoBehaviour:
   - 0.6
   - 0.8
   - 1
-  maxShips: 0
+  maxShips: 1
   enemyCount: 0
   currentLevel: 0
 --- !u!4 &1482729698

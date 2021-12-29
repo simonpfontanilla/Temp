@@ -14,13 +14,13 @@ public class ScoreGenerator : MonoBehaviour
 
         if (goodGate)
         {
-            if (Random.Range(0, 2) == 0) str = "+ " + Random.Range(1, 101);
-            else str = "x " + Random.Range(1, 101);
+            if (Random.Range(0, 2) == 0) str = "+ " + Random.Range(1, 15);
+            else str = "x " + Random.Range(1, 10);
         }
         else
         {
-            if (Random.Range(0, 2) == 0) str = "- " + Random.Range(1, 101);
-            else str = "÷ " + Random.Range(1, 101);
+            if (Random.Range(0, 2) == 0) str = "- " + Random.Range(1, 15);
+            else str = "÷ " + Random.Range(1, 10);
         }
 
         gameObject.GetComponent<TextMeshPro>().SetText(str);
