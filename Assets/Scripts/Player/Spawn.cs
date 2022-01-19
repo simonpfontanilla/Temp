@@ -31,6 +31,7 @@ public class Spawn : MonoBehaviour
         //go.AddComponent<Destroy>();
         go.AddComponent<Follow>();
         go.GetComponent<Follow>().leader = ship.GetComponent<Transform>();
+        Destroy(go.GetComponent<PlayerChild>());
         ship.GetComponent<Player>().children.Add(go);
         Destroy(go.GetComponent<Spawn>());
         var children = new List<GameObject>();
