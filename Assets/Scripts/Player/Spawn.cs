@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class Spawn : MonoBehaviour
 {
@@ -94,8 +95,42 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "Respawn")
         {
-            SpawnShip(12); //get text from gate for multiplier
+            string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
+            int amt = _count;
+            
+            if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
+            else
+            {
+                if (amt == 0) amt = 1;
+                amt *= Int32.Parse(text.Split(' ')[1]);
+            }
+
+            SpawnShip(amt + 1 - _count); //get text from gate for multiplier
             //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+        else if (other.gameObject.tag == "Finish")
+        {
+            string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
+            int amt = _count;
+
+            if (text.Contains("-")) amt -= Int32.Parse(text.Split(' ')[1]);
+            else
+            {
+                if (amt == 0) amt = 1;
+                amt /= Int32.Parse(text.Split(' ')[1]);
+            }
+
+            Debug.Log(amt);
+
+            // if (amt == 0) call gameover
+
+            while (_player.children.Count != amt)
+            {
+                GameObject ship = _player.children[_player.children.Count - 1];
+                _player.children.RemoveAt(_player.children.Count - 1);
+
+                Destroy(ship);
+            }
         }
         else if (other.gameObject.tag == "Currency")
         {

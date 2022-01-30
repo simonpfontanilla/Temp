@@ -22,7 +22,7 @@ public class Follow : MonoBehaviour {
         _followOffset = transform.position;
         targetPosition = leader.position + _followOffset;
         transform.position += (targetPosition - transform.position);
-        Debug.Log(transform.position);
+        // Debug.Log(transform.position);
         desiredDistance = Vector3.Distance(leader.position, transform.position);
     }
 
