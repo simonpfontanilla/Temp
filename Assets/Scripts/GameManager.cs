@@ -37,6 +37,17 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        List<GameObject> groupGateSpawner = GameObject.FindGameObjectsWithTag("GroupGateSpawner").ToList();
+
+        foreach(GameObject gr in groupGateSpawner)
+        {
+            int x = UnityEngine.Random.Range(-1, 3);
+
+            if (x == -1) continue;
+
+            DestroyImmediate(gr.transform.GetChild(x).gameObject);
+        }
+
         calculateMaxShips();
 
         // 20% 40% 60% 80% 100% enemy
