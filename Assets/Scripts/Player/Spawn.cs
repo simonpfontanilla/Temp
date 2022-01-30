@@ -1,97 +1,133 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Spawn : MonoBehaviour
 {
-    public float scale = 30.0f;
-    public Rigidbody player;
-    public float radius = 2.0f;
-    public GameObject curr;
-    private int count;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private float scale = 30.0f;
+    [SerializeField]
+    private Rigidbody spawnedShips;
+    [SerializeField]
+    private float radius = 2.0f;
+    [SerializeField]
+    private GameObject curr;
+
+    private Transform _transform;
+
+    private Vector3 _position;
+
+    private Quaternion _rotation;
+
+    private int _count;
+
+    private GameObject _ship;
+
+    private Player _player;
+
+    private void Awake()
     {
-        
+        _transform = transform;
+        _player = GetComponent<Player>();
     }
 
-    // Update is called once per frame
-    void LastUpdate()
+    private void Start()
     {
-        // foreach(var item in dict){
-        //     item.Key.transform.position = item.Value;
-        //     Debug.Log(item.Key.transform.position);
-        // }
-        // Debug.Log(GameObject.Find("FighterComplete(Clone)").GetComponent<Transform>().position);
+        _ship = GameObject.Find("Carrier");
+        _position = _transform.position;
+        _rotation = _transform.rotation;
     }
 
-    void EditShip(GameObject ship, GameObject go){
+    private void EditShip(GameObject go, bool t)
+    {
         go.transform.localScale = new Vector3(scale, scale, scale);
+        //go.AddComponent<Follow>().leader = _transform;
+        go.AddComponent<Follow>().leader = GameObject.Find("orbit").transform;
+
+        if (!t) return;
+
         go.tag = "SpawnedShips";
-        //go.AddComponent<Destroy>();
-        go.AddComponent<Follow>();
-        go.GetComponent<Follow>().leader = ship.GetComponent<Transform>();
-        Destroy(go.GetComponent<PlayerChild>());
-        ship.GetComponent<Player>().children.Add(go);
-        Destroy(go.GetComponent<Spawn>());
         var children = new List<GameObject>();
-        foreach (Transform child in go.transform) children.Add(child.gameObject);
+        foreach (Transform child in go.transform)
+        children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
+        Destroy(go.GetComponent<PlayerChild>());
+        _player.children.Add (go);
+        Destroy(go.GetComponent<Spawn>());
     }
 
-    int UpdateCount(GameObject ship){
-        return ship.GetComponent<Player>().children.Count;
-    }
-
-    void SpawnShip(int multiplier)
+    private int UpdateCount(GameObject _ship)
     {
-        GameObject ship = GameObject.Find("FighterComplete");
-        count = UpdateCount(ship);
-        int rings;
-        for(int i = 0; i < multiplier-1; i++){
-            count = UpdateCount(ship)+1;
-            rings = count/12;
-            GameObject go = Instantiate(player, transform.position, transform.rotation).gameObject;
-            go.transform.localPosition = new Vector3(Mathf.Cos(12*(i+count))*radius, Mathf.Sin(12*(i+count))*radius, -2*rings); //original
-            EditShip(ship, go);
-        }
-        //Debug.Log(PlayerPrefs.GetInt("currency"));
+        return _player.children.Count;
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag == "Respawn"){
-            SpawnShip(12); //get text from gate for multiplier
+    private void SpawnShip(int multiplier)
+    {
+        _count = UpdateCount(_ship);
+        int rings;
+        for (int i = 0; i < multiplier - 1; i++)
+        {
+            _count = UpdateCount(_ship) + 1;
+            rings = _count / 12;
+
+            //create ships
+            GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
+            EditShip(go, true);
+            GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
+            EditShip(temp, false);
+
+            //generate position of ship
+            int ring = -2 * rings;
+            temp.transform.localPosition = new Vector3(Mathf.Cos(12 * (i + _count)) * radius, Mathf.Sin(12 * (i + _count)) * radius, 0);
+            go.transform.localPosition = _transform.position;
+            //go.transform.localPosition = new Vector3(0,0,0);
+
+            var m = temp.GetComponent<MeshRenderer>().enabled = false;
+            var f = go.GetComponent<Follow>().enabled = false;
+            go.AddComponent<ShipAnimation>().temp = temp;
+            go.GetComponent<ShipAnimation>().ring = ring;
         }
-        else if (other.gameObject.tag == "Currency"){
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Respawn")
+        {
+            SpawnShip(12); //get text from gate for multiplier
+            //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+        else if (other.gameObject.tag == "Currency")
+        {
             SpawnShip(2);
             Destroy(other.gameObject);
-            GameObject currency = Instantiate(curr, transform.position + new Vector3(0,1,0), Quaternion.identity).gameObject;
-            StartCoroutine(Wait(currency, 1));
-            GameObject.Find("FighterComplete").GetComponent<Player>().currency += 1;
+            GameObject currency = Instantiate(curr, _transform.position + new Vector3(0, 1, 0), Quaternion.identity).gameObject;
+            Move (currency);
+            _player.currency += 1;
         }
-        else if (other.gameObject.tag == "EditorOnly"){
-            transform.position = new Vector3(0,0,2);
-            GameObject.Find("FighterComplete").GetComponent<Player>().currency = GameObject.Find("FighterComplete").GetComponent<Player>().currency + (GameObject.Find("FighterComplete").GetComponent<Player>().children.Count + 1) * 10;
-        }
-    }
-
-    IEnumerator Wait(GameObject currency, int seconds){
-        for(int i = 0;i <= seconds; i++){
-            if(i == seconds){
-                Destroy(currency);
-                yield break;
-            }
-            yield return StartCoroutine(Move(currency));
+        else if (other.gameObject.tag == "EditorOnly")
+        {
+            _transform.position = new Vector3(0, 0, 2);
+            _player.currency = _player.currency + (_player.children.Count + 1) * 10;
         }
     }
 
-    IEnumerator Move(GameObject currency){
-        Color alpha = currency.GetComponent<SpriteRenderer>().color;
-        for(int i = 0;i <= 60; i++){
-            currency.transform.position += new Vector3(0, 0.03f, 0);
+    private void Move(GameObject go)
+    {
+        StartCoroutine(MoveCoroutine(go));
+    }
+
+    IEnumerator MoveCoroutine(GameObject go)
+    {
+        Color alpha = go.GetComponent<SpriteRenderer>().color;
+        for (int i = 0; i <= 60; i++)
+        {
+            go.transform.position += new Vector3(0, 0.03f, 0);
             alpha.a -= 0.02f;
-            currency.GetComponent<SpriteRenderer>().color = alpha;
+            go.GetComponent<SpriteRenderer>().color = alpha;
+            go.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().color = alpha;
             yield return new WaitForFixedUpdate();
         }
+        Destroy (go);
     }
 }

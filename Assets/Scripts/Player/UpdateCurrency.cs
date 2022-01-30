@@ -14,7 +14,7 @@ public class UpdateCurrency : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        int curr = GameObject.Find("FighterComplete").GetComponent<Player>().currency;
+        int curr = GameObject.Find("Carrier").GetComponent<Player>().currency;
         gameObject.GetComponent<TextMeshProUGUI>().text = "Currency: " + curr.ToString();
         PlayerPrefs.SetInt("currency", curr);
     }
