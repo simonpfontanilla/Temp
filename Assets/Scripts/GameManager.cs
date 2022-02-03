@@ -12,11 +12,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private double [] difficultyLevel = {0.2, 0.4, 0.6, 0.8, 1.0};
 
     [SerializeField] private int maxShips = 1, enemyCount, currentLevel;
-
+    
+    [SerializeField] private GameObject gateSpawners;
 
     // Start is called before the first frame update
     void Start()
     {
+        // One or two asteroids between spaces any where between that
+
+        int rand = UnityEngine.Random.Range(4, 11);
+        float zPos = 31.0f;
+        for (int i = 0; i < rand; i++)
+        {
+            Instantiate(gateSpawners, new Vector3(0f, 4.17f, zPos), gateSpawners.transform.rotation);
+            zPos += 22;
+        }
+
         List<GameObject> gateSpawner = GameObject.FindGameObjectsWithTag("GateSpawner").ToList();
 
         foreach (GameObject item in gateSpawner) item.GetComponent<StargateSpawner>().SpawnGate(-1);
