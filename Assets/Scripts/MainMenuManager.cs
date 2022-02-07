@@ -11,6 +11,11 @@ public class MainMenuManager : MonoBehaviour
     public GameObject shopPage2;
     public GameObject shopPage3;
 
+    public GameObject levelCompleteScreen;
+    public GameObject gameOverScreen;
+    public GameObject startScreen;
+    public GameObject mainGameScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +26,29 @@ public class MainMenuManager : MonoBehaviour
     void Update()
     {
         checkPage();
+    }
+
+    //Call this function to trigger GameOver
+    public void gameOverTrigger()
+    {
+        //Display GameOver text, vignette in the back, retry and quit buttons
+        gameOverScreen.SetActive(true);
+
+    }
+
+    //Call this function to trigger LevelComplete
+    public void levelCompleteTrigger()
+    {
+        //Display Level Complete Screen
+        levelCompleteScreen.SetActive(true);
+    }
+
+    public void startGame()
+    {
+        startScreen.SetActive(false);
+        mainGameScreen.SetActive(true);
+        //Do something.....
+
     }
 
     public void choosePage(int Index)
