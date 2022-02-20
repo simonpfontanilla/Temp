@@ -11,7 +11,7 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     private Rigidbody spawnedShips;
     [SerializeField]
-    private float radius = 2.0f;
+    public float radius = 2.0f;
     [SerializeField]
     private GameObject curr;
 
@@ -21,7 +21,7 @@ public class Spawn : MonoBehaviour
 
     private Quaternion _rotation;
 
-    private int _count;
+    public int _count;
 
     private GameObject _ship;
 
@@ -31,20 +31,26 @@ public class Spawn : MonoBehaviour
     {
         _transform = transform;
         _player = GetComponent<Player>();
+        _ship = GameObject.Find("Carrier");
+        //spawn empty go ring
+        if(this.name != "Carrier") return;
     }
 
     private void Start()
     {
-        _ship = GameObject.Find("Carrier");
         _position = _transform.position;
         _rotation = _transform.rotation;
     }
 
-    private void EditShip(GameObject go, bool t)
+    private void EditShip(GameObject go, bool t, int ring, int direction)
     {
         go.transform.localScale = new Vector3(scale, scale, scale);
-        //go.AddComponent<Follow>().leader = _transform;
         go.AddComponent<Follow>().leader = GameObject.Find("orbit").transform;
+        var f = go.GetComponent<Follow>();
+        f.ring = ring;
+        f.direction = direction;
+        go.AddComponent<SphereCollider>().isTrigger = true;
+        go.GetComponent<SphereCollider>().radius = 0.01f;
 
         if (!t) return;
 
@@ -62,32 +68,49 @@ public class Spawn : MonoBehaviour
     {
         return _player.children.Count;
     }
-
-    private void SpawnShip(int multiplier)
+    
+    void SpawnShip(int multiplier)
     {
-        _count = UpdateCount(_ship);
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {
-            _count = UpdateCount(_ship) + 1;
+
+            if(_count >= 60){
+                _count += 1;
+                continue;
+            }
+
             rings = _count / 12;
-
-            //create ships
-            GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
-            EditShip(go, true);
-            GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
-            EditShip(temp, false);
-
-            //generate position of ship
             int ring = -2 * rings;
-            temp.transform.localPosition = new Vector3(Mathf.Cos(12 * (i + _count)) * radius, Mathf.Sin(12 * (i + _count)) * radius, 0);
-            go.transform.localPosition = _transform.position;
-            //go.transform.localPosition = new Vector3(0,0,0);
+            int index = GetIndex();
+            int k = 1;
+            for(int j = 0; j < index/12; j++){
+                k *= -1;
+            }
+            int direction = k;
+            
+            GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
+            EditShip(temp, false, ring, direction);
+            temp.transform.position = new Vector3(Mathf.Cos(12*i) * radius, Mathf.Sin(12*i) * radius, 0);
+            GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
+            EditShip(go, true, ring, direction);
+            go.transform.position = _transform.position;
 
-            var m = temp.GetComponent<MeshRenderer>().enabled = false;
-            var f = go.GetComponent<Follow>().enabled = false;
+            temp.GetComponent<MeshRenderer>().enabled = false;
+            go.GetComponent<Follow>().enabled = false;
             go.AddComponent<ShipAnimation>().temp = temp;
-            go.GetComponent<ShipAnimation>().ring = ring;
+
+            _count = UpdateCount(_ship);
+        }
+    }
+    
+    int GetIndex(){
+       int length = _player.children.Count + 1;
+       int i = length/12;
+        if(length%12 == 0){
+            return 12*(i-1);
+        }else{
+            return 12*i;
         }
     }
 
@@ -95,18 +118,20 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "Respawn")
         {
-            string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
-            int amt = _count;
+            // string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
+            // int amt = _count;
             
-            if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
-            else
-            {
-                if (amt == 0) amt = 1;
-                amt *= Int32.Parse(text.Split(' ')[1]);
-            }
+            // if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
+            // else
+            // {
+            //     if (amt == 0) amt = 1;
+            //     amt *= Int32.Parse(text.Split(' ')[1]);
+            // }
 
-            SpawnShip(amt + 1 - _count); //get text from gate for multiplier
-            //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            // SpawnShip(amt + 1 - _count); //get text from gate for multiplier
+            // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            SpawnShip(4);
+            other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.gameObject.tag == "Finish")
         {

@@ -8,6 +8,7 @@ TagManager:
   - SpawnedShips
   - Currency
   - GroupGateSpawner
+  - EmptySpace
   layers:
   - Default
   - TransparentFX

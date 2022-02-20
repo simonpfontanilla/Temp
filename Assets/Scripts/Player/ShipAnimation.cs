@@ -4,21 +4,24 @@ using UnityEngine;
 
 public class ShipAnimation : MonoBehaviour
 {
-    public float t = 0.3f;
+    public float t = 0.1f;
 
     public Transform _target;
 
     public GameObject temp;
 
-    public int ring;
-
     private Transform _transform;
 
     private GameObject _ship;
 
+    private Transform _obj;
+
+    public int ring;
+
     private void Awake() 
     {
         _transform = transform;
+        _obj = GameObject.Find("orbit").transform;
     }
 
     void Start()
@@ -43,7 +46,7 @@ public class ShipAnimation : MonoBehaviour
     }
 
     void SetPosition(){
-        GetComponent<Follow>()._followOffset = temp.GetComponent<Follow>()._followOffset + new Vector3(0, 0, ring);
+        GetComponent<Follow>()._followOffset += new Vector3(0,0,ring);
         GetComponent<Follow>().enabled = true;
         this.transform.parent = GameObject.Find("orbit").transform;
         Destroy(this);

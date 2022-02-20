@@ -662,6 +662,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 4854733343275288830, guid: 5bc26739d99e1c04db70cb66ed17b029, type: 3}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!4 &582169530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
@@ -685,7 +686,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &589437644
 RectTransform:
   m_ObjectHideFlags: 0
@@ -702,7 +703,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 94.4, y: -58.9}
+  m_AnchoredPosition: {x: 97, y: -64.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589437645
@@ -835,6 +836,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 0}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!114 &680044633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,6 +1020,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
       propertyPath: m_Name
       value: Carrier
@@ -1167,6 +1173,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eea3bd4a921c94b4b9b0c3208bbdfad8, type: 3}
+--- !u!1 &959841048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959841050}
+  - component: {fileID: 959841049}
+  - component: {fileID: 959841051}
+  - component: {fileID: 959841052}
+  m_Layer: 0
+  m_Name: orbit
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &959841049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959841048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97182af8364f86047880acfc66568677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leader: {fileID: 582169530}
+  rotationSpeed: 15
+  _followOffset: {x: 0, y: 0, z: 0}
+  ring: 0
+  direction: 0
+--- !u!4 &959841050
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959841048}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &959841051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959841048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853fb3dc348200c44bb1a78af0cbb314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numObjects: 0
+  x: 0
+  y: 0
+--- !u!65 &959841052
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959841048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.89, y: 2.36, z: 4.45}
+  m_Center: {x: -0.0069616525, y: 0, z: 0}
 --- !u!1 &1082938963 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1cca6708fa7114e60a1a5fa4d76a446d, type: 3}
@@ -1220,6 +1304,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 0}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!65 &1085645706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1284,6 +1369,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 0}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!65 &1161196036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1532,6 +1618,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 0}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!65 &1564642864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1756,6 +1843,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 0}
   radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
 --- !u!65 &2006067947
 BoxCollider:
   m_ObjectHideFlags: 0

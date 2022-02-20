@@ -6,10 +6,11 @@ public class Follow : MonoBehaviour {
     [SerializeField]
     public Transform leader;
     [SerializeField]
-    private int rotationSpeed = 15;
+    private int rotationSpeed = 30;
     public Vector3 _followOffset;
     private Vector3 targetPosition;
-    private float desiredDistance;
+    public int ring;
+    public int direction;
     //get ships to offset before rotation
 
     private void Awake() {
@@ -19,25 +20,23 @@ public class Follow : MonoBehaviour {
     void Start () 
     {
         if(gameObject.tag == "SpawnedShips") return;
-        _followOffset = transform.position;
+        _followOffset = transform.position + new Vector3(0,0,ring);
         targetPosition = leader.position + _followOffset;
-        transform.position += (targetPosition - transform.position);
-        // Debug.Log(transform.position);
-        desiredDistance = Vector3.Distance(leader.position, transform.position);
+        transform.position += targetPosition;
     }
 
     void Update () 
     {
-        // if(gameObject.name == "orbit"){
-        //     StartCoroutine(Move());
-        // }else{
-        //     StartCoroutine(Rotate());
-        // }
-        StartCoroutine(Move());
+        if(gameObject.name == "orbit" || gameObject.name == "Name(Clone)"){
+            StartCoroutine(Move());
+        }else{
+            StartCoroutine(Rotate());
+        }
+        // StartCoroutine(Move());
     }
 
     IEnumerator Rotate(){
-        transform.RotateAround(leader.position, Vector3.back, rotationSpeed*Time.deltaTime);
+        transform.RotateAround(leader.position, Vector3.back, rotationSpeed*direction*Time.deltaTime);
         yield return new WaitForFixedUpdate();
     }
 

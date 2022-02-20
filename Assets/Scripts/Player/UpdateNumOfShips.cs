@@ -14,7 +14,8 @@ public class UpdateNumOfShips : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<GameObject> lst = GameObject.Find("Carrier").GetComponent<Player>().children;
-        gameObject.GetComponent<TextMeshProUGUI>().text = lst.Count.ToString();
+        //List<GameObject> lst = GameObject.Find("Carrier").GetComponent<Player>().children;
+        int count = GameObject.Find("Carrier").GetComponent<Spawn>()._count;
+        gameObject.GetComponent<TextMeshProUGUI>().text = count.ToString();
     }
 }
