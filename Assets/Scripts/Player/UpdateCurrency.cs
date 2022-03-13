@@ -5,17 +5,20 @@ using TMPro;
 
 public class UpdateCurrency : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Player _ship;
+    
+    private TextMeshProUGUI _text;
+
     void Start()
     {
-        
+        _ship = GameObject.Find("Carrier").GetComponent<Player>();
+        _text = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        int curr = GameObject.Find("Carrier").GetComponent<Player>().currency;
-        gameObject.GetComponent<TextMeshProUGUI>().text = "Currency: " + curr.ToString();
+        int curr = _ship.Currency;
+        _text.text = "Currency: " + curr.ToString();
         PlayerPrefs.SetInt("currency", curr);
     }
 }

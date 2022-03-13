@@ -11,7 +11,7 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     private Rigidbody spawnedShips;
     [SerializeField]
-    public float radius = 2.0f;
+    private float _radius = 2.0f;
     [SerializeField]
     private GameObject curr;
 
@@ -21,19 +21,20 @@ public class Spawn : MonoBehaviour
 
     private Quaternion _rotation;
 
-    public int _count;
+    private int _count;
 
     private GameObject _ship;
 
     private Player _player;
+
+    private Transform _orbit;
 
     private void Awake()
     {
         _transform = transform;
         _player = GetComponent<Player>();
         _ship = GameObject.Find("Carrier");
-        //spawn empty go ring
-        if(this.name != "Carrier") return;
+        _orbit = GameObject.Find("orbit").transform;
     }
 
     private void Start()
@@ -42,17 +43,17 @@ public class Spawn : MonoBehaviour
         _rotation = _transform.rotation;
     }
 
-    private void EditShip(GameObject go, bool t, int ring, int direction)
+    private void EditShip(GameObject go, bool isShip, int ring, int direction)
     {
         go.transform.localScale = new Vector3(scale, scale, scale);
-        go.AddComponent<Follow>().leader = GameObject.Find("orbit").transform;
+        go.AddComponent<Follow>().Leader = _orbit;
         var f = go.GetComponent<Follow>();
-        f.ring = ring;
-        f.direction = direction;
+        f.Ring = ring;
+        f.Direction = direction;
         go.AddComponent<SphereCollider>().isTrigger = true;
         go.GetComponent<SphereCollider>().radius = 0.01f;
 
-        if (!t) return;
+        if (!isShip) return;
 
         go.tag = "SpawnedShips";
         var children = new List<GameObject>();
@@ -60,13 +61,13 @@ public class Spawn : MonoBehaviour
         children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
         Destroy(go.GetComponent<PlayerChild>());
-        _player.children.Add (go);
+        _player.Children.Add (go);
         Destroy(go.GetComponent<Spawn>());
     }
 
     private int UpdateCount(GameObject _ship)
     {
-        return _player.children.Count;
+        return _player.Children.Count;
     }
     
     void SpawnShip(int multiplier)
@@ -74,7 +75,6 @@ public class Spawn : MonoBehaviour
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {
-
             if(_count >= 60){
                 _count += 1;
                 continue;
@@ -91,21 +91,21 @@ public class Spawn : MonoBehaviour
             
             GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(temp, false, ring, direction);
-            temp.transform.position = new Vector3(Mathf.Cos(12*i) * radius, Mathf.Sin(12*i) * radius, 0);
+            temp.transform.position = new Vector3(Mathf.Cos(12*i) * _radius, Mathf.Sin(12*i) * _radius, 0);
             GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(go, true, ring, direction);
             go.transform.position = _transform.position;
 
             temp.GetComponent<MeshRenderer>().enabled = false;
             go.GetComponent<Follow>().enabled = false;
-            go.AddComponent<ShipAnimation>().temp = temp;
+            go.AddComponent<ShipAnimation>().Temp = temp;
 
             _count = UpdateCount(_ship);
         }
     }
     
     int GetIndex(){
-       int length = _player.children.Count + 1;
+       int length = _player.Children.Count + 1;
        int i = length/12;
         if(length%12 == 0){
             return 12*(i-1);
@@ -130,7 +130,7 @@ public class Spawn : MonoBehaviour
 
             // SpawnShip(amt + 1 - _count); //get text from gate for multiplier
             // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
-            SpawnShip(4);
+            SpawnShip(13);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.gameObject.tag == "Finish")
@@ -149,10 +149,10 @@ public class Spawn : MonoBehaviour
 
             // if (amt == 0) call gameover
 
-            while (_player.children.Count != amt)
+            while (_player.Children.Count != amt)
             {
-                GameObject ship = _player.children[_player.children.Count - 1];
-                _player.children.RemoveAt(_player.children.Count - 1);
+                GameObject ship = _player.Children[_player.Children.Count - 1];
+                _player.Children.RemoveAt(_player.Children.Count - 1);
 
                 Destroy(ship);
             }
@@ -163,12 +163,12 @@ public class Spawn : MonoBehaviour
             Destroy(other.gameObject);
             GameObject currency = Instantiate(curr, _transform.position + new Vector3(0, 1, 0), Quaternion.identity).gameObject;
             Move (currency);
-            _player.currency += 1;
+            _player.Currency += 1;
         }
         else if (other.gameObject.tag == "EditorOnly")
         {
             _transform.position = new Vector3(0, 0, 2);
-            _player.currency = _player.currency + (_player.children.Count + 1) * 10;
+            _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
         }
     }
 
@@ -189,5 +189,11 @@ public class Spawn : MonoBehaviour
             yield return new WaitForFixedUpdate();
         }
         Destroy (go);
+    }
+
+    public int Count
+    {
+        get { return _count; }
+        set { _count = value; }
     }
 }

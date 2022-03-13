@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour {
     [SerializeField]
-    public Transform leader;
+    private Transform _leader;
     [SerializeField]
     private int rotationSpeed = 30;
-    public Vector3 _followOffset;
+
+    private Vector3 _followOffset;
+
     private Vector3 targetPosition;
-    public int ring;
-    public int direction;
-    //get ships to offset before rotation
+    [SerializeField]
+    private int _ring;
 
-    private void Awake() {
-
-    }
+    private int _direction;
 
     void Start () 
     {
         if(gameObject.tag == "SpawnedShips") return;
-        _followOffset = transform.position + new Vector3(0,0,ring);
-        targetPosition = leader.position + _followOffset;
+        _followOffset = transform.position + new Vector3(0,0,_ring);
+        targetPosition = _leader.position + _followOffset;
         transform.position += targetPosition;
     }
 
@@ -32,17 +31,40 @@ public class Follow : MonoBehaviour {
         }else{
             StartCoroutine(Rotate());
         }
-        // StartCoroutine(Move());
     }
 
     IEnumerator Rotate(){
-        transform.RotateAround(leader.position, Vector3.back, rotationSpeed*direction*Time.deltaTime);
+        transform.RotateAround(_leader.position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
         yield return new WaitForFixedUpdate();
     }
 
     IEnumerator Move(){
-        targetPosition = leader.position + _followOffset;
+        targetPosition = _leader.position + _followOffset;
         transform.position += (targetPosition - transform.position);
         yield return new WaitForFixedUpdate();
+    }
+
+    public Transform Leader
+    {
+        get { return _leader; }
+        set { _leader = value; }
+    }
+
+    public Vector3 FollowOffset
+    {
+        get { return _followOffset; }
+        set { _followOffset = value; }
+    }
+
+    public int Ring
+    {
+        get { return _ring; }
+        set { _ring = value; }
+    }
+
+    public int Direction
+    {
+        get { return _direction; }
+        set { _direction = value; }
     }
 }

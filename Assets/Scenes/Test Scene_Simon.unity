@@ -304,15 +304,15 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416810686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalScale: {x: 1.6118, y: 1.6118, z: 1.6118}
   m_Children: []
   m_Father: {fileID: 440461898}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -810, y: 444}
+  m_AnchoredPosition: {x: -340, y: 863}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &416810688
@@ -628,8 +628,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!54 &582169526
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -659,10 +659,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 30
-  spawnedShips: {fileID: 4854733343275288830, guid: 5bc26739d99e1c04db70cb66ed17b029, type: 3}
-  radius: 2
+  spawnedShips: {fileID: 3772770514218048308, guid: eae82a45a93f00b4da996ab73242c722, type: 3}
+  _radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
 --- !u!4 &582169530 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
@@ -695,7 +694,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 589437643}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -834}
+  m_LocalPosition: {x: 0, y: 0, z: -1556.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 440461898}
@@ -703,7 +702,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 97, y: -64.8}
+  m_AnchoredPosition: {x: 97, y: -19.6}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589437645
@@ -834,9 +833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
-  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
+  _radius: 2
+  curr: {fileID: 0}
 --- !u!114 &680044633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -849,8 +847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!65 &680044634
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1204,11 +1202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97182af8364f86047880acfc66568677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leader: {fileID: 582169530}
+  _leader: {fileID: 582169530}
   rotationSpeed: 15
-  _followOffset: {x: 0, y: 0, z: 0}
-  ring: 0
-  direction: 0
 --- !u!4 &959841050
 Transform:
   m_ObjectHideFlags: 0
@@ -1235,9 +1230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 853fb3dc348200c44bb1a78af0cbb314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numObjects: 0
-  x: 0
-  y: 0
 --- !u!65 &959841052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1286,8 +1278,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &1085645705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,9 +1294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
-  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
+  _radius: 2
+  curr: {fileID: 0}
 --- !u!65 &1085645706
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1351,8 +1342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &1161196035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1367,9 +1358,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
-  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
+  _radius: 2
+  curr: {fileID: 0}
 --- !u!65 &1161196036
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1600,8 +1590,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &1564642863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1616,9 +1606,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
-  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
+  _radius: 2
+  curr: {fileID: 0}
 --- !u!65 &1564642864
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1825,8 +1814,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &2006067946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1841,9 +1830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
-  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
-  _count: 0
+  _radius: 2
+  curr: {fileID: 0}
 --- !u!65 &2006067947
 BoxCollider:
   m_ObjectHideFlags: 0

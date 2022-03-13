@@ -2,18 +2,26 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public float forceAmount = 250;
-    public float bounds = 5;
-    public GameObject player;
+    [SerializeField]
+    private float forceAmount = 250;
+    [SerializeField]
+    private float bounds = 5;
+    [SerializeField]
+    private GameObject player;
 
     private Vector3 offset;
-    Rigidbody selectedRigidbody;
-    Camera targetCamera;
-    Vector3 originalScreenTargetPosition;
-    Vector3 originalRigidbodyPos;
-    float selectionDistance;
 
-    // Start is called before the first frame update
+    private Rigidbody selectedRigidbody;
+
+    private Camera targetCamera;
+
+    private Vector3 originalScreenTargetPosition;
+
+    private Vector3 originalRigidbodyPos;
+
+    private float selectionDistance;
+
+
     void Start()
     {
         targetCamera = GetComponent<Camera>();

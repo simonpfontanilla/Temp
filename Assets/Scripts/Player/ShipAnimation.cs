@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ShipAnimation : MonoBehaviour
 {
-    public float t = 0.1f;
+    [SerializeField]
+    private float _speed = 0.1f;
 
-    public Transform _target;
+    private Transform _target;
 
-    public GameObject temp;
+    private GameObject _temp;
 
     private Transform _transform;
 
@@ -16,25 +17,26 @@ public class ShipAnimation : MonoBehaviour
 
     private Transform _obj;
 
-    public int ring;
+    private Transform _orbit;
 
     private void Awake() 
     {
         _transform = transform;
         _obj = GameObject.Find("orbit").transform;
+        _orbit = GameObject.Find("orbit").transform;
     }
 
     void Start()
     {
         _ship = GameObject.Find("Carrier");
-        _target = temp.transform;
+        _target = _temp.transform;
     }
 
     void FixedUpdate()
     {
         if (transform.position != _target.position)
         {
-            transform.position = Vector3.Lerp(transform.position, _target.position, t);
+            transform.position = Vector3.Lerp(transform.position, _target.position, _speed);
         }
     }
 
@@ -46,10 +48,27 @@ public class ShipAnimation : MonoBehaviour
     }
 
     void SetPosition(){
-        GetComponent<Follow>()._followOffset += new Vector3(0,0,ring);
         GetComponent<Follow>().enabled = true;
-        this.transform.parent = GameObject.Find("orbit").transform;
+        this.transform.parent = _orbit;
         Destroy(this);
-        Destroy (temp);
+        Destroy (_temp);
+    }
+
+    public float Speed
+    {
+        get { return _speed; }
+        set { _speed = value; }
+    }
+
+    public Transform Target
+    {
+        get { return _target; }
+        set { _target = value; }
+    }
+
+    public GameObject Temp
+    {
+        get { return _temp; }
+        set { _temp = value; }
     }
 }

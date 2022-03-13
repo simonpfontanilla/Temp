@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
-    public List<GameObject> children;
-    public int currency;
-    // Start is called before the first frame update
+    [SerializeField]
+    private List<GameObject> _children;
+    [SerializeField]
+    private int _currency;
+
     public void Start()
     {
 
@@ -22,5 +24,17 @@ public abstract class Player : MonoBehaviour
         //     Rigidbody rb = GetComponent<Rigidbody>();
         //     rb.velocity = new Vector3(0,0,0);
         // }
+    }
+
+    public int Currency
+    {
+        get { return _currency; }
+        set { _currency = value; }
+    }
+
+    public List<GameObject> Children
+    {
+        get { return _children; }
+        set { _children = value; }
     }
 }

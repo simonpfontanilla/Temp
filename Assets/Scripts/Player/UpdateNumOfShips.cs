@@ -5,17 +5,16 @@ using TMPro;
 
 public class UpdateNumOfShips : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Spawn _spawn;
+
     void Start()
     {
-        
+        _spawn = GameObject.Find("Carrier").GetComponent<Spawn>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //List<GameObject> lst = GameObject.Find("Carrier").GetComponent<Player>().children;
-        int count = GameObject.Find("Carrier").GetComponent<Spawn>()._count;
+        int count = _spawn.Count;
         gameObject.GetComponent<TextMeshProUGUI>().text = count.ToString();
     }
 }
