@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.00080337987, g: 0.00080337987, b: 0.00080337987, a: 1}
+  m_IndirectSpecularColor: {r: 0.0009806314, g: 0.0009806314, b: 0.0009806314, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &93648315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &673806971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &907732422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,8 +260,8 @@ MonoBehaviour:
   asteriods:
   - {fileID: 4845814599168889625, guid: 833fe179f409f49cd8625173d6f51b6b, type: 3}
   - {fileID: 3409743507782082081, guid: 0b122dd1e8f98caecb383aa633ddf3c2, type: 3}
-  minX: -5
-  maxX: 5
+  minX: -7
+  maxX: 7
   minZ: 35
   maxZ: 45
 --- !u!4 &907732423
@@ -475,8 +475,15 @@ MonoBehaviour:
   - 1
   maxShips: 1
   enemyCount: 0
-  currentLevel: 0
   gateSpawners: {fileID: 3780788490902316853, guid: 5023c6241149e255c993494d5b520bc8, type: 3}
+  asteroids:
+  - {fileID: 8645180464843138730, guid: 036e89a06d800e930a02aae06c81b139, type: 3}
+  - {fileID: 7476886914670394484, guid: 46de47c2a77f308e991ed5fc13d9cfbf, type: 3}
+  collectableShip: {fileID: 5737044488107747522, guid: b6c1b34933911e6a7b968a40bc654364, type: 3}
+  bigStarGate: {fileID: 681273546105486111, guid: 2e653ab2d81f02e3991227f67cda77f9, type: 3}
+  centerCarrier: {fileID: 1045082389367998367, guid: b608c7d0faf187a08ad4f7805fedb073, type: 3}
+  enemy: {fileID: 6056496057141501311, guid: 7c7fc0dd4febcbd0981ded5f0f7a97c8, type: 3}
+  destroy: 0
 --- !u!4 &1482729698
 Transform:
   m_ObjectHideFlags: 0

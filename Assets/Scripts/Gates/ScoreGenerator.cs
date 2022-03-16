@@ -14,14 +14,15 @@ public class ScoreGenerator : MonoBehaviour
 
         if (goodGate)
         {
-            if (Random.Range(0, 2) == 0) str = "+ " + Random.Range(1, 13);
-            else
-            {
-                // 1 - 5 and 10 for rare
-                str = "x " + Random.Range(1, 6);
+            str = "+ " + Random.Range(1, 13);
+            // if (Random.Range(0, 2) == 0) str = "+ " + Random.Range(1, 13);
+            // else
+            // {
+            //     // 1 - 5 and 10 for rare
+            //     str = "x " + Random.Range(1, 6);
                 
-                if (new System.Random().Next(1, 100) < 10) str = "x 10";
-            }
+            //     if (new System.Random().Next(1, 100) < 10) str = "x 10";
+            // }
         }
         else
         {

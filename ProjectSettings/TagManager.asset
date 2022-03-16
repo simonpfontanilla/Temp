@@ -9,6 +9,8 @@ TagManager:
   - Currency
   - GroupGateSpawner
   - EmptySpace
+  - EnemyShip
+  - Asteroids
   layers:
   - Default
   - TransparentFX

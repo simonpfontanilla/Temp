@@ -156,6 +156,8 @@ public class Spawn : MonoBehaviour
 
                 Destroy(ship);
             }
+
+            _count = UpdateCount(_ship);
         }
         else if (other.gameObject.tag == "Currency")
         {
