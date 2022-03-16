@@ -12,6 +12,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject shopPage1;
     public GameObject shopPage2;
     public GameObject shopPage3;
+    public GameObject Store_Panel;
 
     //Player Models
     public GameObject mainShipModel;
@@ -28,11 +29,16 @@ public class MainMenuManager : MonoBehaviour
     public Transform panel2;
     public Transform panel3;
 
+    //Initial Values
+    public int totalCurrency = 0;
+    public TextMeshProUGUI currencyAmount;
+
     // Start is called before the first frame update
     void Start()
     {
         shopIndex = 1;
-        
+        currencyAmount.text = totalCurrency.ToString();
+
         //Add button-pn-click events to shop Buttons
         InitShop();
     }
@@ -40,52 +46,128 @@ public class MainMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // checkPage();
+        // checkPage();
+        currencyAmount.text = totalCurrency.ToString();
+        if (Input.GetKeyDown("space"))
+        {
+            startGame();
+        }
     }
+
+
 
     private void InitShop()
     {
         //Assign the references
-        if(panel1 == null || panel2 == null || panel3 == null)
+        if (panel1 == null || panel2 == null || panel3 == null)
         {
             Debug.Log("At least one of the panels is not assigned");
         }
         //For every children transform under panel1, find button and add onClick method
         int i = 0;
-        foreach(Transform t in panel1)
+        foreach (Transform t in panel1)
         {
             int currentIndex = i;
             Button b = t.GetComponent<Button>();
-            b.onClick.AddListener(()=>OnPanel1Select(currentIndex));
+            b.onClick.AddListener(() => OnPanel1Select(currentIndex));
 
             i++;
 
         }
 
         //Reset index;
-        i=0;
+        i = 0;
         //Do the same for Panel 2
-        foreach(Transform t in panel2)
+        foreach (Transform t in panel2)
         {
             int currentIndex2 = i;
             Button b2 = t.GetComponent<Button>();
-            b2.onClick.AddListener(()=>OnPanel2Select(currentIndex2));
+            b2.onClick.AddListener(() => OnPanel2Select(currentIndex2));
 
             i++;
 
         }
 
-         //Reset index;
-        i=0;
+        //Reset index;
+        i = 0;
         //Do the same for Panel 2
-        foreach(Transform t in panel3)
+        foreach (Transform t in panel3)
         {
             int currentIndex3 = i;
             Button b3 = t.GetComponent<Button>();
-            b3.onClick.AddListener(()=>OnPanel3Select(currentIndex3));
+            b3.onClick.AddListener(() => OnPanel3Select(currentIndex3));
 
             i++;
 
+        }
+
+    }
+
+    //Purchase from Page 1, adjust category for cost
+    private void purchaseItemPanel1(int currentIndex)
+    {
+        //Debug.Log("")
+
+        if (currentIndex < 3)
+        {
+            totalCurrency = totalCurrency - 50;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 3 && currentIndex < 6)
+        {
+            totalCurrency = totalCurrency - 100;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 6 && currentIndex < 9)
+        {
+            totalCurrency = totalCurrency - 150;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+
+    }
+
+    //Purchase from Page 2, adjust category for cost
+    private void purchaseItemPanel2(int currentIndex)
+    {
+        //Debug.Log("")
+
+        if (currentIndex < 3)
+        {
+            totalCurrency = totalCurrency - 50;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 3 && currentIndex < 6)
+        {
+            totalCurrency = totalCurrency - 100;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 6 && currentIndex < 9)
+        {
+            totalCurrency = totalCurrency - 150;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+
+    }
+
+    //Purchase from Page 3, adjust category for cost
+    private void purchaseItemPanel3(int currentIndex)
+    {
+        //Debug.Log("")
+
+        if (currentIndex < 3)
+        {
+            totalCurrency = totalCurrency - 50;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 3 && currentIndex < 6)
+        {
+            totalCurrency = totalCurrency - 100;
+            Debug.Log("Total currency is: " + totalCurrency);
+        }
+        else if (currentIndex >= 6 && currentIndex < 9)
+        {
+            totalCurrency = totalCurrency - 150;
+            Debug.Log("Total currency is: " + totalCurrency);
         }
 
     }
@@ -95,19 +177,24 @@ public class MainMenuManager : MonoBehaviour
     {
         //throw new NotImplementedException();
 
-        Debug.Log("Selecting item from Panel 1: Item #"+ currentIndex);
+        Debug.Log("Selecting item from Panel 1: Item #" + currentIndex);
+        purchaseItemPanel1(currentIndex);
+        //Simulate purchase
+
     }
 
     private void OnPanel2Select(int currentIndex)
     {
-       // throw new NotImplementedException();
-        Debug.Log("Selecting item from Panel 2: Item #"+ currentIndex);
+        // throw new NotImplementedException();
+        Debug.Log("Selecting item from Panel 2: Item #" + currentIndex);
+        purchaseItemPanel2(currentIndex);
     }
 
     private void OnPanel3Select(int currentIndex)
     {
-       // throw new NotImplementedException();
-        Debug.Log("Selecting item from Panel 3: Item #"+ currentIndex);
+        // throw new NotImplementedException();
+        Debug.Log("Selecting item from Panel 3: Item #" + currentIndex);
+        purchaseItemPanel3(currentIndex);
     }
 
     public void OnPanel1BuySet()
@@ -126,6 +213,7 @@ public class MainMenuManager : MonoBehaviour
     {
         //Display GameOver text, vignette in the back, retry and quit buttons
         gameOverScreen.SetActive(true);
+        //mainGameScreen.SetActive(false);
 
     }
 
@@ -134,11 +222,13 @@ public class MainMenuManager : MonoBehaviour
     {
         //Display Level Complete Screen
         levelCompleteScreen.SetActive(true);
+        //mainGameScreen.SetActive(false);
     }
 
     public void startGame()
     {
         startScreen.SetActive(false);
+        Store_Panel.SetActive(false);
         mainGameScreen.SetActive(true);
         //Do something.....
 
@@ -146,8 +236,8 @@ public class MainMenuManager : MonoBehaviour
 
     public void choosePage(int Index)
     {
-       shopIndex = Index;
-       checkPage();
+        shopIndex = Index;
+        checkPage();
         //return shopIndex;
     }
 
@@ -165,46 +255,46 @@ public class MainMenuManager : MonoBehaviour
         switch (shopIndex)
         {
             case 1:
-            shopPageLabel.text = "- Ships"; 
-            shopPage1.SetActive(true);
-            shopPage2.SetActive(false);
-            shopPage3.SetActive(false);
-            shipSkinModel.SetActive(true);
-            carrierSkinModel.SetActive(false);
-            shipTrailModel.SetActive(false);
+                shopPageLabel.text = "- Ships";
+                shopPage1.SetActive(true);
+                shopPage2.SetActive(false);
+                shopPage3.SetActive(false);
+                shipSkinModel.SetActive(true);
+                carrierSkinModel.SetActive(false);
+                shipTrailModel.SetActive(false);
 
-            break;
+                break;
 
             case 2:
-            shopPageLabel.text = "- Carrier";
-            shopPage2.SetActive(true);
-            shopPage1.SetActive(false);
-            shopPage3.SetActive(false);
-            shipSkinModel.SetActive(false);
-            carrierSkinModel.SetActive(true);
-            shipTrailModel.SetActive(false);
-            break; 
+                shopPageLabel.text = "- Carrier";
+                shopPage2.SetActive(true);
+                shopPage1.SetActive(false);
+                shopPage3.SetActive(false);
+                shipSkinModel.SetActive(false);
+                carrierSkinModel.SetActive(true);
+                shipTrailModel.SetActive(false);
+                break;
 
             case 3:
-            shopPageLabel.text = "- Trails";
-            shopPage3.SetActive(true);
-            shopPage1.SetActive(false);
-            shopPage2.SetActive(false);
-            shipSkinModel.SetActive(false);
-            carrierSkinModel.SetActive(false);
-            shipTrailModel.SetActive(true);
-            break; 
+                shopPageLabel.text = "- Trails";
+                shopPage3.SetActive(true);
+                shopPage1.SetActive(false);
+                shopPage2.SetActive(false);
+                shipSkinModel.SetActive(false);
+                carrierSkinModel.SetActive(false);
+                shipTrailModel.SetActive(true);
+                break;
 
-            
+
             default:
-            shopPageLabel.text = "- Ships";
-            shopPage1.SetActive(true);
-            shopPage1.SetActive(false);
-            shopPage1.SetActive(false);
-            shipSkinModel.SetActive(true);
-            carrierSkinModel.SetActive(false);
-            shipTrailModel.SetActive(false);
-            break;
+                shopPageLabel.text = "- Ships";
+                shopPage1.SetActive(true);
+                shopPage1.SetActive(false);
+                shopPage1.SetActive(false);
+                shipSkinModel.SetActive(true);
+                carrierSkinModel.SetActive(false);
+                shipTrailModel.SetActive(false);
+                break;
         }
     }
 }
