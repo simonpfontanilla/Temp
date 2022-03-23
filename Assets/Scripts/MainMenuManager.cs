@@ -29,6 +29,9 @@ public class MainMenuManager : MonoBehaviour
     public Transform panel2;
     public Transform panel3;
 
+    //Icon Array
+    public Sprite[] skinsIcons;
+
     //Initial Values
     public int totalCurrency = 0;
     public TextMeshProUGUI currencyAmount;
@@ -56,7 +59,7 @@ public class MainMenuManager : MonoBehaviour
 
 
 
-    private void InitShop()
+    private async void InitShop()
     {
         //Assign the references
         if (panel1 == null || panel2 == null || panel3 == null)
@@ -69,6 +72,7 @@ public class MainMenuManager : MonoBehaviour
         {
             int currentIndex = i;
             Button b = t.GetComponent<Button>();
+            b.GetComponent<Image>().sprite = skinsIcons[i];
             b.onClick.AddListener(() => OnPanel1Select(currentIndex));
 
             i++;
