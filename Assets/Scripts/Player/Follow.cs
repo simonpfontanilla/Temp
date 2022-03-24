@@ -16,6 +16,8 @@ public class Follow : MonoBehaviour {
 
     private int _direction;
 
+    private Vector3 position;
+
     void Start () 
     {
         if(gameObject.tag == "SpawnedShips") return;
@@ -31,10 +33,11 @@ public class Follow : MonoBehaviour {
         }else{
             StartCoroutine(Rotate());
         }
+        position = _leader.position;
     }
 
     IEnumerator Rotate(){
-        transform.RotateAround(_leader.position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
+        transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
         yield return new WaitForFixedUpdate();
     }
 

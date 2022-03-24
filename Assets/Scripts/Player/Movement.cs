@@ -83,3 +83,42 @@ public class Movement : MonoBehaviour
         return null;
     }
 }
+
+
+// public class Movement : MonoBehaviour
+// {
+//     [SerializeField]
+//     private Transform _player;
+
+//     private Vector3 _position;
+
+//     private Rigidbody selectedRigidBody;
+
+//     private int bounds;
+
+//     void Start() {
+//         _player = GameObject.Find("Carrier").transform;
+//         _position = _player.position;
+//         bounds = 5;
+//     }
+
+//     void Update()
+//     {
+//         if (Input.touchCount > 0)
+//         {
+//             Touch touch = Input.GetTouch(0);
+//             MoveShip(touch);
+//         }
+//     }
+
+//     void MoveShip(Touch touch){
+//         if(_player.position.x > 5){
+//             _player.position += new Vector3(-0.01f,0,0.1f);
+//         }else if(_player.position.x < -5){
+//             _player.position += new Vector3(0.01f,0,0.1f);
+//         }else{
+//             _player.position += new Vector3(touch.deltaPosition.x/100,0,0.1f);
+//         }
+
+//     }
+// }

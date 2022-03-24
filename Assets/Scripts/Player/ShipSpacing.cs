@@ -36,7 +36,11 @@ public class ShipSpacing : MonoBehaviour
         //check if ring is completed
         int multiple = (shipList.Count/12);
         if(prevCount < 12*multiple){
-            index -= 12;
+            if(prevCount == 0){
+                index = 0;
+            }else{
+                index -= 12;
+            }
             count = 12*multiple;
         }
         MoveShips(index, count, 0);
@@ -49,7 +53,7 @@ public class ShipSpacing : MonoBehaviour
             Debug.Log(i);
             float theta = (2 * Mathf.PI / (count-index)) * i;
             int ring = shipList[i].GetComponent<Follow>().Ring;
-            // tunnel
+
             float x = Mathf.Cos(theta) + (_ship.position.x/2);
             float y = Mathf.Sin(theta) + (_ship.position.y/2);
             shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);

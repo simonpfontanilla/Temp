@@ -169,6 +169,9 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "EditorOnly")
         {
+            foreach(Transform child in _orbit){
+                Destroy(child.gameObject);
+            }
             _transform.position = new Vector3(0, 0, 2);
             _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
         }

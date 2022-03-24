@@ -1204,6 +1204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leader: {fileID: 582169530}
   rotationSpeed: 15
+  _ring: 0
 --- !u!4 &959841050
 Transform:
   m_ObjectHideFlags: 0
@@ -1481,9 +1482,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2d95945f53a9043a63ad00fff6f6f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 200
+  forceAmount: 250
   bounds: 5
-  player: {fileID: 582169523}
+  player: {fileID: 0}
 --- !u!20 &1393656009
 Camera:
   m_ObjectHideFlags: 0

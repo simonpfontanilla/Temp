@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0009806314, g: 0.0009806314, b: 0.0009806314, a: 1}
+  m_IndirectSpecularColor: {r: 0.0013625236, g: 0.0013625236, b: 0.0013625236, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -437,6 +437,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1463034906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6045371828241789975, guid: ee5b621064e18e0ec951ec1104294016, type: 3}
+  m_PrefabInstance: {fileID: 6045371827226123033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1463034907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463034906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853fb3dc348200c44bb1a78af0cbb314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1482729696
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,8 +598,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &3795327568506476444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -597,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 0}
-  radius: 2
+  _radius: 2
   curr: {fileID: 0}
 --- !u!65 &3795327568506476445
 BoxCollider:
@@ -651,6 +668,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6045371828241789961, guid: ee5b621064e18e0ec951ec1104294016, type: 3}
       propertyPath: leader
+      value: 
+      objectReference: {fileID: 561806953}
+    - target: {fileID: 6045371828241789961, guid: ee5b621064e18e0ec951ec1104294016, type: 3}
+      propertyPath: _leader
       value: 
       objectReference: {fileID: 561806953}
     - target: {fileID: 6045371828241789974, guid: ee5b621064e18e0ec951ec1104294016, type: 3}
