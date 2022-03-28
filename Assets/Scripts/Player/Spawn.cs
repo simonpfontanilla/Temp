@@ -39,8 +39,8 @@ public class Spawn : MonoBehaviour
 
     private void Start()
     {
-        _position = _transform.position;
-        _rotation = _transform.rotation;
+        _position = _transform.position; // Balls
+        _rotation = _transform.rotation; 
     }
 
     private void EditShip(GameObject go, bool isShip, int ring, int direction)
@@ -58,8 +58,8 @@ public class Spawn : MonoBehaviour
         go.tag = "SpawnedShips";
         var children = new List<GameObject>();
         foreach (Transform child in go.transform)
-        children.Add(child.gameObject);
-        children.ForEach(child => Destroy(child));
+        children.Add(child.gameObject); // The child
+        children.ForEach(child => Destroy(child)); // Anakin not the children
         Destroy(go.GetComponent<PlayerChild>());
         _player.Children.Add (go);
         Destroy(go.GetComponent<Spawn>());
@@ -70,7 +70,7 @@ public class Spawn : MonoBehaviour
         return _player.Children.Count;
     }
     
-    void SpawnShip(int multiplier)
+    void SpawnShip(int multiplier) // Hello there
     {
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
@@ -91,7 +91,7 @@ public class Spawn : MonoBehaviour
             
             GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(temp, false, ring, direction);
-            temp.transform.position = new Vector3(Mathf.Cos(12*i) * _radius, Mathf.Sin(12*i) * _radius, 0);
+            temp.transform.position = new Vector3(Mathf.Cos(12*i) * _radius, Mathf.Sin(12*i) * _radius, 0); // 2 + 2 is 4 - 3 is 1 quick maths.
             GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(go, true, ring, direction);
             go.transform.position = _transform.position;
@@ -100,7 +100,7 @@ public class Spawn : MonoBehaviour
             go.GetComponent<Follow>().enabled = false;
             go.AddComponent<ShipAnimation>().Temp = temp;
 
-            _count = UpdateCount(_ship);
+            _count = UpdateCount(_ship); // General Kenobi
         }
     }
     
@@ -159,7 +159,7 @@ public class Spawn : MonoBehaviour
 
             _count = UpdateCount(_ship);
         }
-        else if (other.gameObject.tag == "Currency")
+        else if (other.gameObject.tag == "Currency") // money money money money Mooonnnney 
         {
             SpawnShip(2);
             Destroy(other.gameObject);
@@ -177,7 +177,7 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    private void Move(GameObject go)
+    private void Move(GameObject go) // I like the way you move
     {
         StartCoroutine(MoveCoroutine(go));
     }
@@ -193,12 +193,12 @@ public class Spawn : MonoBehaviour
             go.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().color = alpha;
             yield return new WaitForFixedUpdate();
         }
-        Destroy (go);
+        Destroy (go); // Don't go bacon my heart
     }
 
     public int Count
     {
         get { return _count; }
-        set { _count = value; }
+        set { _count = value; } // I couldn't if I fried
     }
 }
