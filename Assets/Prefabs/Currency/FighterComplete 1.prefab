@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8320990375833058781}
   - component: {fileID: 6097574694631360791}
   - component: {fileID: 4854733343275288830}
+  - component: {fileID: 4779818268693975371}
+  - component: {fileID: 7702995579101999752}
   m_Layer: 0
   m_Name: FighterComplete 1
   m_TagString: Currency
@@ -98,3 +100,32 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4779818268693975371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737044488107747522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2102e0aab8d77a4eadf276ec31d63cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: 30
+  spawnedShips: {fileID: 4854733343275288830}
+  _radius: 2
+  curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+--- !u!65 &7702995579101999752
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5737044488107747522}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.028887466, y: 0.014712918, z: 0.009027273}
+  m_Center: {x: -0.0019246851, y: 0, z: 0.0011139818}

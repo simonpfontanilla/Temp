@@ -7,14 +7,17 @@ public class UpdateNumOfShips : MonoBehaviour
 {
     private Spawn _spawn;
 
+    private TextMeshProUGUI _text;
+
     void Start()
     {
         _spawn = GameObject.Find("Carrier").GetComponent<Spawn>();
+        _text = gameObject.GetComponent<TextMeshProUGUI>();
     }
 
     void Update()
     {
         int count = _spawn.Count;
-        gameObject.GetComponent<TextMeshProUGUI>().text = count.ToString();
+        _text.text = count.ToString();
     }
 }

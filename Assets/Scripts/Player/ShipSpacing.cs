@@ -48,9 +48,8 @@ public class ShipSpacing : MonoBehaviour
     }
 
     void MoveShips(int index, int count, int offset){
-        Debug.Log("new loop" + " index: " + index + " count: " + count);
+        //Debug.Log("new loop" + " index: " + index + " count: " + count);
         for(int i = index; i < count; i++){
-            Debug.Log(i);
             float theta = (2 * Mathf.PI / (count-index)) * i;
             int ring = shipList[i].GetComponent<Follow>().Ring;
 
@@ -60,7 +59,6 @@ public class ShipSpacing : MonoBehaviour
             shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
 
             if((i+1)%12 == 0){
-                Debug.Log("new ring");
                 int multiple = 12*(shipList.Count/12);
                 MoveShips(multiple, shipList.Count, multiple);
                 break;

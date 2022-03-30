@@ -118,20 +118,20 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "Respawn")
         {
-            // string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
-            // int amt = _count;
+            string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
+            int amt = _count;
             
-            // if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
-            // else
-            // {
-            //     if (amt == 0) amt = 1;
-            //     amt *= Int32.Parse(text.Split(' ')[1]);
-            // }
+            if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
+            else
+            {
+                if (amt == 0) amt = 1;
+                amt *= Int32.Parse(text.Split(' ')[1]);
+            }
 
-            // SpawnShip(amt + 1 - _count); //get text from gate for multiplier
-            // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
-            SpawnShip(13);
+            SpawnShip(amt + 1 - _count); //get text from gate for multiplier
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            // SpawnShip(13);
+            // other.gameObject.GetComponent<BoxCollider>().enabled = false;
         }
         else if (other.gameObject.tag == "Finish")
         {
@@ -174,6 +174,8 @@ public class Spawn : MonoBehaviour
             }
             _transform.position = new Vector3(0, 0, 2);
             _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
+            _player.Children.Clear();
+            _count = UpdateCount(_ship);
         }
     }
 
