@@ -96,6 +96,10 @@ public class Movement : MonoBehaviour
 
     private int bounds;
 
+    private Vector3 lastPos;
+
+    private Vector3 delta;
+
     void Start() {
         _player = GameObject.Find("Carrier").transform;
         _position = _player.position;
@@ -109,8 +113,11 @@ public class Movement : MonoBehaviour
             Touch touch = Input.GetTouch(0);
             MoveShip(touch);
         }else if(Input.GetMouseButtonDown(0)){
-            float prevPos = Input.mousePosition.x;
-            MoveShipMouse(prevPos);
+            lastPos = Input.mousePosition;
+        }else if(Input.GetMouseButton(0)){
+            delta = Input.mousePosition - lastPos;
+            MoveShipMouse(delta);
+            lastPos = Input.mousePosition;
         }
     }
 
@@ -122,17 +129,15 @@ public class Movement : MonoBehaviour
         }else{
             _player.position += new Vector3(touch.deltaPosition.x/100,0,0.1f);
         }
-
     }
 
-    void MoveShipMouse(float prevPos){
+    void MoveShipMouse(Vector3 delta){
         if(_player.position.x > bounds){
             _player.position += new Vector3(-0.01f,0,0.1f);
         }else if(_player.position.x < -bounds){
             _player.position += new Vector3(0.01f,0,0.1f);
         }else{
-            float delta  = Input.mousePosition.x - prevPos;
-            _player.position += new Vector3(delta,0,250 * Time.deltaTime);
+            _player.position += new Vector3(delta.x/100,0,10 * Time.deltaTime);
         }
     }
 }
