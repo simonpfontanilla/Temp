@@ -128,7 +128,7 @@ public class Spawn : MonoBehaviour
                 amt *= Int32.Parse(text.Split(' ')[1]);
             }
 
-            SpawnShip(amt + 1 - _count); //get text from gate for multiplier
+            SpawnShip(amt + 1 - _count);
             // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
             // SpawnShip(13);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;

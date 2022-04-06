@@ -6,7 +6,7 @@ using TMPro;
 public class UpdateCurrency : MonoBehaviour
 {
     private Player _ship;
-    
+    [SerializeField]
     private TextMeshProUGUI _text;
 
     void Start()

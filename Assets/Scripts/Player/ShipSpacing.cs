@@ -31,87 +31,55 @@ public class ShipSpacing : MonoBehaviour
     {
         if(shipList.Count == prevCount) return;
 
-        int index = GetIndex(shipList.Count);
         int count = shipList.Count;
+        Debug.Log("count: " + count);
+        int index = GetIndex(count);
         //check if ring is completed
         int multiple = (shipList.Count/12);
+        Debug.Log("multiple: " + multiple);
         if(prevCount < 12*multiple){
-            if(prevCount == 0){
-                index = 0;
-            }else{
-                index -= 12;
-            }
+            int desiredIndex = 12*(prevCount/12);
+            index = FixIndex(index, desiredIndex);
+            Debug.Log("index: " + index);
             count = 12*multiple;
         }
-        MoveShips(index, count, 0);
+        MoveShips(index, count);
         prevCount = shipList.Count;
     }
 
-    void MoveShips(int index, int count, int offset){
-        //Debug.Log("new loop" + " index: " + index + " count: " + count);
+    void MoveShips(int index, int count){
+        Debug.Log("new loop" + " index: " + index + " count: " + count + " prevCount: " + prevCount);
         for(int i = index; i < count; i++){
-            float theta = (2 * Mathf.PI / (count-index)) * i;
+            Debug.Log(i);
+            int temp = count - index;
+            if(temp > 12) temp = 12;
+            float theta = (2 * Mathf.PI / temp) * i;
             int ring = shipList[i].GetComponent<Follow>().Ring;
-
+            
             float x = Mathf.Cos(theta) + (_ship.position.x/2);
             float y = Mathf.Sin(theta) + (_ship.position.y/2);
             shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);
             shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
 
             if((i+1)%12 == 0){
-                int multiple = 12*(shipList.Count/12);
-                MoveShips(multiple, shipList.Count, multiple);
+                Debug.Log("new ring");
+                prevCount = i;
+                int newIndex = 12*((prevCount/12)+1);
+                Debug.Log("newindex: " + newIndex);
+                MoveShips(newIndex, shipList.Count);
                 break;
             }
         }
     }
 
-    // void MoveShips(int index, int shipList.Count, float radius, int count){
-    //     Debug.Log("new loop");
-    //     for(int i = index; i < shipList.Count; i++){
-    //         float theta = (2 * Mathf.PI / count) * i;
-    //         int ring = _obj.GetChild(i).GetComponent<Follow>().Ring;
-
-    //         //works for spawn number that is divisible by 12
-    //         //fix when number of ships spawned flows into the next ring
-    //         Debug.Log(i+1);
-    //         if((i+1)%12 == 0){
-    //             Debug.Log("new ring");
-    //             int c = GetCount(count - 11);
-    //             MoveShips(i, (shipList.Count - i + 1), radius, c);
-    //         }
-
-    //         // cone shape
-    //         // float test = radius/6;
-    //         // int k = ring/-2;
-    //         // float x = Mathf.Cos(theta) + (_ship.position.x/(radius-(test*k)));
-    //         // float y = Mathf.Sin(theta) + (_ship.position.y/(radius-(test*k)));
-    //         // _obj.GetChild(i).GetComponent<Follow>()._followOffset = new Vector3((radius-(test*k))*x,(radius-(test*k))*y,_ship.position.z + ring);
-    //         // _obj.GetChild(i).transform.position = new Vector3((radius-(test*k))*x,(radius-(test*k))*y,_ship.position.z + ring);
-
-    //         // tunnel
-    //         float x = Mathf.Cos(theta) + (_ship.position.x/2);
-    //         float y = Mathf.Sin(theta) + (_ship.position.y/2);
-    //         _obj.GetChild(i).GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);
-    //         _obj.GetChild(i).transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
-
-    //         // sphere
-    //         // theta = (2 * Mathf.PI / GetCount(numObjects)) * i; //0 to 2pi
-    //         // phi = Mathf.PI/2;
-    //         // int temp = GetCount(numObjects)/12;
-    //         // Debug.Log(temp);
-    //         // phi = (Mathf.PI*(3+temp))/6;
-    //         // float x = radius*Mathf.Cos(theta)*Mathf.Sin(phi)+_ship.position.x;
-    //         // float y = radius*Mathf.Sin(theta)*Mathf.Sin(phi)+_ship.position.y;
-    //         // float z = radius*Mathf.Cos(phi);
-    //         // _obj.GetChild(i).GetComponent<Follow>().FollowOffset = new Vector3(x,y,z+_ship.position.z);
-    //         // _obj.GetChild(i).transform.position = new Vector3(x,y,z+_ship.position.z);
-    //         // Debug.Log("test");
-
-    //     }
-    // }
-
     int GetIndex(int length){
         return shipList.Count <= 12 ? 0 : 12*(length/12);
+    }
+
+    int FixIndex(int index, int desiredIndex){
+        while(index != desiredIndex){    
+            index -= 12;
+        }
+        return index;
     }
 }
