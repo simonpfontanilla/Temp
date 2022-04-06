@@ -189,11 +189,9 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "CenterCarrier")
         {
-            transform.position = new Vector3(0, transform.position.y, transform.position.z);
-
-            // gameObject.GetComponentInChildren<Movement>().enabled = false;
-            // Vector3 newPos = new Vector3(0, posY, transform.position.z);
-            // transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 2);
+            // transform.position = new Vector3(0, transform.position.y, transform.position.z);
+            
+            gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
         }
     }
 

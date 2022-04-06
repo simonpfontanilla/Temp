@@ -14,6 +14,7 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject bigStarGate;
     [SerializeField] private GameObject centerCarrier;
     [SerializeField] private GameObject enemy;
+    public float centerToPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +36,7 @@ public class MapLoader : MonoBehaviour
 
         // center carrier
         zPos += 14;
+        centerToPosition = zPos + 7;
         Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
 
         // enemy

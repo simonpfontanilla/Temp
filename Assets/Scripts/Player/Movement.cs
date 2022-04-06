@@ -100,24 +100,37 @@ public class Movement : MonoBehaviour
 
     private Vector3 delta;
 
+    [SerializeField] private Vector3 centerPosition;
+    [SerializeField] private bool moveToCenter = false;
+
     void Start() {
         _player = GameObject.Find("Carrier").transform;
         _position = _player.position;
-        bounds = 5;
+        bounds = 7;
     }
 
     void Update()
     {
-        if (Input.touchCount > 0)
+        if (moveToCenter)
         {
-            Touch touch = Input.GetTouch(0);
-            MoveShip(touch);
-        }else if(Input.GetMouseButtonDown(0)){
-            lastPos = Input.mousePosition;
-        }else if(Input.GetMouseButton(0)){
-            delta = Input.mousePosition - lastPos;
-            MoveShipMouse(delta);
-            lastPos = Input.mousePosition;
+            if ((int)Vector3.Distance(transform.parent.transform.position, centerPosition) > 0)
+                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, Time.deltaTime);
+            else
+                moveToCenter = false;
+        }
+        else
+        {
+            if (Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+                MoveShip(touch);
+            }else if(Input.GetMouseButtonDown(0)){
+                lastPos = Input.mousePosition;
+            }else if(Input.GetMouseButton(0)){
+                delta = Input.mousePosition - lastPos;
+                MoveShipMouse(delta);
+                lastPos = Input.mousePosition;
+            }
         }
     }
 
@@ -139,5 +152,14 @@ public class Movement : MonoBehaviour
         }else{
             _player.position += new Vector3(delta.x/100,0,10 * Time.deltaTime);
         }
+    }
+
+    public void moveCarrierToCenter()
+    {
+        float z = GameObject.Find("MapLoader").GetComponent<MapLoader>().centerToPosition;
+
+        centerPosition = new Vector3(0, 4, z);
+
+        moveToCenter = true;
     }
 }
