@@ -540,24 +540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fec5676f2155a118c2fa32dbc4b856, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodStarGates: []
-  difficultyLevel:
-  - 0.2
-  - 0.4
-  - 0.6
-  - 0.8
-  - 1
-  maxShips: 1
-  enemyCount: 0
-  gateSpawners: {fileID: 3780788490902316853, guid: 5023c6241149e255c993494d5b520bc8, type: 3}
-  asteroids:
-  - {fileID: 8645180464843138730, guid: 036e89a06d800e930a02aae06c81b139, type: 3}
-  - {fileID: 7476886914670394484, guid: 46de47c2a77f308e991ed5fc13d9cfbf, type: 3}
-  collectableShip: {fileID: 5737044488107747522, guid: b6c1b34933911e6a7b968a40bc654364, type: 3}
-  bigStarGate: {fileID: 681273546105486111, guid: 2e653ab2d81f02e3991227f67cda77f9, type: 3}
-  centerCarrier: {fileID: 1045082389367998367, guid: b608c7d0faf187a08ad4f7805fedb073, type: 3}
-  enemy: {fileID: 6056496057141501311, guid: 7c7fc0dd4febcbd0981ded5f0f7a97c8, type: 3}
-  testing: 0
 --- !u!4 &1482729698
 Transform:
   m_ObjectHideFlags: 0
