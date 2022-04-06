@@ -12,12 +12,10 @@ public class MapLevelClass
     public List<int> whichGates;
     public List<string> gateTexts;
     public int maxShips; // Used for enemy count
-    public string bigStartGate;
+    public int numGatesSpawners;
+    // public string bigStartGate;
 
-    public string centerCarrier;
-
-    // enemy
-    public List<string> enemyPositions;
+    // public string centerCarrier;
 
     // Asteroid
     public List<string> asteroidPositons;

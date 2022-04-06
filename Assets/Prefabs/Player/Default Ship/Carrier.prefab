@@ -127,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bb2d3fe441dc9428217255f8c14e16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  children: []
-  currency: 0
+  _children: []
+  _currency: 0
 --- !u!114 &1768749879070523338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 30
   spawnedShips: {fileID: 4854733343275288830, guid: 5bc26739d99e1c04db70cb66ed17b029, type: 3}
-  radius: 2
+  _radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
 --- !u!1 &8465502521608611623
 GameObject:

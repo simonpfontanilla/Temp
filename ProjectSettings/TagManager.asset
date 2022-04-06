@@ -11,6 +11,7 @@ TagManager:
   - EmptySpace
   - EnemyShip
   - Asteroids
+  - CenterCarrier
   layers:
   - Default
   - TransparentFX

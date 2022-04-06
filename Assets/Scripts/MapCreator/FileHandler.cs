@@ -8,11 +8,13 @@ public static class FileHandler {
 
     public static void SaveToJSON<T> (List<T> toSave, string filename) {
         Debug.Log (GetPath (filename));
-        string content = JsonHelper.ToJson<T> (toSave.ToArray ());
-        WriteFile (GetPath (filename), content);
+        // string content = JsonHelper.ToJson<T> (toSave.ToArray ());
+        var json = MyJsonConverter.Serialize(toSave);
+        WriteFile (GetPath (filename), json);
     }
 
     public static void SaveToJSON<T> (T toSave, string filename) {
+        Debug.Log (GetPath (filename));
         string content = JsonUtility.ToJson (toSave);
         WriteFile (GetPath (filename), content);
     }

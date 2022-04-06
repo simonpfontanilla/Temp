@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9044245288107741831}
   - component: {fileID: 4734210895978219160}
   - component: {fileID: 5403362597841406219}
+  - component: {fileID: 4483660838081246163}
   m_Layer: 0
   m_Name: RoundAsteroid
   m_TagString: Asteroids
@@ -95,3 +96,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.00971589
   m_Center: {x: -0.0006852695, y: -0.001957694, z: -0.00047709688}
+--- !u!114 &4483660838081246163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7476886914670394484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ea67512a5dc8fac9e78afa80e4e686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30

@@ -129,6 +129,8 @@ public class Spawn : MonoBehaviour
             }
 
             SpawnShip(amt + 1 - _count); //get text from gate for multiplier
+            // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            // SpawnShip(13);
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             // SpawnShip(13);
             // other.gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -159,7 +161,11 @@ public class Spawn : MonoBehaviour
 
             _count = UpdateCount(_ship);
         }
-        else if (other.gameObject.tag == "Currency") // money money money money Mooonnnney 
+        else if (other.gameObject.tag == "Asteroids")
+        {
+            // Call gameover
+        }
+        else if (other.gameObject.tag == "Currency")
         {
             SpawnShip(2);
             Destroy(other.gameObject);
@@ -176,6 +182,18 @@ public class Spawn : MonoBehaviour
             _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
             _player.Children.Clear();
             _count = UpdateCount(_ship);
+        }
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "CenterCarrier")
+        {
+            transform.position = new Vector3(0, transform.position.y, transform.position.z);
+
+            // gameObject.GetComponentInChildren<Movement>().enabled = false;
+            // Vector3 newPos = new Vector3(0, posY, transform.position.z);
+            // transform.position = Vector3.Lerp(transform.position, newPos, Time.deltaTime * 2);
         }
     }
 

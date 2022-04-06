@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8934739162164046844
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8934739162164046846}
+  - component: {fileID: 8934739162164046847}
+  m_Layer: 0
+  m_Name: MapLoader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8934739162164046846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934739162164046844}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8934739162164046847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8934739162164046844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d06be5896c1230c9a5454453b155319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  difficultyLevel:
+  - 0.2
+  - 0.4
+  - 0.6
+  - 0.8
+  - 1
+  gateSpawner: {fileID: 8189844974424290914, guid: 808cba1bedda31ac2bff78a8f6a8859c, type: 3}
+  asteroids:
+  - {fileID: 8645180464843138730, guid: 036e89a06d800e930a02aae06c81b139, type: 3}
+  - {fileID: 7476886914670394484, guid: 46de47c2a77f308e991ed5fc13d9cfbf, type: 3}
+  collectableShip: {fileID: 5737044488107747522, guid: b6c1b34933911e6a7b968a40bc654364, type: 3}
+  bigStarGate: {fileID: 681273546105486111, guid: 2e653ab2d81f02e3991227f67cda77f9, type: 3}
+  centerCarrier: {fileID: 1045082389367998367, guid: b608c7d0faf187a08ad4f7805fedb073, type: 3}
+  enemy: {fileID: 6056496057141501311, guid: 7c7fc0dd4febcbd0981ded5f0f7a97c8, type: 3}

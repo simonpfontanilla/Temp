@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7906484723521112153}
   - component: {fileID: 5875420045365877830}
   - component: {fileID: 6538638754436645822}
+  - component: {fileID: -6732301895785177759}
   m_Layer: 0
   m_Name: SkinnyAsteroid
   m_TagString: Asteroids
@@ -95,3 +96,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.01229565
   m_Center: {x: -0.0000014975667, y: -0.0018941803, z: 0.0014585255}
+--- !u!114 &-6732301895785177759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8645180464843138730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ea67512a5dc8fac9e78afa80e4e686, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
