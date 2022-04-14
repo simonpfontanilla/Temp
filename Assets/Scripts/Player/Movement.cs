@@ -103,6 +103,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private Vector3 centerPosition;
     [SerializeField] private bool moveToCenter = false;
 
+    [SerializeField] public float speed = 10;
+
     void Start() {
         _player = GameObject.Find("Carrier").transform;
         _position = _player.position;
@@ -117,6 +119,8 @@ public class Movement : MonoBehaviour
                 transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, Time.deltaTime);
             else
                 moveToCenter = false;
+
+                // Vector3(0.181989998,0,0.137689993)
         }
         else
         {
@@ -150,7 +154,7 @@ public class Movement : MonoBehaviour
         }else if(_player.position.x < -bounds){
             _player.position += new Vector3(0.01f,0,0.1f);
         }else{
-            _player.position += new Vector3(delta.x/100,0,10 * Time.deltaTime);
+            _player.position += new Vector3(delta.x/100,0,speed * Time.deltaTime);
         }
     }
 

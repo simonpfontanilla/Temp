@@ -37,7 +37,7 @@ public class MapLoader : MonoBehaviour
         // center carrier
         zPos += 14;
         centerToPosition = zPos + 7;
-        Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
+        GameObject centerCarrierObject = Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
 
         // enemy
         int enemyCount = (int)(mapLevel[level].maxShips * difficultyLevel[UnityEngine.Random.Range(0, 5)]);
@@ -58,6 +58,9 @@ public class MapLoader : MonoBehaviour
             g = Instantiate(enemy, new Vector3(2, 4, zPos), enemy.transform.rotation);
             enemies.Add(g);
         }
+
+        centerCarrierObject.GetComponent<BoxCollider>().size = new Vector3(14f, 14f, (zPos + 5f) - (centerToPosition - 7f));
+        centerCarrierObject.GetComponent<BoxCollider>().center = new Vector3(0f, 0f, ((zPos + 5f) - (centerToPosition - 7f)) / 2.019348984f);
 
         // remove extra enemies
         for (int i = enemies.Count() - 1; i >= enemyCount; i--)
@@ -81,7 +84,7 @@ public class MapLoader : MonoBehaviour
         }
         
         // Add big stargate
-        zPos+=14;
+        zPos+=21;
         Instantiate(bigStarGate, new Vector3(0, 4, zPos), bigStarGate.transform.rotation);
 
         // One or two asteroids between spaces any where between that

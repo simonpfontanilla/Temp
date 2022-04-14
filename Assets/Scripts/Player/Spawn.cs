@@ -191,7 +191,7 @@ public class Spawn : MonoBehaviour
         {
             // transform.position = new Vector3(0, transform.position.y, transform.position.z);
             
-            gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
+            // gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
         }
     }
 
