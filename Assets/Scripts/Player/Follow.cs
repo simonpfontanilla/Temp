@@ -37,7 +37,15 @@ public class Follow : MonoBehaviour {
     }
 
     IEnumerator Rotate(){
+        //stationary rotation
+        // var rotation = transform.rotation;
+        // transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
+        // transform.rotation = rotation;
+
+        //facing carrier
         transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
+        transform.LookAt(_leader, Vector3.up);
+        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 90, transform.rotation.z));
         yield return new WaitForFixedUpdate();
     }
 
