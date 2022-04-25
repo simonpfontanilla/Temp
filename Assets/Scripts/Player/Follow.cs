@@ -17,6 +17,10 @@ public class Follow : MonoBehaviour {
     private int _direction;
 
     private Vector3 position;
+    [SerializeField]
+    private Vector3 _axis;
+    [SerializeField]
+    public bool sphere;
 
     void Start () 
     {
@@ -30,22 +34,32 @@ public class Follow : MonoBehaviour {
     {
         if(gameObject.name == "orbit" || gameObject.name == "Name(Clone)"){
             StartCoroutine(Move());
-        }else{
-            StartCoroutine(Rotate());
+        }else{;
+            StartCoroutine(Rotate(_axis));
         }
         position = _leader.position;
     }
 
-    IEnumerator Rotate(){
+    IEnumerator Rotate(Vector3 axis){
         //stationary rotation
         // var rotation = transform.rotation;
         // transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
         // transform.rotation = rotation;
 
-        //facing carrier
-        transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
-        transform.LookAt(_leader, Vector3.up);
-        transform.rotation = Quaternion.Euler(new Vector3(transform.rotation.x, 90, transform.rotation.z));
+        //random sphere
+        // var rotation = transform.rotation;
+        // transform.RotateAround(position, axis, rotationSpeed*_direction*Time.deltaTime);
+        // transform.rotation = rotation;
+
+        if(sphere){
+            var rotation = transform.rotation;
+            transform.RotateAround(position, axis, rotationSpeed*_direction*Time.deltaTime);
+            transform.rotation = rotation;
+        }else{
+            var rotation = transform.rotation;
+            transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
+            transform.rotation = rotation;
+        }
         
         yield return new WaitForFixedUpdate();
     }
@@ -78,5 +92,11 @@ public class Follow : MonoBehaviour {
     {
         get { return _direction; }
         set { _direction = value; }
+    }
+
+    public Vector3 Axis
+    {
+        get { return _axis; }
+        set { _axis = value; } // I couldn't if I fried
     }
 }
