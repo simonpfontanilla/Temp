@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenuManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class MainMenuManager : MonoBehaviour
     public Transform panel2;
     public Transform panel3;
 
+    // Initial Shop Tab
+    //public GameObject initialShopTab;
+    public Button initialShopTab;
     //Icon Array
     public Sprite[] skinsIcons;
 
@@ -41,7 +45,6 @@ public class MainMenuManager : MonoBehaviour
     {
         shopIndex = 1;
         currencyAmount.text = totalCurrency.ToString();
-
         //Add button-pn-click events to shop Buttons
         InitShop();
     }
@@ -57,10 +60,17 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
-
+    public void setInitialTab()
+    {
+        initialShopTab.Select();
+        Debug.Log("Ship skin selected by default");
+    }
 
     private async void InitShop()
     {
+        //Button x = initialShopTab.GetComponent<Button>();
+        //x.Select();
+
         //Assign the references
         if (panel1 == null || panel2 == null || panel3 == null)
         {
