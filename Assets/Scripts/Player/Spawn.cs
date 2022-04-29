@@ -161,6 +161,17 @@ public class Spawn : MonoBehaviour
 
             _count = UpdateCount(_ship);
         }
+        else if (other.gameObject.tag == "EnemyShip")
+        {
+            GameObject ship = _player.Children[_player.Children.Count - 1];
+            _player.Children.RemoveAt(_player.Children.Count - 1);
+
+            Destroy(ship);
+
+            _count = UpdateCount(_ship);
+
+            other.gameObject.active = false;
+        }
         else if (other.gameObject.tag == "Asteroids")
         {
             // Call gameover
@@ -172,6 +183,10 @@ public class Spawn : MonoBehaviour
             GameObject currency = Instantiate(curr, _transform.position + new Vector3(0, 1, 0), Quaternion.identity).gameObject;
             Move (currency);
             _player.Currency += 1;
+        }
+        else if (other.gameObject.tag == "CenterCarrier")
+        {   
+            gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
         }
         else if (other.gameObject.tag == "EditorOnly")
         {
@@ -185,15 +200,13 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.tag == "CenterCarrier")
-        {
-            // transform.position = new Vector3(0, transform.position.y, transform.position.z);
-            
-            // gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
-        }
-    }
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.tag == "CenterCarrier")
+    //     {   
+    //         gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
+    //     }
+    // }
 
     private void Move(GameObject go) // I like the way you move
     {

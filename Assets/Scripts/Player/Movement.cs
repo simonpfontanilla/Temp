@@ -100,10 +100,10 @@ public class Movement : MonoBehaviour
 
     private Vector3 delta;
 
-    [SerializeField] private Vector3 centerPosition;
-    [SerializeField] private bool moveToCenter = false;
+    [SerializeField] private Vector3 centerPosition, enemyEndingPos;
+    [SerializeField] private bool moveToCenter = false, autoMove = false;
 
-    [SerializeField] public float speed = 10;
+    [SerializeField] public float speed = 10, autoMoveMulti = 1;
 
     void Start() {
         _player = GameObject.Find("Carrier").transform;
@@ -115,12 +115,24 @@ public class Movement : MonoBehaviour
     {
         if (moveToCenter)
         {
-            if ((int)Vector3.Distance(transform.parent.transform.position, centerPosition) > 0)
-                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, Time.deltaTime);
+            Debug.Log(Vector3.Distance(transform.parent.transform.position, centerPosition));
+            if (Vector3.Distance(transform.parent.transform.position, centerPosition) > 3.5)
+                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, 10 * Time.deltaTime);
             else
+            {
                 moveToCenter = false;
 
-                // Vector3(0.181989998,0,0.137689993)
+                autoMove = true;
+            }
+
+            // Vector3(0.181989998,0,0.137689993) for camera position
+        }
+        else if (autoMove)
+        {
+            if ((int)Vector3.Distance(transform.parent.transform.position, enemyEndingPos) > 0)
+                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, enemyEndingPos, Time.deltaTime);
+            else
+                autoMove = false;
         }
         else
         {
@@ -154,7 +166,7 @@ public class Movement : MonoBehaviour
         }else if(_player.position.x < -bounds){
             _player.position += new Vector3(0.01f,0,0.1f);
         }else{
-            _player.position += new Vector3(delta.x/100,0,speed * Time.deltaTime);
+            _player.position += new Vector3(delta.x/100,0, speed * Time.deltaTime);
         }
     }
 
@@ -163,6 +175,10 @@ public class Movement : MonoBehaviour
         float z = GameObject.Find("MapLoader").GetComponent<MapLoader>().centerToPosition;
 
         centerPosition = new Vector3(0, 4, z);
+
+        z = GameObject.Find("MapLoader").GetComponent<MapLoader>().enemeyEndingZPos;
+
+        enemyEndingPos = new Vector3(0, 4, z);
 
         moveToCenter = true;
     }

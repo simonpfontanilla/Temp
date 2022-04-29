@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0013625236, g: 0.0013625236, b: 0.0013625236, a: 1}
+  m_IndirectSpecularColor: {r: 0.0009230433, g: 0.0009230433, b: 0.0009230433, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,6 +173,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &419527211 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 32589370237360895, guid: fdc98bf6340ac79308b2e1921397455d, type: 3}
+  m_PrefabInstance: {fileID: 8465502520828419809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &419527214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419527211}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2639372268159669196, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
 --- !u!4 &561806953 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 808421905446191173, guid: fdc98bf6340ac79308b2e1921397455d, type: 3}
@@ -879,5 +898,6 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 3795327568506476442}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3459607083415660177, guid: fdc98bf6340ac79308b2e1921397455d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fdc98bf6340ac79308b2e1921397455d, type: 3}

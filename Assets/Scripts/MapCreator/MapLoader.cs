@@ -14,7 +14,7 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject bigStarGate;
     [SerializeField] private GameObject centerCarrier;
     [SerializeField] private GameObject enemy;
-    public float centerToPosition;
+    public float centerToPosition, enemeyEndingZPos;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +83,8 @@ public class MapLoader : MonoBehaviour
             }
         }
         
+        enemeyEndingZPos = zPos + 5f;
+
         // Add big stargate
         zPos+=21;
         Instantiate(bigStarGate, new Vector3(0, 4, zPos), bigStarGate.transform.rotation);
