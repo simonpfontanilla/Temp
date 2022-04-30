@@ -68,7 +68,7 @@ public class ShipSpacing_test : MonoBehaviour
             // shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
 
             if(sphere){
-                Vector3 newPos = Random.onUnitSphere * 2.5f;
+                Vector3 newPos = Random.onUnitSphere * 2.25f;
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
                 shipList[i].transform.position = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
                 shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere;
