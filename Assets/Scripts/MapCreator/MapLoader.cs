@@ -14,7 +14,7 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject bigStarGate;
     [SerializeField] private GameObject centerCarrier;
     [SerializeField] private GameObject enemy;
-    public float centerToPosition, enemeyEndingZPos;
+    public float centerToPosition, toCenterZPos, enemeyEndingZPos;
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +35,8 @@ public class MapLoader : MonoBehaviour
         float zPos = strToVec(mapLevel[level].gatePositons[mapLevel[level].gatePositons.Count() - 1]).z;
 
         // center carrier
-        zPos += 14;
+        zPos += 7;
+        toCenterZPos = zPos;
         centerToPosition = zPos + 7;
         GameObject centerCarrierObject = Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
 
@@ -44,6 +45,7 @@ public class MapLoader : MonoBehaviour
 
         zPos += 22;
         List<GameObject> enemies = new List<GameObject>();
+        // make object with z position
         for (int i = 0; i < enemyCount; i+=5, zPos+=7)
         {
             GameObject g;

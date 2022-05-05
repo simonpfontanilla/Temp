@@ -100,15 +100,19 @@ public class Movement : MonoBehaviour
 
     private Vector3 delta;
 
-    [SerializeField] private Vector3 centerPosition, enemyEndingPos;
+    [SerializeField] private Vector3 centerPosition, enemyEndingPos, toCenterPos;
     [SerializeField] private bool moveToCenter = false, autoMove = false;
 
     [SerializeField] public float speed = 10, autoMoveMulti = 1;
+    [SerializeField] public float strafeSpeed = 2f;    //some sideways movement amount
 
     void Start() {
         _player = GameObject.Find("Carrier").transform;
         _position = _player.position;
         bounds = 7;
+
+        float z = GameObject.Find("MapLoader").GetComponent<MapLoader>().toCenterZPos;
+        toCenterPos = new Vector3(0, 4, z);
     }
 
     void Update()
@@ -116,8 +120,8 @@ public class Movement : MonoBehaviour
         if (moveToCenter)
         {
             Debug.Log(Vector3.Distance(transform.parent.transform.position, centerPosition));
-            if (Vector3.Distance(transform.parent.transform.position, centerPosition) > 3.5)
-                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, 10 * Time.deltaTime);
+            if (Vector3.Distance(transform.parent.transform.position, centerPosition) > 0.1)
+                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, 1.5f * Time.deltaTime);
             else
             {
                 moveToCenter = false;
@@ -136,17 +140,21 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            if (Input.touchCount > 0)
-            {
-                Touch touch = Input.GetTouch(0);
-                MoveShip(touch);
-            }else if(Input.GetMouseButtonDown(0)){
-                lastPos = Input.mousePosition;
-            }else if(Input.GetMouseButton(0)){
-                delta = Input.mousePosition - lastPos;
-                MoveShipMouse(delta);
-                lastPos = Input.mousePosition;
-            }
+            // _player.position += new Vector3(0/100,0, speed * Time.deltaTime);
+
+            _player.transform.Translate(Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime, 0f, speed * Time.deltaTime, Space.World);
+
+            // if (Input.touchCount > 0)
+            // {
+            //     Touch touch = Input.GetTouch(0);
+            //     MoveShip(touch);
+            // }else if(Input.GetMouseButtonDown(0)){
+            //     lastPos = Input.mousePosition;
+            // }else if(Input.GetMouseButton(0)){
+            //     delta = Input.mousePosition - lastPos;
+            //     MoveShipMouse(delta);
+            //     lastPos = Input.mousePosition;
+            // }
         }
     }
 
