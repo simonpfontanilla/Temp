@@ -8,4 +8,13 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/TestScene_Tam.unity
+    guid: 9affefc9bfacd8b42a7d6025137c0197
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: 73fd257ee329cc648b76f9205f7c33d4
+  - enabled: 1
+    path: Assets/Scenes/Babel Armada Main Game Scene.unity
+    guid: 9d736357e6a4780418caf6432da87208
   m_configObjects: {}

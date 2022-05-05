@@ -41,7 +41,7 @@ public class ShipSpacing_test : MonoBehaviour
         if(prevCount < 12*multiple){
             int desiredIndex = 12*(prevCount/12);
             index = FixIndex(index, desiredIndex);
-            Debug.Log("index: " + index);
+            // Debug.Log("index: " + index);
             count = 12*multiple;
         }
         MoveShips(index, count);
@@ -68,10 +68,10 @@ public class ShipSpacing_test : MonoBehaviour
             // shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
 
             if(sphere){
-                Vector3 newPos = Random.onUnitSphere * 2.25f;
+                Vector3 newPos = Random.onUnitSphere * 2.0f;
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
                 shipList[i].transform.position = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
-                shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere;
+                shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere * 2.0f;
                 shipList[i].GetComponent<Follow>().sphere = true;
             }else{
                 float x = Mathf.Cos(theta) + (_ship.position.x/2);
@@ -81,10 +81,10 @@ public class ShipSpacing_test : MonoBehaviour
             }
 
             if((i+1)%12 == 0){
-                Debug.Log("new ring");
+                // Debug.Log("new ring");
                 prevCount = i;
                 int newIndex = 12*((prevCount/12)+1);
-                Debug.Log("newindex: " + newIndex);
+                // Debug.Log("newindex: " + newIndex);
                 MoveShips(newIndex, shipList.Count);
                 break;
             }

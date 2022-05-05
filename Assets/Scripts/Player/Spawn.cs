@@ -22,19 +22,19 @@ public class Spawn : MonoBehaviour
     private Quaternion _rotation;
 
     private int _count;
-
+    [SerializeField]
     private GameObject _ship;
 
     private Player _player;
-
+    [SerializeField]
     private Transform _orbit;
 
     private void Awake()
     {
         _transform = transform;
         _player = GetComponent<Player>();
-        _ship = GameObject.Find("Carrier");
-        _orbit = GameObject.Find("orbit").transform;
+        // _ship = GameObject.Find("Carrier");
+        // _orbit = GameObject.Find("orbit").transform;
     }
 
     private void Start()

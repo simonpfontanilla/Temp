@@ -61,7 +61,12 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float y = amplitude*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi)+4;
-        _transform.position = new Vector3(_transform.position.x, y, _transform.position.z);
+        if(gameObject.name == "FighterComplete_Shop_Trail"){
+            float y = 1.0f*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi)+6;
+            _transform.position = new Vector3(_transform.position.x, y, _transform.position.z);
+        }else{
+            float y = amplitude*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi)+4;
+            _transform.position = new Vector3(_transform.position.x, y, _transform.position.z);
+        }
     }
 }

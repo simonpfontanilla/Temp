@@ -6,7 +6,7 @@ public class Follow : MonoBehaviour {
     [SerializeField]
     private Transform _leader;
     [SerializeField]
-    private int rotationSpeed = 30;
+    private int rotationSpeed = 50;
 
     private Vector3 _followOffset;
 
