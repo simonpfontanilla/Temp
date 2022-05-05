@@ -100,7 +100,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 delta;
 
-    [SerializeField] private Vector3 centerPosition, enemyEndingPos, toCenterPos;
+    [SerializeField] private Vector3 centerPosition, bigGateEndingPos, toCenterPos;
     [SerializeField] private bool moveToCenter = false, autoMove = false;
 
     [SerializeField] public float speed = 10, autoMoveMulti = 1;
@@ -119,30 +119,36 @@ public class Movement : MonoBehaviour
     {
         if (moveToCenter)
         {
-            Debug.Log(Vector3.Distance(transform.parent.transform.position, centerPosition));
-            if (Vector3.Distance(transform.parent.transform.position, centerPosition) > 0.1)
-                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, centerPosition, 1.5f * Time.deltaTime);
+            if (Vector3.Distance(_player.position, centerPosition) > 0.1)
+            {
+                _player.position = Vector3.Lerp(_player.position, centerPosition, 1.5f * Time.deltaTime);
+                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0.2f,0f,0.14f), Time.deltaTime);
+            }
             else
             {
                 moveToCenter = false;
-
                 autoMove = true;
             }
-
-            // Vector3(0.181989998,0,0.137689993) for camera position
         }
         else if (autoMove)
         {
-            if ((int)Vector3.Distance(transform.parent.transform.position, enemyEndingPos) > 0)
-                transform.parent.transform.position = Vector3.Lerp(transform.parent.transform.position, enemyEndingPos, Time.deltaTime);
-            else
-                autoMove = false;
+            if ((int)Vector3.Distance(_player.position, bigGateEndingPos) > 0)
+                _player.position = Vector3.Lerp(_player.position, bigGateEndingPos, Time.deltaTime);
         }
         else
         {
-            // _player.position += new Vector3(0/100,0, speed * Time.deltaTime);
-
-            _player.transform.Translate(Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime, 0f, speed * Time.deltaTime, Space.World);
+            if (_player.position.x > bounds)
+            {
+                _player.position += new Vector3(-0.01f,0,speed * Time.deltaTime);
+            }
+            else if (_player.position.x < -bounds)
+            {
+                _player.position += new Vector3(0.01f,0,speed * Time.deltaTime);
+            }
+            else
+            {
+                _player.Translate(Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime, 0f, speed * Time.deltaTime, Space.World);
+            }
 
             // if (Input.touchCount > 0)
             // {
@@ -184,9 +190,9 @@ public class Movement : MonoBehaviour
 
         centerPosition = new Vector3(0, 4, z);
 
-        z = GameObject.Find("MapLoader").GetComponent<MapLoader>().enemeyEndingZPos;
+        z = GameObject.Find("MapLoader").GetComponent<MapLoader>().bigGateEndingZPos;
 
-        enemyEndingPos = new Vector3(0, 4, z);
+        bigGateEndingPos = new Vector3(0, 4, z);
 
         moveToCenter = true;
     }
