@@ -44,9 +44,15 @@ public class MainMenuManager : MonoBehaviour
     void Start()
     {
         shopIndex = 1;
+        totalCurrency = PlayerPrefs.GetInt("currency", 0);
         currencyAmount.text = totalCurrency.ToString();
         //Add button-pn-click events to shop Buttons
         InitShop();
+    }
+
+    void tempAddCurrency()
+    {
+        totalCurrency = totalCurrency + 50;
     }
 
     // Update is called once per frame
@@ -57,6 +63,8 @@ public class MainMenuManager : MonoBehaviour
         if (Input.GetKeyDown("space"))
         {
             startGame();
+            //Testing Currency Usage in Shop
+            //tempAddCurrency();
         }
     }
 
@@ -125,16 +133,19 @@ public class MainMenuManager : MonoBehaviour
         if (currentIndex < 3)
         {
             totalCurrency = totalCurrency - 50;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 3 && currentIndex < 6)
         {
             totalCurrency = totalCurrency - 100;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 6 && currentIndex < 9)
         {
             totalCurrency = totalCurrency - 150;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
 
@@ -148,16 +159,19 @@ public class MainMenuManager : MonoBehaviour
         if (currentIndex < 3)
         {
             totalCurrency = totalCurrency - 50;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 3 && currentIndex < 6)
         {
             totalCurrency = totalCurrency - 100;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 6 && currentIndex < 9)
         {
             totalCurrency = totalCurrency - 150;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
 
@@ -171,16 +185,19 @@ public class MainMenuManager : MonoBehaviour
         if (currentIndex < 3)
         {
             totalCurrency = totalCurrency - 50;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 3 && currentIndex < 6)
         {
             totalCurrency = totalCurrency - 100;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
         else if (currentIndex >= 6 && currentIndex < 9)
         {
             totalCurrency = totalCurrency - 150;
+            PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
         }
 
