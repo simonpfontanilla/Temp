@@ -40,6 +40,11 @@ public class MainMenuManager : MonoBehaviour
     public int totalCurrency = 0;
     public TextMeshProUGUI currencyAmount;
 
+    //Dropdown Object Controller
+    public DropdownMenu settingsDropdown;
+    //HUD animator
+    public Animator hudAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,10 +67,29 @@ public class MainMenuManager : MonoBehaviour
         currencyAmount.text = totalCurrency.ToString();
         if (Input.GetKeyDown("space"))
         {
+
+            //Initiate SwipeOut transition
+            screenSlideOut();
+
             startGame();
+
+
+
             //Testing Currency Usage in Shop
             //tempAddCurrency();
         }
+    }
+
+    public void screenSlideOut()
+    {
+
+        settingsDropdown.swipeOut();
+        hudSlideOut();
+    }
+
+    public void hudSlideOut()
+    {
+        hudAnim.SetBool("GameStart", true);
     }
 
     public void setInitialTab()
