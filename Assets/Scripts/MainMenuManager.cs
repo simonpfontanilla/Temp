@@ -71,7 +71,7 @@ public class MainMenuManager : MonoBehaviour
             //Initiate SwipeOut transition
             screenSlideOut();
 
-            startGame();
+            //startGame();
 
 
 
