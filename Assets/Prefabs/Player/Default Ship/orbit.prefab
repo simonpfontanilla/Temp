@@ -10,13 +10,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6045371828241789974}
   - component: {fileID: 6045371828241789961}
+  - component: {fileID: 448204785}
+  - component: {fileID: 448204786}
   m_Layer: 0
   m_Name: orbit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6045371828241789974
 Transform:
   m_ObjectHideFlags: 0
@@ -46,3 +48,30 @@ MonoBehaviour:
   _leader: {fileID: 0}
   rotationSpeed: 15
   _ring: 0
+  _axis: {x: 0, y: 0, z: 0}
+  sphere: 0
+--- !u!114 &448204785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045371828241789975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d4f0c25129e714b86e40080ee550ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sphere: 1
+--- !u!114 &448204786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045371828241789975}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 853fb3dc348200c44bb1a78af0cbb314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

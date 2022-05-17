@@ -32,68 +32,10 @@ public class MapLoader : MonoBehaviour
                 .gameObject.GetComponentInChildren<TextMeshPro>().SetText(mapLevel[level].gateTexts[i]);
         }
 
-        float zPos = strToVec(mapLevel[level].gatePositons[mapLevel[level].gatePositons.Count() - 1]).z;
-
-        // center carrier
-        zPos += 7;
-        toCenterZPos = zPos;
-        centerToPosition = zPos + 7;
-        GameObject centerCarrierObject = Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
-
-        // enemy
-        int enemyCount = (int)(mapLevel[level].maxShips * difficultyLevel[UnityEngine.Random.Range(0, 5)]);
-
-        zPos += 22;
-        List<GameObject> enemies = new List<GameObject>();
-        // make object with z position
-        for (int i = 0; i < enemyCount; i+=5, zPos+=7)
-        {
-            GameObject g;
-            g = Instantiate(enemy, new Vector3(-2, 4, zPos), enemy.transform.rotation);
-            enemies.Add(g);
-            g = Instantiate(enemy, new Vector3(-1, 4, zPos), enemy.transform.rotation);
-            enemies.Add(g);
-            g = Instantiate(enemy, new Vector3(0, 4, zPos), enemy.transform.rotation);
-            enemies.Add(g);
-            g = Instantiate(enemy, new Vector3(1, 4, zPos), enemy.transform.rotation);
-            enemies.Add(g);
-            g = Instantiate(enemy, new Vector3(2, 4, zPos), enemy.transform.rotation);
-            enemies.Add(g);
-        }
-
-        centerCarrierObject.GetComponent<BoxCollider>().size = new Vector3(14f, 14f, (zPos + 5f) - (centerToPosition - 7f));
-        centerCarrierObject.GetComponent<BoxCollider>().center = new Vector3(0f, 0f, ((zPos + 5f) - (centerToPosition - 7f)) / 2.019348984f);
-
-        // remove extra enemies
-        for (int i = enemies.Count() - 1; i >= enemyCount; i--)
-            DestroyImmediate(enemies[i].gameObject);
-        
-        int reminder = enemyCount % 5;
-        if (reminder > 0)
-        {
-            for (int i = enemyCount - 1; i >= (enemyCount - reminder); i--)
-            {
-                float add = 0f;
-                if (reminder == 1) add = 2f;
-                else if (reminder == 2) add = 1.5f;
-                else if (reminder == 3) add = 1f;
-                else add = 0.5f;
-
-                float x = enemies[i].gameObject.transform.position.x + add;
-
-                enemies[i].gameObject.transform.position = new Vector3(x, 4, zPos-7);
-            }
-        }
-        
-        // Add big stargate
-        zPos+=21;
-        Instantiate(bigStarGate, new Vector3(0, 4, zPos), bigStarGate.transform.rotation);
-        bigGateEndingZPos = zPos + 10f;
-
         // One or two asteroids between spaces any where between that
         // or collectable
         // Asyeroid = 0, collectable = 1
-        zPos = 42.0f;
+        float zPos = 42.0f;
         for (int i = 0; i < mapLevel[level].numGatesSpawners - 1; i++)
         {
             int astOrCol = UnityEngine.Random.Range(0, 2);
@@ -120,6 +62,65 @@ public class MapLoader : MonoBehaviour
         }
 
         // should asteroid and collectables positions be random
+
+        zPos = strToVec(mapLevel[level].gatePositons[mapLevel[level].gatePositons.Count() - 1]).z;
+
+        // center carrier
+        zPos += 7;
+        toCenterZPos = zPos;
+        centerToPosition = zPos + 7;
+        GameObject centerCarrierObject = Instantiate(centerCarrier, new Vector3(0, 4, zPos), centerCarrier.transform.rotation);
+
+        // enemy
+        int enemyCount = (int)(mapLevel[level].maxShips * difficultyLevel[UnityEngine.Random.Range(0, 5)]);
+        // Debug.Log(mapLevel[level].maxShips);
+
+        zPos += 22;
+        List<GameObject> enemies = new List<GameObject>();
+        // make object with z position
+        for (int i = 0; i < enemyCount; i+=5, zPos+=7)
+        {
+            GameObject g;
+            // g = Instantiate(enemy, new Vector3(-2, 4, zPos), enemy.transform.rotation);
+            // enemies.Add(g);
+            // g = Instantiate(enemy, new Vector3(-1, 4, zPos), enemy.transform.rotation);
+            // enemies.Add(g);
+            g = Instantiate(enemy, new Vector3(0, 4, zPos), enemy.transform.rotation);
+            // enemies.Add(g);
+            // g = Instantiate(enemy, new Vector3(1, 4, zPos), enemy.transform.rotation);
+            // enemies.Add(g);
+            // g = Instantiate(enemy, new Vector3(2, 4, zPos), enemy.transform.rotation);
+            // enemies.Add(g);
+        }
+
+        // remove extra enemies
+        // for (int i = enemies.Count() - 1; i >= enemyCount; i--)
+        //     DestroyImmediate(enemies[i].gameObject);
+        
+        // int reminder = enemyCount % 5;
+        // if (reminder > 0)
+        // {
+        //     for (int i = enemyCount - 1; i >= (enemyCount - reminder); i--)
+        //     {
+        //         float add = 0f;
+        //         if (reminder == 1) add = 2f;
+        //         else if (reminder == 2) add = 1.5f;
+        //         else if (reminder == 3) add = 1f;
+        //         else add = 0.5f;
+
+        //         float x = enemies[i].gameObject.transform.position.x + add;
+
+        //         enemies[i].gameObject.transform.position = new Vector3(x, 4, zPos-7);
+        //     }
+        // }
+
+        centerCarrierObject.GetComponent<BoxCollider>().size = new Vector3(14f, 14f, (zPos + 5f) - (centerToPosition - 7f));
+        centerCarrierObject.GetComponent<BoxCollider>().center = new Vector3(0f, 0f, ((zPos + 5f) - (centerToPosition - 7f)) / 2.019348984f);
+        
+        // Add big stargate
+        zPos+=21;
+        Instantiate(bigStarGate, new Vector3(0, 4, zPos), bigStarGate.transform.rotation);
+        bigGateEndingZPos = zPos + 10f;
     }
 
     private static List<MapLevelClass> LoadResourceTextfile()

@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8934739162164046846
 Transform:
   m_ObjectHideFlags: 0
@@ -56,4 +56,7 @@ MonoBehaviour:
   collectableShip: {fileID: 5737044488107747522, guid: b6c1b34933911e6a7b968a40bc654364, type: 3}
   bigStarGate: {fileID: 681273546105486111, guid: 2e653ab2d81f02e3991227f67cda77f9, type: 3}
   centerCarrier: {fileID: 1045082389367998367, guid: b608c7d0faf187a08ad4f7805fedb073, type: 3}
-  enemy: {fileID: 6056496057141501311, guid: 7c7fc0dd4febcbd0981ded5f0f7a97c8, type: 3}
+  enemy: {fileID: 8752175051962904441, guid: 7f6bb68d6bfe799149a650308fe4e0d7, type: 3}
+  centerToPosition: 0
+  toCenterZPos: 0
+  bigGateEndingZPos: 0

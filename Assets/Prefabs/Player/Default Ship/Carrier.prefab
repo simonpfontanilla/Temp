@@ -15,13 +15,14 @@ GameObject:
   - component: {fileID: 4317363388995618145}
   - component: {fileID: 1768749879070523338}
   - component: {fileID: 419527214}
+  - component: {fileID: 2146078351}
   m_Layer: 0
   m_Name: Carrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &808421905446191173
 Transform:
   m_ObjectHideFlags: 0
@@ -132,7 +133,23 @@ MonoBehaviour:
   spawnedShips: {fileID: 4854733343275288830, guid: 5bc26739d99e1c04db70cb66ed17b029, type: 3}
   _radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _ship: {fileID: 32589370237360895}
+  _orbit: {fileID: 0}
 --- !u!64 &419527214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32589370237360895}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2639372268159669196, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
+--- !u!64 &2146078351
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,7 +192,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8465502521608611623}
   m_LocalRotation: {x: 0.5604789, y: -0.5604789, z: -0.43111876, w: 0.43111876}
-  m_LocalPosition: {x: 0.1428, y: 0, z: 0.0765}
+  m_LocalPosition: {x: 0.181, y: 0, z: 0.087}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children: []
   m_Father: {fileID: 808421905446191173}
@@ -293,10 +310,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
   centerPosition: {x: 0, y: 0, z: 0}
-  enemyEndingPos: {x: 0, y: 0, z: 0}
+  bigGateEndingPos: {x: 0, y: 0, z: 0}
   toCenterPos: {x: 0, y: 0, z: 0}
   moveToCenter: 0
   autoMove: 0
-  speed: 10
+  speed: 20
   autoMoveMulti: 1
   strafeSpeed: 5

@@ -75,10 +75,10 @@ public class Spawn : MonoBehaviour
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {
-            if(_count >= 60){
-                _count += 1;
-                continue;
-            }
+            // if(_count >= 60){
+            //     _count += 1;
+            //     continue;
+            // }
 
             rings = _count / 12;
             int ring = -2 * rings;
@@ -161,17 +161,28 @@ public class Spawn : MonoBehaviour
 
             _count = UpdateCount(_ship);
         }
-        else if (other.gameObject.tag == "EnemyShip")
-        {
-            GameObject ship = _player.Children[_player.Children.Count - 1];
-            _player.Children.RemoveAt(_player.Children.Count - 1);
+        // else if (other.gameObject.tag == "EnemyShip")
+        // {
+        //     int amt = _count;
+        //     amt -= 5;
+            
+        //     while (_player.Children.Count != amt)
+        //     {
+        //         GameObject ship = _player.Children[_player.Children.Count - 1];
+        //         _player.Children.RemoveAt(_player.Children.Count - 1);
 
-            Destroy(ship);
+        //         Destroy(ship);
+        //     }
 
-            _count = UpdateCount(_ship);
+        //     // GameObject ship = _player.Children[_player.Children.Count - 1];
+        //     // _player.Children.RemoveAt(_player.Children.Count - 1);
 
-            other.gameObject.active = false;
-        }
+        //     // Destroy(ship);
+
+        //     _count = UpdateCount(_ship);
+
+        //     other.gameObject.active = false;
+        // }
         else if (other.gameObject.tag == "Asteroids")
         {
             // Call gameover
@@ -200,13 +211,33 @@ public class Spawn : MonoBehaviour
         }
     }
 
-    // void OnTriggerEnter(Collider other)
-    // {
-    //     if (other.gameObject.tag == "CenterCarrier")
-    //     {   
-    //         gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
-    //     }
-    // }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "EnemyShip")
+        {
+            int amt = _count;
+            amt -= 5;
+            
+            while (_player.Children.Count != amt)
+            {
+                GameObject ship = _player.Children[_player.Children.Count - 1];
+                _player.Children.RemoveAt(_player.Children.Count - 1);
+
+                Debug.Log("bruh1");
+
+                Destroy(ship);
+            }
+
+            // GameObject ship = _player.Children[_player.Children.Count - 1];
+            // _player.Children.RemoveAt(_player.Children.Count - 1);
+
+            // Destroy(ship);
+
+            _count = UpdateCount(_ship);
+
+            other.gameObject.active = false;
+        }
+    }
 
     private void Move(GameObject go) // I like the way you move
     {
