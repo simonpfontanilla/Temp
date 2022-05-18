@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5974"
+   inkscape:version="1.1 (c68e22c387, 2021-05-23)"
+   sodipodi:docname="Honey Bee Icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview5976"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.0431611"
+     inkscape:cx="396.39133"
+     inkscape:cy="538.26779"
+     inkscape:window-width="958"
+     inkscape:window-height="981"
+     inkscape:window-x="952"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs5971" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g161084"
+       inkscape:export-filename="C:\Users\gbqui\OneDrive\Documents\GeoNova\Games\Hyper Arc Phase 1\Babel\Babel Armada\BA Store\Honey Bee Icon.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"
+       transform="translate(76.738075,-129.51451)">
+      <rect
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.44882;stroke-opacity:1"
+         id="rect850-5-8-2-1"
+         width="8.2592278"
+         height="8.2592278"
+         x="23.630396"
+         y="250.42751"
+         rx="1"
+         ry="1" />
+      <path
+         style="font-variation-settings:normal;vector-effect:none;fill:#3b3b3b;fill-opacity:1;stroke:#ababab;stroke-width:0.1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000"
+         d="m 31.582916,252.74281 h -1.091407 l -2.7315,1.90444 -2.7315,-1.90444 h -1.091407 l 3.822907,3.66519 z"
+         id="path121470-5"
+         sodipodi:nodetypes="ccccccc" />
+      <rect
+         style="fill:none;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:9.44882;stroke-opacity:1"
+         id="rect850-5-8-2"
+         width="8.2592278"
+         height="8.2592278"
+         x="23.630396"
+         y="250.42751"
+         rx="1"
+         ry="1" />
+      <path
+         style="font-variation-settings:normal;fill:#dad000;fill-opacity:1;stroke:#dad000;stroke-width:0.062127;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;stop-color:#000000"
+         d="m 28.547522,258.00675 -0.431987,-3.36668 1.235968,1.90869 -0.338,-1.70598 -0.897968,-1.2321 -0.355526,-2.52994 -0.355525,2.52994 -0.897969,1.2321 -0.337999,1.70598 1.235968,-1.90869 -0.431988,3.36668 0.393757,-0.39687 0.393756,0.39687 0.393756,-0.39687 z"
+         id="path100349-4"
+         sodipodi:nodetypes="ccccccccccccccc" />
+    </g>
+  </g>
+</svg>
