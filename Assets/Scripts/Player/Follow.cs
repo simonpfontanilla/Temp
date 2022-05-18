@@ -41,26 +41,15 @@ public class Follow : MonoBehaviour {
     }
 
     IEnumerator Rotate(Vector3 axis){
-        //stationary rotation
-        // var rotation = transform.rotation;
-        // transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
-        // transform.rotation = rotation;
-
-        //random sphere
-        // var rotation = transform.rotation;
-        // transform.RotateAround(position, axis, rotationSpeed*_direction*Time.deltaTime);
-        // transform.rotation = rotation;
-
-        if(sphere){
+        if(sphere){ //sphere
             var rotation = transform.rotation;
             transform.RotateAround(position, axis, rotationSpeed*_direction*Time.deltaTime);
             transform.rotation = rotation;
-        }else{
+        }else{ //ring
             var rotation = transform.rotation;
             transform.RotateAround(position, Vector3.back, rotationSpeed*_direction*Time.deltaTime);
             transform.rotation = rotation;
         }
-        
         yield return new WaitForFixedUpdate();
     }
 

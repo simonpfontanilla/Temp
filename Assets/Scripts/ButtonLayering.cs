@@ -16,12 +16,6 @@ public class ButtonLayering : MonoBehaviour
 
     private Transform buttonHolder;
 
-    private Transform shipPanel;
-
-    private Transform carrierPanel;
-
-    private Transform trailsPanel;
-
     private Transform shopPanel;
 
     void Start()
@@ -32,6 +26,7 @@ public class ButtonLayering : MonoBehaviour
         carrier = GameObject.Find("Carrier Tab").transform;
         trail = GameObject.Find("Trail Tab").transform;
         shopPanel = GameObject.Find("Shop_Panel").transform;
+        ship.gameObject.GetComponent<Button>().interactable = false;
     }
 
     public void TaskOnClick(){
@@ -51,7 +46,7 @@ public class ButtonLayering : MonoBehaviour
             //change the position of the tabs within each group
             carrier.SetSiblingIndex(1);
             trail.SetSiblingIndex(0);
-            ship.SetSiblingIndex(shipPanel.GetSiblingIndex());
+            ship.SetSiblingIndex(shopPanel.GetSiblingIndex());
         }else if(buttonHolder.GetChild(1).gameObject.name == "Trail Tab"){
             //prevent buttons from changing state unless another tab is selected
             ship.gameObject.GetComponent<Button>().interactable = true;
@@ -64,7 +59,7 @@ public class ButtonLayering : MonoBehaviour
             //change the position of the tabs within each group
             ship.SetSiblingIndex(0);
             carrier.SetSiblingIndex(1);
-            trail.SetSiblingIndex(shipPanel.GetSiblingIndex());
+            trail.SetSiblingIndex(shopPanel.GetSiblingIndex());
         }else if(buttonHolder.GetChild(1).gameObject.name == "Carrier Tab"){
             //prevent buttons from changing state unless another tab is selected
             ship.gameObject.GetComponent<Button>().interactable = true;
@@ -75,7 +70,7 @@ public class ButtonLayering : MonoBehaviour
             trail.parent = buttonHolder;
             carrier.parent = shopPanel;
             //change the position of the tabs within each group
-            carrier.SetSiblingIndex(shipPanel.GetSiblingIndex());
+            carrier.SetSiblingIndex(shopPanel.GetSiblingIndex());
         }
     }
 }

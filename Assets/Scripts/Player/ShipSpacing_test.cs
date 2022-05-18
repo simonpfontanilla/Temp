@@ -19,6 +19,8 @@ public class ShipSpacing_test : MonoBehaviour
     private int prevCount;
     [SerializeField]
     private bool sphere;
+    [SerializeField]
+    private float sphereSize = 4.0f;
 
     void Start()
     {
@@ -26,7 +28,7 @@ public class ShipSpacing_test : MonoBehaviour
         _ship = GameObject.Find("Carrier").transform;
         shipList = GameObject.Find("Carrier").GetComponent<Player>().Children;
         prevCount = shipList.Count;
-        radius  = 2.0f;
+        radius  = 3.0f;
     }
 
     void Update()
@@ -56,24 +58,16 @@ public class ShipSpacing_test : MonoBehaviour
             if(temp > 12) temp = 12;
             float theta = (2 * Mathf.PI / temp) * i;
             int ring = shipList[i].GetComponent<Follow>().Ring;
-            
-            // Vector3 newPos = Random.onUnitSphere * radius;
-            // shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
-            // shipList[i].transform.position = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
-            // shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere;
 
-            // float x = Mathf.Cos(theta) + (_ship.position.x/2);
-            // float y = Mathf.Sin(theta) + (_ship.position.y/2);
-            // shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);
-            // shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
-
-            if(sphere){
-                Vector3 newPos = Random.onUnitSphere * 2.0f;
+            if(sphere){ //sphere
+                Vector3 newPos = Random.onUnitSphere * sphereSize;
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
                 shipList[i].transform.position = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
-                shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere * 2.0f;
+                // shipList[i].GetComponent<Follow>().Axis = Random.onUnitSphere * sphereSize;
+                // shipList[i].GetComponent<Follow>().Axis = Quaternion.AngleAxis(Random.Range(0.0f, 360.0f), Vector3.up) * _ship.position;
+                shipList[i].GetComponent<Follow>().Axis = _ship.position;
                 shipList[i].GetComponent<Follow>().sphere = true;
-            }else{
+            }else{ //ring
                 float x = Mathf.Cos(theta) + (_ship.position.x/2);
                 float y = Mathf.Sin(theta) + (_ship.position.y/2);
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);
