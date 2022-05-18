@@ -108,5 +108,30 @@ public class StartGame : MonoBehaviour
                 }
             }
         }
+            if (Input.GetMouseButtonDown(0))
+            {
+                //ui
+                    UICamera.SetActive(false);
+                    light1.SetActive(false);
+                    light2.SetActive(false);
+                    backgroundCanvas.SetActive(false);
+                    HUDCanvas.SetActive(false);
+                    Carrier.SetActive(true);
+                    Maploader.SetActive(true);
+                    orbit.SetActive(true);
+                    directionalLight.SetActive(true);
+                // if(Input.GetKeyUp(KeyCode.Escape)){
+                //     shopPanel.SetActive(false);
+                //     backButton.SetActive(false);
+                //     dropDownMenu.SetActive(true);
+                //     directionalArrow.SetActive(true);
+                //     shipTabShip.SetActive(false);
+                //     carrierTabShip.SetActive(false);
+                //     trailTabShip.SetActive(false);
+                //     mainShipModel.SetActive(true);
+                //     titleHolder.SetActive(true);
+                // }
+            }
+        }
     }
-}
+
