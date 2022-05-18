@@ -21,7 +21,8 @@ public class Spawn : MonoBehaviour
 
     private Quaternion _rotation;
 
-    private int _count, actual_count;
+    [SerializeField]
+    private int _count;
     [SerializeField]
     private GameObject _ship;
 
@@ -128,7 +129,7 @@ public class Spawn : MonoBehaviour
                 amt *= Int32.Parse(text.Split(' ')[1]);
             }
 
-            actual_count = amt + 1 - _count;
+            // actual_count = amt + 1 - _count;
             SpawnShip(amt + 1 - _count);
             // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
             // SpawnShip(13);
@@ -150,6 +151,12 @@ public class Spawn : MonoBehaviour
 
             // if (amt == 0) call gameover
 
+            if (amt > _player.Children.Count)
+            {
+                _count = amt;
+                return;
+            }
+
             while (_player.Children.Count != amt)
             {
                 GameObject ship = _player.Children[_player.Children.Count - 1];
@@ -158,7 +165,7 @@ public class Spawn : MonoBehaviour
                 Destroy(ship);
             }
 
-            actual_count = _count = UpdateCount(_ship);
+            _count = UpdateCount(_ship);
         }
         else if (other.gameObject.tag == "Asteroids")
         {
@@ -184,7 +191,7 @@ public class Spawn : MonoBehaviour
             _transform.position = new Vector3(0, 0, 2);
             _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
             _player.Children.Clear();
-            actual_count = _count = UpdateCount(_ship);
+            _count = UpdateCount(_ship);
         }
     }
 
@@ -194,18 +201,24 @@ public class Spawn : MonoBehaviour
         {
             int amt = _count;
             amt -= 5;
+
+            if (amt > _player.Children.Count)
+            {
+                _count = amt;
+                return;
+            }
+
+            // if (amt == 0) call gameover;
             
             while (_player.Children.Count != amt)
             {
                 GameObject ship = _player.Children[_player.Children.Count - 1];
                 _player.Children.RemoveAt(_player.Children.Count - 1);
 
-                Debug.Log("bruh1");
-
                 Destroy(ship);
             }
 
-            actual_count = _count = UpdateCount(_ship);
+            _count = UpdateCount(_ship);
 
             other.gameObject.active = false;
         }
