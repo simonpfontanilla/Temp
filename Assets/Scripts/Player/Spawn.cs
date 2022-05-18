@@ -21,7 +21,7 @@ public class Spawn : MonoBehaviour
 
     private Quaternion _rotation;
 
-    private int _count;
+    private int _count, actual_count;
     [SerializeField]
     private GameObject _ship;
 
@@ -75,10 +75,10 @@ public class Spawn : MonoBehaviour
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {
-            // if(_count >= 60){
-            //     _count += 1;
-            //     continue;
-            // }
+            if(_count >= 60){
+                _count += 1;
+                continue;
+            }
 
             rings = _count / 12;
             int ring = -2 * rings;
@@ -128,6 +128,7 @@ public class Spawn : MonoBehaviour
                 amt *= Int32.Parse(text.Split(' ')[1]);
             }
 
+            actual_count = amt + 1 - _count;
             SpawnShip(amt + 1 - _count);
             // //other.gameObject.GetComponent<BoxCollider>().enabled = false;
             // SpawnShip(13);
@@ -147,8 +148,6 @@ public class Spawn : MonoBehaviour
                 amt /= Int32.Parse(text.Split(' ')[1]);
             }
 
-            Debug.Log(amt);
-
             // if (amt == 0) call gameover
 
             while (_player.Children.Count != amt)
@@ -159,30 +158,8 @@ public class Spawn : MonoBehaviour
                 Destroy(ship);
             }
 
-            _count = UpdateCount(_ship);
+            actual_count = _count = UpdateCount(_ship);
         }
-        // else if (other.gameObject.tag == "EnemyShip")
-        // {
-        //     int amt = _count;
-        //     amt -= 5;
-            
-        //     while (_player.Children.Count != amt)
-        //     {
-        //         GameObject ship = _player.Children[_player.Children.Count - 1];
-        //         _player.Children.RemoveAt(_player.Children.Count - 1);
-
-        //         Destroy(ship);
-        //     }
-
-        //     // GameObject ship = _player.Children[_player.Children.Count - 1];
-        //     // _player.Children.RemoveAt(_player.Children.Count - 1);
-
-        //     // Destroy(ship);
-
-        //     _count = UpdateCount(_ship);
-
-        //     other.gameObject.active = false;
-        // }
         else if (other.gameObject.tag == "Asteroids")
         {
             // Call gameover
@@ -207,7 +184,7 @@ public class Spawn : MonoBehaviour
             _transform.position = new Vector3(0, 0, 2);
             _player.Currency = _player.Currency + (_player.Children.Count + 1) * 10;
             _player.Children.Clear();
-            _count = UpdateCount(_ship);
+            actual_count = _count = UpdateCount(_ship);
         }
     }
 
@@ -228,12 +205,7 @@ public class Spawn : MonoBehaviour
                 Destroy(ship);
             }
 
-            // GameObject ship = _player.Children[_player.Children.Count - 1];
-            // _player.Children.RemoveAt(_player.Children.Count - 1);
-
-            // Destroy(ship);
-
-            _count = UpdateCount(_ship);
+            actual_count = _count = UpdateCount(_ship);
 
             other.gameObject.active = false;
         }
