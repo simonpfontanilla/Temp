@@ -133,6 +133,7 @@ MonoBehaviour:
   spawnedShips: {fileID: 4854733343275288830, guid: 5bc26739d99e1c04db70cb66ed17b029, type: 3}
   _radius: 2
   curr: {fileID: 3058140859226242414, guid: 58e4acb8fc889c241a64008ae38ed2f5, type: 3}
+  _count: 0
   _ship: {fileID: 32589370237360895}
   _orbit: {fileID: 0}
 --- !u!64 &419527214
@@ -149,20 +150,27 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2639372268159669196, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
---- !u!64 &2146078351
-MeshCollider:
+--- !u!114 &2146078351
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32589370237360895}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -2639372268159669196, guid: 9011ab55162e0fc449c66afaf39b7205, type: 3}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2d95945f53a9043a63ad00fff6f6f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _position: {x: 0, y: 0, z: 0}
+  centerPosition: {x: 0, y: 0, z: 0}
+  bigGateEndingPos: {x: 0, y: 0, z: 0}
+  toCenterPos: {x: 0, y: 0, z: 0}
+  moveToCenter: 0
+  autoMove: 0
+  speed: 20
+  autoMoveMulti: 1
+  strafeSpeed: 5
 --- !u!1 &8465502521608611623
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,7 +184,6 @@ GameObject:
   - component: {fileID: 8465502521608611625}
   - component: {fileID: 8465502521608611622}
   - component: {fileID: 8465502521608611626}
-  - component: {fileID: 8465502521608611629}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -296,24 +303,3 @@ MonoBehaviour:
   target: {fileID: 0}
   smoothSpeed: 0.125
   offset: {x: 0, y: 10, z: -1}
---- !u!114 &8465502521608611629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8465502521608611623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d2d95945f53a9043a63ad00fff6f6f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 0}
-  centerPosition: {x: 0, y: 0, z: 0}
-  bigGateEndingPos: {x: 0, y: 0, z: 0}
-  toCenterPos: {x: 0, y: 0, z: 0}
-  moveToCenter: 0
-  autoMove: 0
-  speed: 20
-  autoMoveMulti: 1
-  strafeSpeed: 5

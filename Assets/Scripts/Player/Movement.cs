@@ -88,7 +88,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [SerializeField]
-    private Transform _player;
+    // private Transform _player;
 
     private Vector3 _position;
 
@@ -107,8 +107,8 @@ public class Movement : MonoBehaviour
     [SerializeField] public float strafeSpeed = 2f;    //some sideways movement amount
 
     void Start() {
-        _player = GameObject.Find("Carrier").transform;
-        _position = _player.position;
+        // _player = GameObject.Find("Carrier").transform;
+        // _position = _player.position;
         bounds = 7;
 
         float z = GameObject.Find("MapLoader").GetComponent<MapLoader>().toCenterZPos;
@@ -119,10 +119,11 @@ public class Movement : MonoBehaviour
     {
         if (moveToCenter)
         {
-            if (Vector3.Distance(_player.position, centerPosition) > 0.1)
+            if (Vector3.Distance(transform.position, centerPosition) > 0.1)
             {
-                _player.position = Vector3.Lerp(_player.position, centerPosition, 1.5f * Time.deltaTime);
-                transform.localPosition = Vector3.Lerp(transform.localPosition, new Vector3(0.2f,0f,0.14f), Time.deltaTime);
+                transform.position = Vector3.Lerp(transform.position, centerPosition, 1.5f * Time.deltaTime);
+                // camera position
+                transform.GetChild(0).localPosition = Vector3.Lerp(transform.GetChild(0).localPosition, new Vector3(0.2f,0f,0.14f), Time.deltaTime);
             }
             else
             {
@@ -132,22 +133,22 @@ public class Movement : MonoBehaviour
         }
         else if (autoMove)
         {
-            if ((int)Vector3.Distance(_player.position, bigGateEndingPos) > 0)
-                _player.position = Vector3.Lerp(_player.position, bigGateEndingPos, Time.deltaTime);
+            if ((int)Vector3.Distance(transform.position, bigGateEndingPos) > 0)
+                transform.position = Vector3.Lerp(transform.position, bigGateEndingPos, Time.deltaTime);
         }
         else
         {
-            if (_player.position.x > bounds)
+            if (transform.position.x > bounds)
             {
-                _player.position += new Vector3(-0.01f,0,speed * Time.deltaTime);
+                transform.position += new Vector3(-0.01f,0,speed * Time.deltaTime);
             }
-            else if (_player.position.x < -bounds)
+            else if (transform.position.x < -bounds)
             {
-                _player.position += new Vector3(0.01f,0,speed * Time.deltaTime);
+                transform.position += new Vector3(0.01f,0,speed * Time.deltaTime);
             }
             else
             {
-                _player.Translate(Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime, 0f, speed * Time.deltaTime, Space.World);
+                transform.Translate(Input.GetAxis("Horizontal") * strafeSpeed * Time.deltaTime, 0f, speed * Time.deltaTime, Space.World);
             }
 
             // if (Input.touchCount > 0)
@@ -165,22 +166,22 @@ public class Movement : MonoBehaviour
     }
 
     void MoveShip(Touch touch){
-        if(_player.position.x > bounds){
-            _player.position += new Vector3(-0.01f,0,0.1f);
-        }else if(_player.position.x < -bounds){
-            _player.position += new Vector3(0.01f,0,0.1f);
+        if(transform.position.x > bounds){
+            transform.position += new Vector3(-0.01f,0,0.1f);
+        }else if(transform.position.x < -bounds){
+            transform.position += new Vector3(0.01f,0,0.1f);
         }else{
-            _player.position += new Vector3(touch.deltaPosition.x/100,0,0.1f);
+            transform.position += new Vector3(touch.deltaPosition.x/100,0,0.1f);
         }
     }
 
     void MoveShipMouse(Vector3 delta){
-        if(_player.position.x > bounds){
-            _player.position += new Vector3(-0.01f,0,0.1f);
-        }else if(_player.position.x < -bounds){
-            _player.position += new Vector3(0.01f,0,0.1f);
+        if(transform.position.x > bounds){
+            transform.position += new Vector3(-0.01f,0,0.1f);
+        }else if(transform.position.x < -bounds){
+            transform.position += new Vector3(0.01f,0,0.1f);
         }else{
-            _player.position += new Vector3(delta.x/100,0, speed * Time.deltaTime);
+            transform.position += new Vector3(delta.x/100,0, speed * Time.deltaTime);
         }
     }
 
