@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bb27c1ee4259fb3488105fef442c043e
+guid: df9b0c2d8a27f8f419886b5e3d6eee76
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -9,9 +9,9 @@ ScriptedImporter:
   assetBundleVariant: 
   script: {fileID: 11500000, guid: a57477913897c46af95d590f580878bd, type: 3}
   svgType: 0
-  texturedSpriteMeshType: 1
+  texturedSpriteMeshType: 0
   svgPixelsPerUnit: 100
-  gradientResolution: 128
+  gradientResolution: 64
   alignment: 0
   customPivot: {x: 0, y: 0}
   generatePhysicsShape: 0
@@ -39,17 +39,17 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: BA Store GeoNova Icon
+      name: 
       originalName: 
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 256
-        height: 256
-      spriteID: 9eba40f0e62fee647b2f3ea5205f4831
+        width: 0
+        height: 0
+      spriteID: 77ec59ca2d51a9a4190af06cbf4a4d4a
       internalID: 0
     PhysicsOutlines: []
