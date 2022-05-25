@@ -181,7 +181,7 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "CenterCarrier")
         {   
-            gameObject.GetComponentInChildren<Movement>().moveCarrierToCenter();
+            gameObject.GetComponent<Movement>().moveCarrierToCenter();
         }
         else if (other.gameObject.tag == "EditorOnly")
         {
@@ -221,6 +221,10 @@ public class Spawn : MonoBehaviour
             _count = UpdateCount(_ship);
 
             other.gameObject.active = false;
+        }
+        else if (other.gameObject.tag == "CenterCarrier")
+        {
+            gameObject.GetComponent<Movement>().detachCamera();
         }
     }
 

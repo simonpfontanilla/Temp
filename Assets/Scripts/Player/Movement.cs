@@ -197,4 +197,9 @@ public class Movement : MonoBehaviour
 
         moveToCenter = true;
     }
+
+    public void detachCamera()
+    {
+        transform.GetChild(0).parent = null;
+    }
 }
