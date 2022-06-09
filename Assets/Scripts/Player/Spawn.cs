@@ -34,8 +34,8 @@ public class Spawn : MonoBehaviour
     {
         _transform = transform;
         _player = GetComponent<Player>();
-        // _ship = GameObject.Find("Carrier");
-        // _orbit = GameObject.Find("orbit").transform;
+        
+        Vibration.Init();
     }
 
     private void Start()
@@ -73,6 +73,15 @@ public class Spawn : MonoBehaviour
     
     void SpawnShip(int multiplier) // Hello there
     {
+        // Vibration.Vibrate();
+        Vibration.VibratePop();
+        // Vibration.VibratePeek();
+        // Vibration.VibrateNope();
+        // Vibration.VibrateCancel();
+        // Vibration.Vibrate(500);
+        // long [] pattern = { 0, 1000, 1000, 1000, 1000 };
+        // Vibration.Vibrate ( pattern, -1 );  
+        
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {

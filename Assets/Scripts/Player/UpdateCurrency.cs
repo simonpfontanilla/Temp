@@ -18,9 +18,9 @@ public class UpdateCurrency : MonoBehaviour
 
     void Update()
     {
-        int curr = _ship.Currency;
+        // int curr = _ship.Currency;
         // int curr = 999999;
-        // int curr = PlayerPrefs.GetInt("currency");
+        int curr = PlayerPrefs.GetInt("currency");
         _text.text = curr.ToString();
         PlayerPrefs.SetInt("currency", curr);
     }
