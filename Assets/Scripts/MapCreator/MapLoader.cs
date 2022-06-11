@@ -125,6 +125,36 @@ public class MapLoader : MonoBehaviour
         bigGateEndingZPos = zPos + 10f;
     }
 
+    public void destoryMap()
+    {
+        List<GameObject> groupGateSpawner = GameObject.FindGameObjectsWithTag("GateSpawner").ToList();
+        foreach (GameObject g in groupGateSpawner)
+        {
+            Destroy(g.gameObject);
+        }
+
+        List<GameObject> enemyShips = GameObject.FindGameObjectsWithTag("EnemyShip").ToList();
+        foreach (GameObject g in enemyShips)
+        {
+            Destroy(g.gameObject);
+        }
+
+        List<GameObject> asteroid = GameObject.FindGameObjectsWithTag("Asteroids").ToList();
+        foreach (GameObject g in asteroid)
+        {
+            Destroy(g.gameObject);
+        }
+
+        List<GameObject> currency = GameObject.FindGameObjectsWithTag("Currency").ToList();
+        foreach (GameObject g in currency)
+        {
+            Destroy(g.gameObject);
+        }
+
+        Destroy(GameObject.Find("CenterCarrier(Clone)"));
+        Destroy(GameObject.Find("bigStarGate(Clone)"));
+    }
+
     private static List<MapLevelClass> LoadResourceTextfile()
     {
         string filePath = "MapLevelData";

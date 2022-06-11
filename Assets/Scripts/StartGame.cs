@@ -53,7 +53,8 @@ public class StartGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began){
+        if(Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
             foreach (Touch touch in Input.touches)
             {
                 if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
@@ -92,7 +93,8 @@ public class StartGame : MonoBehaviour
                 }
             }
         }
-        if(SwipeManager.IsSwipingRight()){
+        if(SwipeManager.IsSwipingRight())
+        {
             foreach(Touch touch in Input.touches){
                 if(touch.phase == TouchPhase.Ended){
                     shopPanel.SetActive(false);
@@ -107,29 +109,29 @@ public class StartGame : MonoBehaviour
                 }
             }
         }
-            if (Input.GetMouseButtonDown(0))
-            {
-                //ui
-                    UICamera.SetActive(false);
-                    light1.SetActive(false);
-                    light2.SetActive(false);
-                    HUDCanvas.SetActive(false);
-                    Carrier.SetActive(true);
-                    Maploader.SetActive(true);
-                    orbit.SetActive(true);
-                    directionalLight.SetActive(true);
-                // if(Input.GetKeyUp(KeyCode.Escape)){
-                //     shopPanel.SetActive(false);
-                //     backButton.SetActive(false);
-                //     dropDownMenu.SetActive(true);
-                //     directionalArrow.SetActive(true);
-                //     shipTabShip.SetActive(false);
-                //     carrierTabShip.SetActive(false);
-                //     trailTabShip.SetActive(false);
-                //     mainShipModel.SetActive(true);
-                //     titleHolder.SetActive(true);
-                // }
-            }
+        if (Input.GetMouseButtonDown(0))
+        {
+            //ui
+                UICamera.SetActive(false);
+                light1.SetActive(false);
+                light2.SetActive(false);
+                HUDCanvas.SetActive(false);
+                Carrier.SetActive(true);
+                Maploader.SetActive(true);
+                orbit.SetActive(true);
+                directionalLight.SetActive(true);
+            // if(Input.GetKeyUp(KeyCode.Escape)){
+            //     shopPanel.SetActive(false);
+            //     backButton.SetActive(false);
+            //     dropDownMenu.SetActive(true);
+            //     directionalArrow.SetActive(true);
+            //     shipTabShip.SetActive(false);
+            //     carrierTabShip.SetActive(false);
+            //     trailTabShip.SetActive(false);
+            //     mainShipModel.SetActive(true);
+            //     titleHolder.SetActive(true);
+            // }
         }
     }
+}
 

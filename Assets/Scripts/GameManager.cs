@@ -36,15 +36,22 @@ public class GameManager : MonoBehaviour
             light1.SetActive(true);
             light2.SetActive(true);
             HUDCanvas.SetActive(true);
+            HUDCanvas.GetComponent<StartGame>().enabled = false;
+
             Carrier_MainUI.SetActive(false);
             Store_Panel.SetActive(false);
             StartMenu_Active.SetActive(false);
             UpgradeHolder.SetActive(false);
             GameOverUI.SetActive(true);
             Carrier.SetActive(false);
+
+            Maploader.GetComponent<MapLoader>().destoryMap();
             Maploader.SetActive(false);
+            
             orbit.SetActive(false);
             directionalLight.SetActive(false);
+
+            // rest map
         }
         else
         {
@@ -53,6 +60,7 @@ public class GameManager : MonoBehaviour
             Store_Panel.SetActive(true);
             StartMenu_Active.SetActive(true);
             UpgradeHolder.SetActive(true);
+            HUDCanvas.GetComponent<StartGame>().enabled = true;
         }
     }
 }

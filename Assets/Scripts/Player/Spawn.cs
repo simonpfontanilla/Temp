@@ -67,7 +67,6 @@ public class Spawn : MonoBehaviour
         children.ForEach(child => Destroy(child)); // Anakin not the children
         Destroy(go.GetComponent<PlayerChild>());
         _player.Children.Add (go);
-        Destroy(go.GetComponent<Spawn>());
     }
 
     private int UpdateCount(GameObject _ship)
