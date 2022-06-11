@@ -62,7 +62,6 @@ public class StartGame : MonoBehaviour
                     UICamera.SetActive(true);
                     light1.SetActive(true);
                     light2.SetActive(true);
-                    backgroundCanvas.SetActive(true);
                     HUDCanvas.SetActive(true);
                     Carrier.SetActive(false);
                     Maploader.SetActive(false);
@@ -114,7 +113,6 @@ public class StartGame : MonoBehaviour
                     UICamera.SetActive(false);
                     light1.SetActive(false);
                     light2.SetActive(false);
-                    backgroundCanvas.SetActive(false);
                     HUDCanvas.SetActive(false);
                     Carrier.SetActive(true);
                     Maploader.SetActive(true);

@@ -15,11 +15,13 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject centerCarrier;
     [SerializeField] private GameObject enemy;
     public float centerToPosition, toCenterZPos, bigGateEndingZPos;
+    public GameObject gameManagerObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        createMap(LoadResourceTextfile(), 0);
+        GameManager gM = gameManagerObject.GetComponent<GameManager>();
+        createMap(LoadResourceTextfile(), gM.level);
     }
 
     public void createMap(List<MapLevelClass> mapLevel, int level)

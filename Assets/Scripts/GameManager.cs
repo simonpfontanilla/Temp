@@ -7,6 +7,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Spawn spawnScript;
     [SerializeField] private PlayerChild playerScript;
 
+    public int level = 0;
+
+    // UI
+    public GameObject UICamera, light1, light2,
+        HUDCanvas, Carrier,
+        Maploader, orbit, directionalLight,
+        Carrier_MainUI, Store_Panel, StartMenu_Active,
+        UpgradeHolder, GameOverUI, GameWinUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +28,31 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void GameOver()
+    public void GameOver(bool check)
     {
-
+        if (check)
+        {            
+            UICamera.SetActive(true);
+            light1.SetActive(true);
+            light2.SetActive(true);
+            HUDCanvas.SetActive(true);
+            Carrier_MainUI.SetActive(false);
+            Store_Panel.SetActive(false);
+            StartMenu_Active.SetActive(false);
+            UpgradeHolder.SetActive(false);
+            GameOverUI.SetActive(true);
+            Carrier.SetActive(false);
+            Maploader.SetActive(false);
+            orbit.SetActive(false);
+            directionalLight.SetActive(false);
+        }
+        else
+        {
+            GameOverUI.SetActive(false);
+            Carrier_MainUI.SetActive(true);
+            Store_Panel.SetActive(true);
+            StartMenu_Active.SetActive(true);
+            UpgradeHolder.SetActive(true);
+        }
     }
 }

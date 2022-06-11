@@ -30,10 +30,14 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     private Transform _orbit;
 
+    public GameObject gameManagerObject;
+    public GameManager gM;
+
     private void Awake()
     {
         _transform = transform;
         _player = GetComponent<Player>();
+        gM = gameManagerObject.GetComponent<GameManager>();
         
         Vibration.Init();
     }
@@ -158,7 +162,8 @@ public class Spawn : MonoBehaviour
                 amt /= Int32.Parse(text.Split(' ')[1]);
             }
 
-            // if (amt == 0) call gameover
+            if (amt == 0)
+                gM.GameOver(true);
 
             if (amt > _player.Children.Count)
             {
@@ -179,6 +184,7 @@ public class Spawn : MonoBehaviour
         else if (other.gameObject.tag == "Asteroids")
         {
             // Call gameover
+            gM.GameOver(true);
         }
         else if (other.gameObject.tag == "Currency")
         {
@@ -217,7 +223,8 @@ public class Spawn : MonoBehaviour
                 return;
             }
 
-            // if (amt == 0) call gameover;
+            if (amt == 0)
+                gM.GameOver(true);
             
             while (_player.Children.Count != amt)
             {
