@@ -17355,9 +17355,9 @@ MonoBehaviour:
   panel3: {fileID: 1981404234}
   initialShopTab: {fileID: 519252092}
   skinsIcons:
-  - {fileID: 21300000, guid: 54fc0e38aafca0e42aa1b991ff17604c, type: 3}
-  - {fileID: 21300000, guid: c00204efc7bad31498044323943fdc2b, type: 3}
-  - {fileID: 21300000, guid: 061748bd18d18ea439f8f739cbf4762e, type: 3}
+  - {fileID: 3286163911610860551, guid: 0efa3852ad47f654dab6d8083f84b3ab, type: 3}
+  - {fileID: 3286163911610860551, guid: a919f3ed6ec0e2f4b9c7fa135f837544, type: 3}
+  - {fileID: 3286163911610860551, guid: bc7a73d50eac0e441a60316384f30423, type: 3}
   - {fileID: 21300000, guid: 777cac23f136ff4498bda0490aea6785, type: 3}
   - {fileID: 21300000, guid: c65d9d1a3419f31468d2e245d18b18ec, type: 3}
   - {fileID: 21300000, guid: a1f3ab9786225cd498452d18e225d216, type: 3}
