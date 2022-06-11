@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0009314366, g: 0.0009314366, b: 0.0009314366, a: 1}
+  m_IndirectSpecularColor: {r: 0.0006213202, g: 0.0006213202, b: 0.0006213202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4108,19 +4108,19 @@ MonoBehaviour:
   spawnScript: {fileID: 0}
   playerScript: {fileID: 0}
   level: 0
-  UICamera: {fileID: 2115944539}
-  light1: {fileID: 37810906}
-  light2: {fileID: 804575998}
-  HUDCanvas: {fileID: 1299702173}
-  Carrier: {fileID: 2146078350}
-  Maploader: {fileID: 1966812293}
-  orbit: {fileID: 448204784}
-  directionalLight: {fileID: 1953575450}
-  Carrier_MainUI: {fileID: 527384076}
-  Store_Panel: {fileID: 2076338739}
-  StartMenu_Active: {fileID: 1538650736}
-  UpgradeHolder: {fileID: 13419019}
-  GameOverUI: {fileID: 1864191341}
+  UICamera: {fileID: 0}
+  light1: {fileID: 0}
+  light2: {fileID: 0}
+  HUDCanvas: {fileID: 0}
+  Carrier: {fileID: 0}
+  Maploader: {fileID: 0}
+  orbit: {fileID: 0}
+  directionalLight: {fileID: 0}
+  Carrier_MainUI: {fileID: 0}
+  Store_Panel: {fileID: 0}
+  StartMenu_Active: {fileID: 0}
+  UpgradeHolder: {fileID: 0}
+  GameOverUI: {fileID: 0}
   GameWinUI: {fileID: 0}
 --- !u!4 &580845860
 Transform:
@@ -7145,8 +7145,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294303487
+  m_fontColor: {r: 1, g: 0.87169814, b: 0.95900273, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7163,7 +7163,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.6
+  m_fontSize: 46.75
   m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7243,8 +7243,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 551, y: 404}
-  m_SizeDelta: {x: 279.272, y: 58.808}
+  m_AnchoredPosition: {x: 568.3714, y: 423.6723}
+  m_SizeDelta: {x: 259.905, y: 52.244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &933684538
 GameObject:
@@ -12534,11 +12534,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 60.67
+      value: 61.117
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 76.269
+      value: 83.463
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_LocalScale.x
@@ -12546,7 +12546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.45
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_LocalScale.z
@@ -12582,11 +12582,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 3
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.6
+      value: -2.3
       objectReference: {fileID: 0}
     - target: {fileID: 1157168689868188684, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -12860,6 +12860,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[12].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1157168689868188686, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da25369d5d8db0d48a1cb3c23d69126e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5bb33a8afa3c5b458bbd878a1931b03, type: 3}
 --- !u!1 &1563598074
@@ -13961,8 +13965,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 615.23315, y: 407.13107}
-  m_SizeDelta: {x: 86.277, y: 477.079}
+  m_AnchoredPosition: {x: 628.1521, y: 426.45425}
+  m_SizeDelta: {x: 73.359, y: 412.668}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1648465279
 MonoBehaviour:
@@ -14746,8 +14750,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 671.62854, y: 403}
-  m_SizeDelta: {x: 140.159, y: 100}
+  m_AnchoredPosition: {x: 672, y: 422.784}
+  m_SizeDelta: {x: 130.439, y: 88.839}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1802815778
 MonoBehaviour:
@@ -17842,7 +17846,7 @@ MonoBehaviour:
   _count: 0
   _ship: {fileID: 2146078350}
   _orbit: {fileID: 448204788}
-  gameManagerObject: {fileID: 580845858}
+  gameManagerObject: {fileID: 0}
   gM: {fileID: 0}
 --- !u!4 &543450652464108831 stripped
 Transform:
