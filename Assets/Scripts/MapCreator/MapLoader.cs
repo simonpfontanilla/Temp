@@ -15,16 +15,21 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject centerCarrier;
     [SerializeField] private GameObject enemy;
     public float centerToPosition, toCenterZPos, bigGateEndingZPos;
-    public GameObject gameManagerObject;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManager gM = gameManagerObject.GetComponent<GameManager>();
+        // GameManager gM = gameManagerObject.GetComponent<GameManager>();
+        // createMap(LoadResourceTextfile(), gM.level);
+    }
+
+    public void create()
+    {
+        GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         createMap(LoadResourceTextfile(), gM.level);
     }
 
-    public void createMap(List<MapLevelClass> mapLevel, int level)
+    private void createMap(List<MapLevelClass> mapLevel, int level)
     {
         for (int i = 0; i < mapLevel[level].gatePositons.Count(); i++)
         {
@@ -135,6 +140,12 @@ public class MapLoader : MonoBehaviour
 
         List<GameObject> enemyShips = GameObject.FindGameObjectsWithTag("EnemyShip").ToList();
         foreach (GameObject g in enemyShips)
+        {
+            Destroy(g.gameObject);
+        }
+
+        List<GameObject> spawnedShips = GameObject.FindGameObjectsWithTag("SpawnedShips").ToList();
+        foreach (GameObject g in spawnedShips)
         {
             Destroy(g.gameObject);
         }

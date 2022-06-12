@@ -84,10 +84,10 @@ public class StartGame : MonoBehaviour
                     UICamera.SetActive(false);
                     light1.SetActive(false);
                     light2.SetActive(false);
-                    backgroundCanvas.SetActive(false);
                     HUDCanvas.SetActive(false);
-                    Carrier.SetActive(true);
                     Maploader.SetActive(true);
+                    Maploader.GetComponent<MapLoader>().create();
+                    Carrier.SetActive(true);
                     orbit.SetActive(true);
                     directionalLight.SetActive(true);
                 }
@@ -116,10 +116,12 @@ public class StartGame : MonoBehaviour
                 light1.SetActive(false);
                 light2.SetActive(false);
                 HUDCanvas.SetActive(false);
-                Carrier.SetActive(true);
                 Maploader.SetActive(true);
+                Maploader.GetComponent<MapLoader>().create();
+                Carrier.SetActive(true);
                 orbit.SetActive(true);
                 directionalLight.SetActive(true);
+
             // if(Input.GetKeyUp(KeyCode.Escape)){
             //     shopPanel.SetActive(false);
             //     backButton.SetActive(false);

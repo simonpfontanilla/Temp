@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0010285678, g: 0.0010285678, b: 0.0010285678, a: 1}
+  m_IndirectSpecularColor: {r: 0.0009314366, g: 0.0009314366, b: 0.0009314366, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4083,7 +4083,7 @@ GameObject:
   - component: {fileID: 580845859}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18082,10 +18082,10 @@ MonoBehaviour:
   panel1: {fileID: 1626839716}
   panel2: {fileID: 211855226}
   panel3: {fileID: 1981404234}
-  shipUpLevel: {fileID: 1046726294}
-  shipUpCost: {fileID: 901272891}
-  incomeUpLevel: {fileID: 2049532974}
-  incomeUpCost: {fileID: 1606403728}
+  shipUpLevel: {fileID: 0}
+  shipUpCost: {fileID: 0}
+  incomeUpLevel: {fileID: 0}
+  incomeUpCost: {fileID: 0}
   shipLevel: 0
   shipCost: 0
   incomeLevel: 0
