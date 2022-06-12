@@ -30,6 +30,19 @@ public class MainMenuManager : MonoBehaviour
     public Transform panel2;
     public Transform panel3;
 
+    // Upgrade Text Lables for Ship+ and Income+
+    public TextMeshProUGUI shipUpLevel;
+    public TextMeshProUGUI shipUpCost;
+    public TextMeshProUGUI incomeUpLevel;
+    public TextMeshProUGUI incomeUpCost;
+
+    //int values for Ship+ and Income+
+    public int shipLevel = 0;
+    public int shipCost = 0;
+    public int incomeLevel = 0;
+    public int incomeCost = 0;
+
+
     // Initial Shop Tab
     //public GameObject initialShopTab;
     public Button initialShopTab;
@@ -51,7 +64,19 @@ public class MainMenuManager : MonoBehaviour
         shopIndex = 1;
         totalCurrency = PlayerPrefs.GetInt("currency", 0);
         currencyAmount.text = totalCurrency.ToString();
-        //Add button-pn-click events to shop Buttons
+
+        shipLevel = PlayerPrefs.GetInt("shipLevel", 0);
+        shipUpLevel.text = shipLevel.ToString();
+        shipCost = PlayerPrefs.GetInt("shipCost", 0);
+        shipUpCost.text = shipCost.ToString();
+
+        incomeLevel = PlayerPrefs.GetInt("incomeLevel", 0);
+        incomeUpLevel.text = incomeLevel.ToString();
+        incomeCost = PlayerPrefs.GetInt("incomeCost", 0);
+        incomeUpCost.text = incomeCost.ToString();
+
+
+        //Add button-on-click events to shop Buttons
         InitShop();
     }
 
@@ -78,6 +103,39 @@ public class MainMenuManager : MonoBehaviour
             //Testing Currency Usage in Shop
             //tempAddCurrency();
         }
+    }
+
+    public void resetUpgrades()
+    {
+        shipLevel = 0;
+        PlayerPrefs.SetInt("shipLevel", shipLevel);
+
+        shipCost = 0;
+        PlayerPrefs.SetInt("shipCost", shipCost);
+
+        incomeLevel = 0;
+        PlayerPrefs.SetInt("incomeLevel", incomeLevel);
+
+        incomeCost = 0;
+        PlayerPrefs.SetInt("incomeCost", incomeCost);
+    }
+
+    public void shipUp()
+    {
+         shipLevel = shipLevel + 1;
+        PlayerPrefs.SetInt("shipLevel", shipLevel);
+
+        shipCost = shipCost + 20;
+        PlayerPrefs.SetInt("shipCost", shipCost);
+    }
+
+    public void incomeUp()
+    {
+        incomeLevel = incomeLevel +1;
+        PlayerPrefs.SetInt("incomeLevel", incomeLevel);
+
+        incomeCost = incomeCost + 20;
+        PlayerPrefs.SetInt("incomeCost", incomeCost);
     }
 
     public void screenSlideOut()
