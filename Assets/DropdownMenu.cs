@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class DropdownMenu : MonoBehaviour
@@ -46,14 +47,16 @@ public class DropdownMenu : MonoBehaviour
     public IEnumerator open()
     {
 
-        buttonPrefab[0].SetActive(true);
-        buttonPrefab[1].SetActive(true);
-        buttonPrefab[2].SetActive(true);
+        // buttonPrefab[0].SetActive(true);
+        // buttonPrefab[1].SetActive(true);
+        // buttonPrefab[2].SetActive(true);
+        buttonPrefab[0].GetComponent<Image>().enabled = true;
+        buttonPrefab[1].GetComponent<Image>().enabled = true;
+        buttonPrefab[2].GetComponent<Image>().enabled = true;
         // yield return new WaitForSeconds(5);
         settingsAnim.SetTrigger("OpenSettings");
         Debug.Log("Animation start!");
         settingsAnim.SetBool("Open", true);
-
         yield return null;
         // yield return new WaitForSeconds(5);
 
@@ -64,15 +67,16 @@ public class DropdownMenu : MonoBehaviour
         // StartCoroutine(collapse());
         settingsAnim.SetTrigger("CloseSettings");
         settingsAnim.SetBool("Open", false);
-
+        buttonPrefab[0].GetComponent<Image>().enabled = false;
+        buttonPrefab[1].GetComponent<Image>().enabled = false;
+        buttonPrefab[2].GetComponent<Image>().enabled = false;
         if (settingsAnim.GetBool("Open") == false && settingsAnim.GetCurrentAnimatorStateInfo(0).IsName("IdleDrop"))
         {
             Debug.Log("IdleDrop State reached");
-            buttonPrefab[0].SetActive(false);
-            buttonPrefab[1].SetActive(false);
-            buttonPrefab[2].SetActive(false);
+            // buttonPrefab[0].SetActive(false);
+            // buttonPrefab[1].SetActive(false);
+            // buttonPrefab[2].SetActive(false);
         }
-
     }
 
     public IEnumerator collapse()

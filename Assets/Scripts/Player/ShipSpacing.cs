@@ -24,7 +24,7 @@ public class ShipSpacing : MonoBehaviour
         _ship = GameObject.Find("Carrier").transform;
         shipList = GameObject.Find("Carrier").GetComponent<Player>().Children;
         prevCount = shipList.Count;
-        radius  = 2.0f;
+        radius  = 0.5f;
     }
 
     void Update()
