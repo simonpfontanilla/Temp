@@ -53,12 +53,6 @@ public class ShipSpacing_test : MonoBehaviour
     void MoveShips(int index, int count){
         //Debug.Log("new loop" + " index: " + index + " count: " + count + " prevCount: " + prevCount);
         for(int i = index; i < count; i++){
-            //Debug.Log(i);
-            int temp = count - index;
-            if(temp > 12) temp = 12;
-            float theta = (2 * Mathf.PI / temp) * i;
-            int ring = shipList[i].GetComponent<Follow>().Ring;
-
             if(sphere){ //sphere
                 Vector3 newPos = Random.onUnitSphere * sphereSize;
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(_ship.position.x + newPos.x, _ship.position.y + newPos.y, _ship.position.z + newPos.z);
@@ -68,10 +62,15 @@ public class ShipSpacing_test : MonoBehaviour
                 shipList[i].GetComponent<Follow>().Axis = _ship.position;
                 shipList[i].GetComponent<Follow>().sphere = true;
             }else{ //ring
+                int temp = count - index;
+                if(temp > 12) temp = 12;
+                float theta = (2 * Mathf.PI / temp) * i;
+                int ring = shipList[i].GetComponent<Follow>().Ring;
                 float x = Mathf.Cos(theta) + (_ship.position.x/2);
                 float y = Mathf.Sin(theta) + (_ship.position.y/2);
                 shipList[i].GetComponent<Follow>().FollowOffset = new Vector3(radius*x,radius*y,_ship.position.z + ring);
                 shipList[i].transform.position = new Vector3(radius*x,radius*y,_ship.position.z + ring);
+                shipList[i].transform.Rotate(new Vector3(0, 0, 90), Space.Self);
             }
 
             if((i+1)%12 == 0){

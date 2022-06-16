@@ -57,6 +57,7 @@ public class Spawn : MonoBehaviour
         f.Direction = direction;
         go.AddComponent<SphereCollider>().isTrigger = true;
         go.GetComponent<SphereCollider>().radius = 0.01f;
+        go.transform.Rotate(new Vector3(-90, 90, 0), Space.Self);
 
         if (!isShip) return;
 
@@ -77,7 +78,7 @@ public class Spawn : MonoBehaviour
     void SpawnShip(int multiplier) // Hello there
     {
         // Vibration.Vibrate();
-        Vibration.VibratePop();
+        // Vibration.VibratePop();
         // Vibration.VibratePeek();
         // Vibration.VibrateNope();
         // Vibration.VibrateCancel();
@@ -101,7 +102,6 @@ public class Spawn : MonoBehaviour
                 k *= -1;
             }
             int direction = k;
-            
             GameObject temp = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(temp, false, ring, direction);
             temp.transform.position = new Vector3(Mathf.Cos(12*i) * _radius, Mathf.Sin(12*i) * _radius, 0); // 2 + 2 is 4 - 3 is 1 quick maths.
@@ -131,6 +131,8 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "Respawn")
         {
+            Vibration.VibratePop();
+
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
             
@@ -151,8 +153,13 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "Finish")
         {
+            Vibration.VibratePop();
+
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
+            
+            if (amt == 0)
+                gM.GameOver(true);
 
             if (text.Contains("-")) amt -= Int32.Parse(text.Split(' ')[1]);
             else
@@ -161,8 +168,6 @@ public class Spawn : MonoBehaviour
                 amt /= Int32.Parse(text.Split(' ')[1]);
             }
 
-            if (amt == 0)
-                gM.GameOver(true);
 
             if (amt > _player.Children.Count)
             {
@@ -182,6 +187,7 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "Asteroids")
         {
+            Vibration.VibratePop();
             // Call gameover
             gM.GameOver(true);
         }
@@ -213,9 +219,11 @@ public class Spawn : MonoBehaviour
     {
         if (other.gameObject.tag == "EnemyShip")
         {
+            Vibration.VibratePop();
+
             int amt = _count;
             amt -= 5;
-
+            
             if (amt > _player.Children.Count)
             {
                 _count = amt;

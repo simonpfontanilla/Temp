@@ -42,6 +42,10 @@ public class StartGame : MonoBehaviour
     private GameObject titleHolder;
     [SerializeField]
     private GameObject mainShipModel;
+    [SerializeField]
+    private GameObject canvas;
+    [SerializeField]
+    private Animator animator;
 
 
     // Start is called before the first frame update
@@ -68,6 +72,7 @@ public class StartGame : MonoBehaviour
                     Maploader.SetActive(false);
                     orbit.SetActive(false);
                     directionalLight.SetActive(false);
+                    canvas.SetActive(false);
                     if(Input.GetKeyUp(KeyCode.Escape)){
                         shopPanel.SetActive(false);
                         backButton.SetActive(false);
@@ -90,6 +95,8 @@ public class StartGame : MonoBehaviour
                     Carrier.SetActive(true);
                     orbit.SetActive(true);
                     directionalLight.SetActive(true);
+                    canvas.SetActive(true);
+                    animator.SetTrigger("Trigger");
                 }
             }
         }
@@ -106,21 +113,24 @@ public class StartGame : MonoBehaviour
                     trailTabShip.SetActive(false);
                     mainShipModel.SetActive(true);
                     titleHolder.SetActive(true);
+                    canvas.SetActive(false);
                 }
             }
         }
         if (Input.GetMouseButtonDown(0))
         {
             //ui
-                UICamera.SetActive(false);
-                light1.SetActive(false);
-                light2.SetActive(false);
-                HUDCanvas.SetActive(false);
-                Maploader.SetActive(true);
-                Maploader.GetComponent<MapLoader>().create();
-                Carrier.SetActive(true);
-                orbit.SetActive(true);
-                directionalLight.SetActive(true);
+                // UICamera.SetActive(false);
+                // light1.SetActive(false);
+                // light2.SetActive(false);
+                // HUDCanvas.SetActive(false);
+                // Maploader.SetActive(true);
+                // Maploader.GetComponent<MapLoader>().create();
+                // Carrier.SetActive(true);
+                // orbit.SetActive(true);
+                // directionalLight.SetActive(true);
+                // canvas.SetActive(true);
+                animator.SetTrigger("Trigger");
 
             // if(Input.GetKeyUp(KeyCode.Escape)){
             //     shopPanel.SetActive(false);
@@ -134,6 +144,32 @@ public class StartGame : MonoBehaviour
             //     titleHolder.SetActive(true);
             // }
         }
+    }
+
+    public void DisableUI(){
+        UICamera.SetActive(false);
+        light1.SetActive(false);
+        light2.SetActive(false);
+        HUDCanvas.SetActive(false);
+        Maploader.SetActive(true);
+        Maploader.GetComponent<MapLoader>().create();
+        Carrier.SetActive(true);
+        orbit.SetActive(true);
+        directionalLight.SetActive(true);
+        canvas.SetActive(true);
+        animator.SetTrigger("Trigger");
+    }
+
+    public void EnableUI(){
+        UICamera.SetActive(true);
+        light1.SetActive(true);
+        light2.SetActive(true);
+        HUDCanvas.SetActive(true);
+        Carrier.SetActive(false);
+        Maploader.SetActive(false);
+        orbit.SetActive(false);
+        directionalLight.SetActive(false);
+        canvas.SetActive(false);
     }
 }
 
