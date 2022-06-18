@@ -118,4 +118,10 @@ public class Movement : MonoBehaviour
     {
         transform.GetChild(0).parent = null;
     }
+
+    public void reset()
+    {
+        moveToCenter = autoMove = false;
+        // get game camera and set it as child if detached
+    }
 }
