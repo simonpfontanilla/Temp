@@ -139,7 +139,7 @@ public class Spawn : MonoBehaviour
             if (text.Contains("+")) amt += Int32.Parse(text.Split(' ')[1]);
             else
             {
-                if (amt == 0) amt = 1;
+                if (amt <= 0) amt = 1;
                 amt *= Int32.Parse(text.Split(' ')[1]);
             }
 
@@ -158,13 +158,13 @@ public class Spawn : MonoBehaviour
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
             
-            if (amt == 0)
+            if (amt <= 0)
                 gM.GameOver(true);
 
             if (text.Contains("-")) amt -= Int32.Parse(text.Split(' ')[1]);
             else
             {
-                if (amt == 0) amt = 1;
+                if (amt <= 0) amt = 1;
                 amt /= Int32.Parse(text.Split(' ')[1]);
             }
 
@@ -230,7 +230,7 @@ public class Spawn : MonoBehaviour
                 return;
             }
 
-            if (amt == 0)
+            if (amt <= 0)
                 gM.GameOver(true);
             
             while (_player.Children.Count != amt)

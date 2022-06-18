@@ -120,17 +120,17 @@ public class StartGame : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //ui
-                // UICamera.SetActive(false);
-                // light1.SetActive(false);
-                // light2.SetActive(false);
-                // HUDCanvas.SetActive(false);
-                // Maploader.SetActive(true);
-                // Maploader.GetComponent<MapLoader>().create();
-                // Carrier.SetActive(true);
-                // orbit.SetActive(true);
-                // directionalLight.SetActive(true);
-                // canvas.SetActive(true);
-                animator.SetTrigger("Trigger");
+                UICamera.SetActive(false);
+                light1.SetActive(false);
+                light2.SetActive(false);
+                HUDCanvas.SetActive(false);
+                Maploader.SetActive(true);
+                Maploader.GetComponent<MapLoader>().create();
+                Carrier.SetActive(true);
+                orbit.SetActive(true);
+                directionalLight.SetActive(true);
+                canvas.SetActive(true);
+                // animator.SetTrigger("Trigger");
 
             // if(Input.GetKeyUp(KeyCode.Escape)){
             //     shopPanel.SetActive(false);
