@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0006213202, g: 0.0006213202, b: 0.0006213202, a: 1}
+  m_IndirectSpecularColor: {r: 0.0010285678, g: 0.0010285678, b: 0.0010285678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5627,6 +5627,7 @@ GameObject:
   - component: {fileID: 769454956}
   - component: {fileID: 769454955}
   - component: {fileID: 769454957}
+  - component: {fileID: 769454958}
   m_Layer: 0
   m_Name: Income+
   m_TagString: Untagged
@@ -5756,6 +5757,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cd0ce1b58fd7e4292ef89d313cad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &769454958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 769454952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 769454955}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2115944542}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: incomeUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &796418592
 GameObject:
   m_ObjectHideFlags: 0
@@ -16719,6 +16776,7 @@ GameObject:
   - component: {fileID: 1737296221}
   - component: {fileID: 1737296220}
   - component: {fileID: 1737296222}
+  - component: {fileID: 1737296223}
   m_Layer: 0
   m_Name: Ship+
   m_TagString: Untagged
@@ -16848,6 +16906,62 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cd0ce1b58fd7e4292ef89d313cad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1737296223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737296217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1737296220}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2115944542}
+        m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
+        m_MethodName: shipUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1783152433
 GameObject:
   m_ObjectHideFlags: 0
@@ -19757,15 +19871,17 @@ MonoBehaviour:
   panel1: {fileID: 1626839716}
   panel2: {fileID: 211855226}
   panel3: {fileID: 1981404234}
-  shipUpLevel: {fileID: 0}
-  shipUpCost: {fileID: 0}
-  incomeUpLevel: {fileID: 0}
-  incomeUpCost: {fileID: 0}
+  shipUpLevel: {fileID: 1046726294}
+  shipUpCost: {fileID: 901272891}
+  incomeUpLevel: {fileID: 2049532974}
+  incomeUpCost: {fileID: 1606403728}
   shipLevel: 0
   shipCost: 0
   incomeLevel: 0
   incomeCost: 0
   initialShopTab: {fileID: 519252092}
+  shipUpgrade: {fileID: 1737296223}
+  incomeUpgrade: {fileID: 769454958}
   skinsIcons:
   - {fileID: 3286163911610860551, guid: 0efa3852ad47f654dab6d8083f84b3ab, type: 3}
   - {fileID: 3286163911610860551, guid: a919f3ed6ec0e2f4b9c7fa135f837544, type: 3}

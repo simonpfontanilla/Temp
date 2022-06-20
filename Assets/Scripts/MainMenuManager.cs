@@ -46,6 +46,8 @@ public class MainMenuManager : MonoBehaviour
     // Initial Shop Tab
     //public GameObject initialShopTab;
     public Button initialShopTab;
+    public Button shipUpgrade;
+    public Button incomeUpgrade;
     //Icon Array
     public Sprite[] skinsIcons;
 
@@ -90,18 +92,33 @@ public class MainMenuManager : MonoBehaviour
     {
         // checkPage();
         currencyAmount.text = totalCurrency.ToString();
-        if (Input.GetKeyDown("space"))
+
+        //Check if player has enough currency before allowing interactable
+        checkUpgradeAccess(); 
+
+        //Update ship level and income level in real-time
+        shipLevel = PlayerPrefs.GetInt("shipLevel", 0);
+        shipUpLevel.text = shipLevel.ToString();
+        shipCost = PlayerPrefs.GetInt("shipCost", 0);
+        shipUpCost.text = shipCost.ToString();
+
+        incomeLevel = PlayerPrefs.GetInt("incomeLevel", 0);
+        incomeUpLevel.text = incomeLevel.ToString();
+        incomeCost = PlayerPrefs.GetInt("incomeCost", 0);
+        incomeUpCost.text = incomeCost.ToString();
+        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
 
             //Initiate SwipeOut transition
-            screenSlideOut();
+            //screenSlideOut();
 
             //startGame();
 
 
 
             //Testing Currency Usage in Shop
-            //tempAddCurrency();
+            tempAddCurrency();
         }
     }
 
@@ -124,18 +141,30 @@ public class MainMenuManager : MonoBehaviour
     {
          shipLevel = shipLevel + 1;
         PlayerPrefs.SetInt("shipLevel", shipLevel);
+        Debug.Log("Ship level is "+shipLevel);
+
+        totalCurrency = totalCurrency - shipCost;
+        PlayerPrefs.SetInt("currency", totalCurrency);
+        Debug.Log("Total currency is: " + totalCurrency);
 
         shipCost = shipCost + 20;
         PlayerPrefs.SetInt("shipCost", shipCost);
+        Debug.Log("Ship cost is "+shipCost);
     }
 
     public void incomeUp()
     {
         incomeLevel = incomeLevel +1;
         PlayerPrefs.SetInt("incomeLevel", incomeLevel);
+        Debug.Log("Income level is "+incomeLevel);
+
+        totalCurrency = totalCurrency - incomeCost;
+        PlayerPrefs.SetInt("currency", totalCurrency);
+        Debug.Log("Total currency is: " + totalCurrency);
 
         incomeCost = incomeCost + 20;
         PlayerPrefs.SetInt("incomeCost", incomeCost);
+        Debug.Log("Income cost is "+incomeCost);
     }
 
     public void screenSlideOut()
@@ -205,6 +234,45 @@ public class MainMenuManager : MonoBehaviour
 
         }
 
+    }
+
+    //Check Currency For Ship Upgrade
+    public void checkShipCurrencyUpgrade()
+    {
+      if(totalCurrency < shipCost)
+      {
+          Debug.Log("Total Currency is less than ship upgrade cost!");
+          shipUpgrade.interactable = false;
+      } 
+
+      else 
+      {
+         Debug.Log("Total Currency is MORE than or equal ship upgrade cost!");
+          shipUpgrade.interactable = true;
+      }
+    }
+
+     //Check Currency For Income Upgrade
+    public void checkIncomeCurrencyUpgrade()
+    {
+        if(totalCurrency < incomeCost)
+      {
+          Debug.Log("Total Currency is less than income upgrade cost!");
+          incomeUpgrade.interactable = false;
+      } 
+
+      else
+      {
+         Debug.Log("Total Currency is MORE than or equal income upgrade cost!");
+         incomeUpgrade.interactable = true;
+    
+      }
+    }
+
+    public void checkUpgradeAccess()
+    {
+        checkShipCurrencyUpgrade();
+        checkIncomeCurrencyUpgrade();
     }
 
     //Purchase from Page 1, adjust category for cost
