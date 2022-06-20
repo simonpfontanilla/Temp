@@ -69,12 +69,12 @@ public class MainMenuManager : MonoBehaviour
 
         shipLevel = PlayerPrefs.GetInt("shipLevel", 0);
         shipUpLevel.text = shipLevel.ToString();
-        shipCost = PlayerPrefs.GetInt("shipCost", 0);
+        shipCost = PlayerPrefs.GetInt("shipCost", 20);
         shipUpCost.text = shipCost.ToString();
 
         incomeLevel = PlayerPrefs.GetInt("incomeLevel", 0);
         incomeUpLevel.text = incomeLevel.ToString();
-        incomeCost = PlayerPrefs.GetInt("incomeCost", 0);
+        incomeCost = PlayerPrefs.GetInt("incomeCost", 20);
         incomeUpCost.text = incomeCost.ToString();
 
 
