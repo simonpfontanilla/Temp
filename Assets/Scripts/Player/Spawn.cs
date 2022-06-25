@@ -150,6 +150,7 @@ public class Spawn : MonoBehaviour
             other.gameObject.GetComponent<BoxCollider>().enabled = false;
             // SpawnShip(13);
             // other.gameObject.GetComponent<BoxCollider>().enabled = false;
+            turnOff(other.gameObject);
         }
         else if (other.gameObject.tag == "Finish")
         {
@@ -181,6 +182,8 @@ public class Spawn : MonoBehaviour
 
                 Destroy(ship);
             }
+
+            turnOff(other.gameObject);
 
             _count = UpdateCount(_ship);
         }
@@ -253,6 +256,12 @@ public class Spawn : MonoBehaviour
     private void Move(GameObject go) // I like the way you move
     {
         StartCoroutine(MoveCoroutine(go));
+    }
+
+    private void turnOff(GameObject other)
+    {
+        other.transform.GetChild(0).gameObject.active = false;
+        other.transform.GetChild(1).gameObject.active = false;
     }
 
     IEnumerator MoveCoroutine(GameObject go)
