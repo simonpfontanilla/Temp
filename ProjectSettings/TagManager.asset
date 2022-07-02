@@ -12,6 +12,7 @@ TagManager:
   - EnemyShip
   - Asteroids
   - CenterCarrier
+  - EndGate
   layers:
   - Default
   - TransparentFX

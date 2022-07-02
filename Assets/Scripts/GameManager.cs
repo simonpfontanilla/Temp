@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private Spawn spawnScript;
     [SerializeField] private PlayerChild playerScript;
+    public PlayerPrefsHolder playerPrefsHolder = new PlayerPrefsHolder();
 
     public int level = 0;
 
@@ -15,17 +17,24 @@ public class GameManager : MonoBehaviour
         Maploader, orbit, directionalLight,
         Carrier_MainUI, Store_Panel, StartMenu_Active,
         UpgradeHolder, GameOverUI, GameWinUI;
+    
+    [SerializeField] private TextMeshProUGUI levelText;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        levelText = GameObject.Find("Level_Title").GetComponent<TextMeshProUGUI>();
+        level = playerPrefsHolder.getLevel();
+        levelText.text = "Level " + level.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            level = 0;
+        }
     }
 
     public void GameOver(bool check)

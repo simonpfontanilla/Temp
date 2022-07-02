@@ -30,14 +30,13 @@ public class Spawn : MonoBehaviour
     [SerializeField]
     private Transform _orbit;
 
-    public GameObject gameManagerObject;
-    public GameManager gM;
+    GameManager gM;
 
     private void Awake()
     {
         _transform = transform;
         _player = GetComponent<Player>();
-        gM = gameManagerObject.GetComponent<GameManager>();
+        gM = GameObject.Find("GameManager").GetComponent<GameManager>();
         
         Vibration.Init();
     }
@@ -191,6 +190,17 @@ public class Spawn : MonoBehaviour
         {
             Vibration.VibratePop();
             // Call gameover
+
+            while (_player.Children.Count != 0)
+            {
+                GameObject ship = _player.Children[_player.Children.Count - 1];
+                _player.Children.RemoveAt(_player.Children.Count - 1);
+
+                Destroy(ship);
+            }
+
+            _count = UpdateCount(_ship);
+            
             gM.GameOver(true);
         }
         else if (other.gameObject.tag == "Currency")
@@ -251,6 +261,14 @@ public class Spawn : MonoBehaviour
         {
             gameObject.GetComponent<Movement>().detachCamera();
         }
+        else if (other.gameObject.tag == "EndGate")
+        {
+            // increase level
+            gM.playerPrefsHolder.increaseLevel();
+            Debug.Log(gM.playerPrefsHolder.getLevel());
+            // Open game win ui
+            // reset level
+        }
     }
 
     private void Move(GameObject go) // I like the way you move
@@ -260,8 +278,8 @@ public class Spawn : MonoBehaviour
 
     private void turnOff(GameObject other)
     {
-        other.transform.GetChild(0).gameObject.active = false;
-        other.transform.GetChild(1).gameObject.active = false;
+        other.transform.GetChild(0).gameObject.SetActive(false);
+        other.transform.GetChild(1).gameObject.SetActive(false);
     }
 
     IEnumerator MoveCoroutine(GameObject go)
