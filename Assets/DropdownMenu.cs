@@ -11,13 +11,14 @@ public class DropdownMenu : MonoBehaviour
 
     public GameObject button;
     public Animator settingsAnim;
+    public bool dropdownState;
 
     [SerializeField] Transform settingsPanel;
 
     // Start is called before the first frame update
     void Start()
     {
-
+      
     }
 
     public void swipeOut()
@@ -25,6 +26,23 @@ public class DropdownMenu : MonoBehaviour
 
         Debug.Log("Game Started, swipe initiated");
         settingsAnim.SetBool("SlideOut", true);
+    }
+
+    //Will be an alternator that will apply to one button, check to see the state then decide what animation to perform
+    public void toggleDropdown()
+    {
+        Debug.Log("The state of the settings toggle: "+dropdownState);
+        if(dropdownState == false)
+        {
+            openDropdown();
+        }
+
+        else
+        {
+            collapseDropdown();
+
+        }
+        
     }
 
     public void openDropdown()
@@ -50,9 +68,18 @@ public class DropdownMenu : MonoBehaviour
         // buttonPrefab[0].SetActive(true);
         // buttonPrefab[1].SetActive(true);
         // buttonPrefab[2].SetActive(true);
+        
         buttonPrefab[0].GetComponent<Image>().enabled = true;
         buttonPrefab[1].GetComponent<Image>().enabled = true;
         buttonPrefab[2].GetComponent<Image>().enabled = true;
+        foreach (GameObject button in buttonPrefab)
+        {
+            // Destroy(button, 0.5f);
+            button.SetActive(true);
+            Debug.Log("Button has been toggled ACTIVE");
+        
+
+        }
         // yield return new WaitForSeconds(5);
         settingsAnim.SetTrigger("OpenSettings");
         Debug.Log("Animation start!");
@@ -67,15 +94,25 @@ public class DropdownMenu : MonoBehaviour
         // StartCoroutine(collapse());
         settingsAnim.SetTrigger("CloseSettings");
         settingsAnim.SetBool("Open", false);
+        StartCoroutine(collapse());
+        //buttonPrefab[0].GetComponent<Image>().enabled = false;
+        //buttonPrefab[1].GetComponent<Image>().enabled = false;
+        //buttonPrefab[2].GetComponent<Image>().enabled = false;
+       // Debug.Log("The current animation state is "+settingsAnim.GetCurrentAnimatorStateInfo(0));
+        if (settingsAnim.GetCurrentAnimatorStateInfo(0).IsName("IdleDrop"))
+        {
+            Debug.Log("IdleDrop State reached");
         buttonPrefab[0].GetComponent<Image>().enabled = false;
         buttonPrefab[1].GetComponent<Image>().enabled = false;
         buttonPrefab[2].GetComponent<Image>().enabled = false;
-        if (settingsAnim.GetBool("Open") == false && settingsAnim.GetCurrentAnimatorStateInfo(0).IsName("IdleDrop"))
-        {
-            Debug.Log("IdleDrop State reached");
             // buttonPrefab[0].SetActive(false);
             // buttonPrefab[1].SetActive(false);
             // buttonPrefab[2].SetActive(false);
+        }
+
+        else
+        {
+            Debug.Log("IdleDrop has not been reached");
         }
     }
 
@@ -86,7 +123,7 @@ public class DropdownMenu : MonoBehaviour
             // Destroy(button, 0.5f);
             button.SetActive(false);
             Debug.Log("Button has been toggled inactive");
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(0.5f);
 
         }
     }
@@ -94,6 +131,6 @@ public class DropdownMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+         dropdownState = settingsAnim.GetBool("Open");
     }
 }
