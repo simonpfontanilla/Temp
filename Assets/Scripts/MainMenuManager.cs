@@ -8,7 +8,6 @@ using UnityEngine.EventSystems;
 public class MainMenuManager : MonoBehaviour
 {
     public int shopIndex = 0;
-    public TextMeshProUGUI shopPageLabel;
     public GameObject titleHolder;
     public GameObject shopPage1;
     public GameObject shopPage2;
@@ -29,6 +28,11 @@ public class MainMenuManager : MonoBehaviour
     public Transform panel1;
     public Transform panel2;
     public Transform panel3;
+
+    //Scroll Rects for each Shop Panel
+    public ScrollRect panel1SR;
+    public ScrollRect panel2SR;
+    public ScrollRect panel3SR;
 
     // Upgrade Text Lables for Ship+ and Income+
     public TextMeshProUGUI shipUpLevel;
@@ -419,7 +423,15 @@ public class MainMenuManager : MonoBehaviour
     {
         shopIndex = Index;
         checkPage();
+        resetScroll();
         //return shopIndex;
+    }
+
+    public void resetScroll()
+    {
+         panel1SR.verticalNormalizedPosition = 0f;
+         panel2SR.verticalNormalizedPosition = 0f;
+         panel3SR.verticalNormalizedPosition = 0f;
     }
 
     public void returnToMain()
@@ -436,7 +448,7 @@ public class MainMenuManager : MonoBehaviour
         switch (shopIndex)
         {
             case 1:
-                shopPageLabel.text = "- Ships";
+               
                 shopPage1.SetActive(true);
                 shopPage2.SetActive(false);
                 shopPage3.SetActive(false);
@@ -447,7 +459,7 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case 2:
-                shopPageLabel.text = "- Carrier";
+                
                 shopPage2.SetActive(true);
                 shopPage1.SetActive(false);
                 shopPage3.SetActive(false);
@@ -457,7 +469,7 @@ public class MainMenuManager : MonoBehaviour
                 break;
 
             case 3:
-                shopPageLabel.text = "- Trails";
+                
                 shopPage3.SetActive(true);
                 shopPage1.SetActive(false);
                 shopPage2.SetActive(false);
@@ -468,7 +480,7 @@ public class MainMenuManager : MonoBehaviour
 
 
             default:
-                shopPageLabel.text = "- Ships";
+                
                 shopPage1.SetActive(true);
                 shopPage1.SetActive(false);
                 shopPage1.SetActive(false);
