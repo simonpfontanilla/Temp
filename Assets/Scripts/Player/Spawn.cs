@@ -88,7 +88,7 @@ public class Spawn : MonoBehaviour
         int rings;
         for (int i = 0; i < multiplier - 1; i++)
         {
-            if(_count >= 60){
+            if(_count >= 100){
                 _count += 1;
                 continue;
             }
@@ -131,6 +131,7 @@ public class Spawn : MonoBehaviour
         if (other.gameObject.tag == "Respawn")
         {
             Vibration.VibratePop();
+            Debug.Log("Vibrate Good StarGate");
 
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
@@ -153,7 +154,8 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "Finish")
         {
-            Vibration.VibratePop();
+            Vibration.Vibrate();
+            Debug.Log("Vibrate Bad StarGate");
 
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
@@ -167,6 +169,7 @@ public class Spawn : MonoBehaviour
 
             if (amt <= 0)
                 gM.GameOver(true);
+                return;
 
             if (amt > _player.Children.Count)
             {
@@ -189,6 +192,8 @@ public class Spawn : MonoBehaviour
         else if (other.gameObject.tag == "Asteroids")
         {
             Vibration.VibratePop();
+            Debug.Log("Vibrate Asteroids");
+
             // Call gameover
 
             while (_player.Children.Count != 0)
@@ -205,6 +210,9 @@ public class Spawn : MonoBehaviour
         }
         else if (other.gameObject.tag == "Currency")
         {
+            // Vibration.VibratePop();
+            // Debug.Log("Vibrate Neutral Ship");
+
             SpawnShip(2);
             Destroy(other.gameObject);
             GameObject currency = Instantiate(curr, _transform.position + new Vector3(0, 1, 0), Quaternion.identity).gameObject;
@@ -232,6 +240,7 @@ public class Spawn : MonoBehaviour
         if (other.gameObject.tag == "EnemyShip")
         {
             Vibration.VibratePop();
+            Debug.Log("Vibrate Enemy");
 
             int amt = _count;
             amt -= 5;

@@ -24,21 +24,21 @@ public class StartGame : MonoBehaviour
     private GameObject orbit;
     [SerializeField]
     private GameObject directionalLight;
-    [SerializeField]
+    // [SerializeField]
     private GameObject shopPanel;
-    [SerializeField]
+    // [SerializeField]
     private GameObject shipTabShip;
-    [SerializeField]
+    // [SerializeField]
     private GameObject carrierTabShip;
-    [SerializeField]
+    // [SerializeField]
     private GameObject trailTabShip;
-    [SerializeField]
+    // [SerializeField]
     private GameObject backButton;
-    [SerializeField]
+    // [SerializeField]
     private GameObject dropDownMenu;
-    [SerializeField]
+    // [SerializeField]
     private GameObject directionalArrow;
-    [SerializeField]
+    // [SerializeField]
     private GameObject titleHolder;
     [SerializeField]
     private GameObject mainShipModel;
@@ -51,7 +51,7 @@ public class StartGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Vibration.Init();
     }
 
     // Update is called once per frame
@@ -73,29 +73,31 @@ public class StartGame : MonoBehaviour
                     orbit.SetActive(false);
                     directionalLight.SetActive(false);
                     canvas.SetActive(false);
-                    if(Input.GetKeyUp(KeyCode.Escape)){
-                        shopPanel.SetActive(false);
-                        backButton.SetActive(false);
-                        dropDownMenu.SetActive(true);
-                        directionalArrow.SetActive(true);
-                        shipTabShip.SetActive(false);
-                        carrierTabShip.SetActive(false);
-                        trailTabShip.SetActive(false);
-                        mainShipModel.SetActive(true);
-                        titleHolder.SetActive(true);
-                    }
+                    // if(Input.GetKeyUp(KeyCode.Escape)){
+                    //     shopPanel.SetActive(false);
+                    //     backButton.SetActive(false);
+                    //     dropDownMenu.SetActive(true);
+                    //     directionalArrow.SetActive(true);
+                    //     shipTabShip.SetActive(false);
+                    //     carrierTabShip.SetActive(false);
+                    //     trailTabShip.SetActive(false);
+                    //     mainShipModel.SetActive(true);
+                    //     titleHolder.SetActive(true);
+                    // }
                 }else{
                     //start game
-                    UICamera.SetActive(false);
-                    light1.SetActive(false);
-                    light2.SetActive(false);
-                    HUDCanvas.SetActive(false);
-                    Maploader.SetActive(true);
-                    Maploader.GetComponent<MapLoader>().create();
-                    Carrier.SetActive(true);
-                    orbit.SetActive(true);
-                    directionalLight.SetActive(true);
-                    canvas.SetActive(true);
+                    // UICamera.SetActive(false);
+                    // light1.SetActive(false);
+                    // light2.SetActive(false);
+                    // HUDCanvas.SetActive(false);
+                    // Maploader.SetActive(true);
+                    // Maploader.GetComponent<MapLoader>().create();
+                    // Carrier.SetActive(true);
+                    // orbit.SetActive(true);
+                    // directionalLight.SetActive(true);
+                    // canvas.SetActive(true);
+                    // Vibration.VibratePop();
+                    // Debug.Log("Vibrate Start");
                     animator.SetTrigger("Trigger");
                 }
             }
@@ -120,44 +122,35 @@ public class StartGame : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //ui
-                UICamera.SetActive(false);
-                light1.SetActive(false);
-                light2.SetActive(false);
-                HUDCanvas.SetActive(false);
-                Maploader.SetActive(true);
-                Maploader.GetComponent<MapLoader>().create();
-                Carrier.SetActive(true);
-                orbit.SetActive(true);
-                directionalLight.SetActive(true);
-                canvas.SetActive(true);
-                // animator.SetTrigger("Trigger");
-
-            // if(Input.GetKeyUp(KeyCode.Escape)){
-            //     shopPanel.SetActive(false);
-            //     backButton.SetActive(false);
-            //     dropDownMenu.SetActive(true);
-            //     directionalArrow.SetActive(true);
-            //     shipTabShip.SetActive(false);
-            //     carrierTabShip.SetActive(false);
-            //     trailTabShip.SetActive(false);
-            //     mainShipModel.SetActive(true);
-            //     titleHolder.SetActive(true);
-            // }
+            // UICamera.SetActive(false);
+            // light1.SetActive(false);
+            // light2.SetActive(false);
+            // HUDCanvas.SetActive(false);
+            // Maploader.SetActive(true);
+            // Maploader.GetComponent<MapLoader>().create();
+            // Carrier.SetActive(true);
+            // orbit.SetActive(true);
+            // directionalLight.SetActive(true);
+            // canvas.SetActive(true);
+            // Debug.Log("Test");
+            animator.SetTrigger("Trigger");
+            // animator.SetBool("Reset", true);
         }
     }
 
     public void DisableUI(){
+        HUDCanvas.SetActive(false);
         UICamera.SetActive(false);
         light1.SetActive(false);
         light2.SetActive(false);
-        HUDCanvas.SetActive(false);
         Maploader.SetActive(true);
         Maploader.GetComponent<MapLoader>().create();
         Carrier.SetActive(true);
         orbit.SetActive(true);
         directionalLight.SetActive(true);
         canvas.SetActive(true);
-        animator.SetTrigger("Trigger");
+        Vibration.VibratePop();
+        Debug.Log("Vibrate Start");
     }
 
     public void EnableUI(){

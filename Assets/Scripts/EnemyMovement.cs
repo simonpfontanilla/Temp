@@ -62,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
     void Update()
     {
         if(gameObject.name == "FighterComplete_Shop_Trail"){
-            float y = 1.0f*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi) + 1876;
+            float y = 0.5f*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi) + 1876;
             _transform.position = new Vector3(_transform.position.x, y , _transform.position.z);
         }else{
             float y = amplitude*Mathf.Cos((2*Mathf.PI*fc*Time.fixedTime)+phi)+4;
