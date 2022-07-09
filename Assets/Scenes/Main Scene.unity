@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0010501912, g: 0.0010501912, b: 0.0010501912, a: 1}
+  m_IndirectSpecularColor: {r: 0.0010285678, g: 0.0010285678, b: 0.0010285678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13759,6 +13759,7 @@ GameObject:
   - component: {fileID: 1462851186}
   - component: {fileID: 1462851187}
   - component: {fileID: 1462851188}
+  - component: {fileID: 1462851189}
   m_Layer: 5
   m_Name: ShipPanel
   m_TagString: Untagged
@@ -13877,7 +13878,19 @@ MonoBehaviour:
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1462851189}
+        m_TargetAssemblyTypeName: ScrollingLimit, Assembly-CSharp
+        m_MethodName: LimitScroll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1462851187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13903,6 +13916,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4cd0ce1b58fd7e4292ef89d313cad4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1462851189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462851181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bf18daa87c02049ba5509f5a0b90c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scrollRect: {fileID: 1462851186}
+  upperScrollLimit: 0.9
+  lowerScrollLimit: 0.9
+  panel1: {fileID: 1825541269}
 --- !u!1 &1473241406
 GameObject:
   m_ObjectHideFlags: 0

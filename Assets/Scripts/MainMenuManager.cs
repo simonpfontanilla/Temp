@@ -245,13 +245,13 @@ public class MainMenuManager : MonoBehaviour
     {
       if(totalCurrency < shipCost)
       {
-          Debug.Log("Total Currency is less than ship upgrade cost!");
+         // Debug.Log("Total Currency is less than ship upgrade cost!");
           shipUpgrade.interactable = false;
       } 
 
       else 
       {
-         Debug.Log("Total Currency is MORE than or equal ship upgrade cost!");
+         //Debug.Log("Total Currency is MORE than or equal ship upgrade cost!");
           shipUpgrade.interactable = true;
       }
     }
@@ -261,13 +261,13 @@ public class MainMenuManager : MonoBehaviour
     {
         if(totalCurrency < incomeCost)
       {
-          Debug.Log("Total Currency is less than income upgrade cost!");
+         // Debug.Log("Total Currency is less than income upgrade cost!");
           incomeUpgrade.interactable = false;
       } 
 
       else
       {
-         Debug.Log("Total Currency is MORE than or equal income upgrade cost!");
+        // Debug.Log("Total Currency is MORE than or equal income upgrade cost!");
          incomeUpgrade.interactable = true;
     
       }
