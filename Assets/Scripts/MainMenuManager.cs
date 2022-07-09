@@ -52,8 +52,11 @@ public class MainMenuManager : MonoBehaviour
     public Button initialShopTab;
     public Button shipUpgrade;
     public Button incomeUpgrade;
+
     //Icon Array
-    public Sprite[] skinsIcons;
+    public Sprite[] shipIcons;
+    public Sprite[] carrierIcons;
+    public Sprite[] trailIcons;
 
     //Initial Values
     public int totalCurrency = 0;
@@ -205,7 +208,7 @@ public class MainMenuManager : MonoBehaviour
         {
             int currentIndex = i;
             Button b = t.GetComponent<Button>();
-            b.GetComponent<Image>().sprite = skinsIcons[i];
+            b.GetComponent<Image>().sprite = shipIcons[i];
             b.onClick.AddListener(() => OnPanel1Select(currentIndex));
 
             i++;
@@ -219,6 +222,7 @@ public class MainMenuManager : MonoBehaviour
         {
             int currentIndex2 = i;
             Button b2 = t.GetComponent<Button>();
+            b2.GetComponent<Image>().sprite = carrierIcons[i];
             b2.onClick.AddListener(() => OnPanel2Select(currentIndex2));
 
             i++;
@@ -232,6 +236,7 @@ public class MainMenuManager : MonoBehaviour
         {
             int currentIndex3 = i;
             Button b3 = t.GetComponent<Button>();
+            b3.GetComponent<Image>().sprite = trailIcons[i];
             b3.onClick.AddListener(() => OnPanel3Select(currentIndex3));
 
             i++;

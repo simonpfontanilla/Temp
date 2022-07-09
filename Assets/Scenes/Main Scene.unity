@@ -19942,7 +19942,7 @@ MonoBehaviour:
   initialShopTab: {fileID: 519252092}
   shipUpgrade: {fileID: 1737296223}
   incomeUpgrade: {fileID: 769454958}
-  skinsIcons:
+  shipIcons:
   - {fileID: 3286163911610860551, guid: 0efa3852ad47f654dab6d8083f84b3ab, type: 3}
   - {fileID: 3286163911610860551, guid: a919f3ed6ec0e2f4b9c7fa135f837544, type: 3}
   - {fileID: 3286163911610860551, guid: bc7a73d50eac0e441a60316384f30423, type: 3}
@@ -19968,7 +19968,7 @@ MonoBehaviour:
   - {fileID: 3286163911610860551, guid: 896875af0ad29e4408e78388ea090a39, type: 3}
   - {fileID: 3286163911610860551, guid: 4dd8e6067a221fc409428b7ed7581dd3, type: 3}
   - {fileID: 3286163911610860551, guid: 34efce02676157f468f65b93b529928b, type: 3}
-  - {fileID: 21300000, guid: 4ee53da8f7c64bd4b82927eb84660459, type: 3}
+  - {fileID: 3286163911610860551, guid: 002b236d8e580f64ca06f2e848933835, type: 3}
   - {fileID: 3286163911610860551, guid: d25a6f1e4bdcb3c48b790439031e69eb, type: 3}
   - {fileID: 3286163911610860551, guid: 8e58e30eb4cebc540801cd77c4997784, type: 3}
   - {fileID: 3286163911610860551, guid: 5b6640c9b2b43bd449935817b37ef7b7, type: 3}
@@ -19976,6 +19976,8 @@ MonoBehaviour:
   - {fileID: 3286163911610860551, guid: 0af1e654bd48eac438fcff1c94019b68, type: 3}
   - {fileID: 3286163911610860551, guid: c6dda284f8a56224798d5aa02ac513b3, type: 3}
   - {fileID: 3286163911610860551, guid: bb27c1ee4259fb3488105fef442c043e, type: 3}
+  carrierIcons: []
+  trailIcons: []
   totalCurrency: 0
   currencyAmount: {fileID: 932092182}
   settingsDropdown: {fileID: 159174507}
