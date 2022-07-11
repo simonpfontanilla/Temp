@@ -19976,7 +19976,18 @@ MonoBehaviour:
   - {fileID: 3286163911610860551, guid: 0af1e654bd48eac438fcff1c94019b68, type: 3}
   - {fileID: 3286163911610860551, guid: c6dda284f8a56224798d5aa02ac513b3, type: 3}
   - {fileID: 3286163911610860551, guid: bb27c1ee4259fb3488105fef442c043e, type: 3}
-  carrierIcons: []
+  carrierIcons:
+  - {fileID: 3286163911610860551, guid: 0efa3852ad47f654dab6d8083f84b3ab, type: 3}
+  - {fileID: 3286163911610860551, guid: a919f3ed6ec0e2f4b9c7fa135f837544, type: 3}
+  - {fileID: 3286163911610860551, guid: bc7a73d50eac0e441a60316384f30423, type: 3}
+  - {fileID: 3286163911610860551, guid: 40705d72adeabfc4aa6f60bdac5c5981, type: 3}
+  - {fileID: 3286163911610860551, guid: 388368f861f30ab4983c92c6ba67f270, type: 3}
+  - {fileID: 3286163911610860551, guid: a962c8e622b11d844b12b34ba84f08de, type: 3}
+  - {fileID: 3286163911610860551, guid: e382798f7c8589347947e466b09d7443, type: 3}
+  - {fileID: 3286163911610860551, guid: f72eccd79908e34429c8709f2545e285, type: 3}
+  - {fileID: 3286163911610860551, guid: 7e0d57fe2495ea84d8ce15996c42c26f, type: 3}
+  - {fileID: 3286163911610860551, guid: d7865fd0837bf7d489236d0eb31e48a7, type: 3}
+  - {fileID: 3286163911610860551, guid: a1cd56ea3e297bf499954fa9c34be8a1, type: 3}
   trailIcons: []
   totalCurrency: 0
   currencyAmount: {fileID: 932092182}

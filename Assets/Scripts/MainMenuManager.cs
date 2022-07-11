@@ -204,6 +204,13 @@ public class MainMenuManager : MonoBehaviour
         }
         //For every children transform under panel1, find button and add onClick method
         int i = 0;
+
+        //TODO: Create a larger loop that checks each GameObject(Price Category) within a Shop Panel
+        //Then applies the foreach mapping function
+
+        //foreach (Transform/GameObject G in Panel )
+
+
         foreach (Transform t in panel1)
         {
             int currentIndex = i;
@@ -236,7 +243,7 @@ public class MainMenuManager : MonoBehaviour
         {
             int currentIndex3 = i;
             Button b3 = t.GetComponent<Button>();
-            b3.GetComponent<Image>().sprite = trailIcons[i];
+            //b3.GetComponent<Image>().sprite = trailIcons[i];
             b3.onClick.AddListener(() => OnPanel3Select(currentIndex3));
 
             i++;
