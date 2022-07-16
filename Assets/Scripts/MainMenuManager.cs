@@ -25,6 +25,7 @@ public class MainMenuManager : MonoBehaviour
     public GameObject startScreen;
     public GameObject mainGameScreen;
 
+    //The Transform (source) for the 3 shop pages/tabs
     public Transform panel1;
     public Transform panel2;
     public Transform panel3;
@@ -58,8 +59,16 @@ public class MainMenuManager : MonoBehaviour
     public Sprite[] carrierIcons;
     public Sprite[] trailIcons;
 
+    //Skins Arrays (Ship, Carrier, Trail)
+    public Material[] shipMat;
+    public Material[] carrierMat;
+    public Material[] trailMat;
+
     //Initial Values
     public int totalCurrency = 0;
+    public int currentShipSkinValue;
+    public int currentCarrierSkinValue;
+    public int currentTrailSkinValue;
     public TextMeshProUGUI currencyAmount;
 
     //Dropdown Object Controller
@@ -83,6 +92,10 @@ public class MainMenuManager : MonoBehaviour
         incomeUpLevel.text = incomeLevel.ToString();
         incomeCost = PlayerPrefs.GetInt("incomeCost", 20);
         incomeUpCost.text = incomeCost.ToString();
+
+        currentShipSkinValue = PlayerPrefs.GetInt("ShipSkinVal", 0);
+        currentCarrierSkinValue = PlayerPrefs.GetInt("CarrierSkinVal", 0);
+        currentTrailSkinValue = PlayerPrefs.GetInt("TrailSkinVal", 0);
 
 
         //Add button-on-click events to shop Buttons
@@ -296,23 +309,57 @@ public class MainMenuManager : MonoBehaviour
     {
         //Debug.Log("")
 
-        if (currentIndex < 3)
+        if (currentIndex < 11)
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            //Apply skin/material change here
+            currentShipSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            //ShipGameObject.Material = ShipMat[currentShipSkinValue];
         }
-        else if (currentIndex >= 3 && currentIndex < 6)
+        else if (currentIndex >= 11 && currentIndex < 19)
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentShipSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
-        else if (currentIndex >= 6 && currentIndex < 9)
+        else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentShipSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+        }
+        else if (currentIndex >= 23 && currentIndex < 29)
+        {
+            totalCurrency = totalCurrency - 2-0;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentShipSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+        }
+         else if (currentIndex >= 29 && currentIndex < 34)
+        {
+            totalCurrency = totalCurrency - 250;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentShipSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
 
     }
@@ -322,23 +369,56 @@ public class MainMenuManager : MonoBehaviour
     {
         //Debug.Log("")
 
-        if (currentIndex < 3)
+        if (currentIndex < 11)
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentCarrierSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            //CarrierGameObject.Material = CarrierMat[currentCarrierSkinValue];
         }
-        else if (currentIndex >= 3 && currentIndex < 6)
+        else if (currentIndex >= 11 && currentIndex < 19)
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentCarrierSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
-        else if (currentIndex >= 6 && currentIndex < 9)
+        else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentCarrierSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+        }
+        else if (currentIndex >= 23 && currentIndex < 29)
+        {
+            totalCurrency = totalCurrency - 2-0;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentCarrierSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+        }
+         else if (currentIndex >= 29 && currentIndex < 34)
+        {
+            totalCurrency = totalCurrency - 250;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentCarrierSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
 
     }
@@ -348,23 +428,56 @@ public class MainMenuManager : MonoBehaviour
     {
         //Debug.Log("")
 
-        if (currentIndex < 3)
+        if (currentIndex < 11)
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentTrailSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            //TrailGameObject.Material = TrailMat[currentTrailSkinValue];
         }
-        else if (currentIndex >= 3 && currentIndex < 6)
+        else if (currentIndex >= 11 && currentIndex < 19)
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentTrailSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
-        else if (currentIndex >= 6 && currentIndex < 9)
+        else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
             Debug.Log("Total currency is: " + totalCurrency);
+
+            currentTrailSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+        }
+        else if (currentIndex >= 23 && currentIndex < 29)
+        {
+            totalCurrency = totalCurrency - 2-0;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentTrailSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+        }
+         else if (currentIndex >= 29 && currentIndex < 34)
+        {
+            totalCurrency = totalCurrency - 250;
+            PlayerPrefs.SetInt("currency", totalCurrency);
+            Debug.Log("Total currency is: " + totalCurrency);
+
+            currentTrailSkinValue = currentIndex;
+            PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
+            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
 
     }
