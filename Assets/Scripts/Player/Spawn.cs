@@ -32,6 +32,9 @@ public class Spawn : MonoBehaviour
 
     GameManager gM;
 
+    [SerializeField]
+    private GameObject canvas;
+
     private void Awake()
     {
         _transform = transform;
@@ -156,7 +159,7 @@ public class Spawn : MonoBehaviour
         {
             Vibration.Vibrate();
             Debug.Log("Vibrate Bad StarGate");
-
+            canvas.SetActive(false);
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
 
