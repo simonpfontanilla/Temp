@@ -148,6 +148,7 @@ public class StartGame : MonoBehaviour
         Carrier.SetActive(true);
         orbit.SetActive(true);
         directionalLight.SetActive(true);
+        Carrier.GetComponent<Movement>().enabled = true;
         canvas.SetActive(true);
         Vibration.VibratePop();
         Debug.Log("Vibrate Start");
