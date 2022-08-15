@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
             StartMenu_Active.SetActive(false);
             UpgradeHolder.SetActive(false);
             GameOverUI.SetActive(true);
-            Carrier.SetActive(false);
+            Carrier.GetComponent<MeshRenderer>().enabled = false;
             Carrier.transform.position = new Vector3(0,4.07819986f,-15);
             Carrier.GetComponent<Movement>().reset();
 
@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
         else
         {
             GameOverUI.SetActive(false);
+            Carrier.GetComponent<MeshRenderer>().enabled = true;
             Carrier_MainUI.SetActive(true);
             Store_Panel.SetActive(true);
             StartMenu_Active.SetActive(true);

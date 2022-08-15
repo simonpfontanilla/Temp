@@ -31,8 +31,8 @@ public class Spawn : MonoBehaviour
     private Transform _orbit;
 
     GameManager gM;
-
-    [SerializeField]
+	
+	[SerializeField]
     private GameObject canvas;
 
     private void Awake()
@@ -47,8 +47,24 @@ public class Spawn : MonoBehaviour
     private void Start()
     {
         _position = _transform.position; // Balls
-        _rotation = _transform.rotation; 
+        _rotation = _transform.rotation;
     }
+
+    // public void Init()
+    // {
+    //     _transform = transform;
+    //     _player = GetComponent<Player>();
+    //     gM = GameObject.Find("GameManager").GetComponent<GameManager>();
+        
+    //     Vibration.Init();
+
+    //     _position = _transform.position; // Balls
+    //     _rotation = _transform.rotation;
+
+    //     _count = 0;
+        
+    //     // SpawnShip(4);
+    // }
 
     private void EditShip(GameObject go, bool isShip, int ring, int direction)
     {
@@ -159,7 +175,9 @@ public class Spawn : MonoBehaviour
         {
             Vibration.Vibrate();
             Debug.Log("Vibrate Bad StarGate");
+			
             canvas.SetActive(false);
+			
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
 
@@ -172,7 +190,6 @@ public class Spawn : MonoBehaviour
 
             if (amt <= 0)
                 gM.GameOver(true);
-                return;
 
             if (amt > _player.Children.Count)
             {

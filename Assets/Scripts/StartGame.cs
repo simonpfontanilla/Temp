@@ -93,6 +93,7 @@ public class StartGame : MonoBehaviour
                     // Maploader.SetActive(true);
                     // Maploader.GetComponent<MapLoader>().create();
                     // Carrier.SetActive(true);
+                    // Carrier.GetComponent<Spawn>().Init();
                     // orbit.SetActive(true);
                     // directionalLight.SetActive(true);
                     // canvas.SetActive(true);
@@ -132,6 +133,7 @@ public class StartGame : MonoBehaviour
             // orbit.SetActive(true);
             // directionalLight.SetActive(true);
             // canvas.SetActive(true);
+            // Carrier.GetComponent<Spawn>().Init();
             // Debug.Log("Test");
             animator.SetTrigger("Trigger");
             // animator.SetBool("Reset", true);
@@ -146,6 +148,7 @@ public class StartGame : MonoBehaviour
         Maploader.SetActive(true);
         Maploader.GetComponent<MapLoader>().create();
         Carrier.SetActive(true);
+        // Carrier.GetComponent<Spawn>().Init();
         orbit.SetActive(true);
         directionalLight.SetActive(true);
         Carrier.GetComponent<Movement>().enabled = true;
