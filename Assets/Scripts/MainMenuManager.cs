@@ -59,6 +59,12 @@ public class MainMenuManager : MonoBehaviour
     public Sprite[] carrierIcons;
     public Sprite[] trailIcons;
 
+    //MeshRenderers for Skins
+     //MeshRenderer m =Obj.GetComponent<MeshRenderer>();
+     public MeshRenderer mShip;
+     public MeshRenderer mCarrier;
+     public MeshRenderer mTrail;
+
     //Skins Arrays (Ship, Carrier, Trail)
     public Material[] shipMat;
     public Material[] carrierMat;
@@ -207,6 +213,10 @@ public class MainMenuManager : MonoBehaviour
 
     private async void InitShop()
     {
+        //Ensure that scroll value is "1" instead of 0, this will ensure top of the page
+
+
+
         //Button x = initialShopTab.GetComponent<Button>();
         //x.Select();
 
@@ -320,6 +330,8 @@ public class MainMenuManager : MonoBehaviour
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
             Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
             //ShipGameObject.Material = ShipMat[currentShipSkinValue];
+
+            mShip.material = shipMat[currentShipSkinValue];
         }
         else if (currentIndex >= 11 && currentIndex < 19)
         {
@@ -554,9 +566,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void resetScroll()
     {
-         panel1SR.verticalNormalizedPosition = 0f;
-         panel2SR.verticalNormalizedPosition = 0f;
-         panel3SR.verticalNormalizedPosition = 0f;
+         panel1SR.verticalNormalizedPosition = 1f;
+         panel2SR.verticalNormalizedPosition = 1f;
+         panel3SR.verticalNormalizedPosition = 1f;
     }
 
     public void returnToMain()
