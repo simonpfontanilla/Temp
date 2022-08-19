@@ -111,6 +111,7 @@ public class MainMenuManager : MonoBehaviour
     void tempAddCurrency()
     {
         totalCurrency = totalCurrency + 50;
+        PlayerPrefs.SetInt("currency", totalCurrency);
         Debug.Log("Currency added!");
     }
 
