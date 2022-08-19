@@ -111,6 +111,7 @@ public class MainMenuManager : MonoBehaviour
     void tempAddCurrency()
     {
         totalCurrency = totalCurrency + 50;
+        Debug.Log("Currency added!");
     }
 
     // Update is called once per frame

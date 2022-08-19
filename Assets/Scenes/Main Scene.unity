@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0006213202, g: 0.0006213202, b: 0.0006213202, a: 1}
+  m_IndirectSpecularColor: {r: 0.0010285678, g: 0.0010285678, b: 0.0010285678, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -545,7 +545,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160177206}
   m_LocalRotation: {x: 0.7761454, y: -0.32148993, z: -0.20758332, w: -0.5011505}
-  m_LocalPosition: {x: -41, y: 83, z: -1372}
+  m_LocalPosition: {x: 0.0000004955437, y: 42.800007, z: -1501.7}
   m_LocalScale: {x: 3800, y: 3800, z: 3800}
   m_Children: []
   m_Father: {fileID: 1299702178}
@@ -1877,7 +1877,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693992017}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.9999874}
+  m_LocalPosition: {x: 0, y: 0, z: -1.0000429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 7567892210356386634}
@@ -1885,7 +1885,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423, y: 229.99997}
+  m_AnchoredPosition: {x: -423, y: 120.99997}
   m_SizeDelta: {x: 125, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693992019
@@ -2537,6 +2537,7 @@ MonoBehaviour:
   incomeUpgrade: {fileID: 7567892209701209890}
   shipIcons:
   - {fileID: 3286163911610860551, guid: 0efa3852ad47f654dab6d8083f84b3ab, type: 3}
+  - {fileID: 0}
   carrierIcons: []
   trailIcons: []
   mShip: {fileID: 1057967956}
@@ -7024,7 +7025,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 414, y: 230}
+  m_AnchoredPosition: {x: 414, y: 121.000015}
   m_SizeDelta: {x: 58.967, y: 83.456}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2080691862
@@ -17198,7 +17199,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 769042791}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: returnToMain
         m_Mode: 1
@@ -17246,7 +17247,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2076338739}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -17258,9 +17259,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 693992017}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1977990272427406758}
+        m_TargetAssemblyTypeName: UnityEngine.Renderer, UnityEngine
+        m_MethodName: set_enabled
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17881,7 +17894,7 @@ Transform:
   m_GameObject: {fileID: 7567892209852721013}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 40, y: -9, z: -643}
-  m_LocalScale: {x: 1.4, y: 1.4, z: 1.5}
+  m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_Children:
   - {fileID: 7567892210558089460}
   - {fileID: 7567892208669500186}
@@ -20282,7 +20295,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 769042791}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: choosePage
         m_Mode: 3
@@ -24278,7 +24291,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 769042791}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: choosePage
         m_Mode: 3
@@ -25622,7 +25635,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 769042791}
         m_TargetAssemblyTypeName: MainMenuManager, Assembly-CSharp
         m_MethodName: choosePage
         m_Mode: 3
