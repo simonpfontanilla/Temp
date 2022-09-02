@@ -44,8 +44,10 @@ public class MainMenuManager : MonoBehaviour
     //int values for Ship+ and Income+
     public int shipLevel = 0;
     public int shipCost = 0;
+    public int shipAmount = 0;
     public int incomeLevel = 0;
     public int incomeCost = 0;
+    public float incomeAmount;
 
 
     // Initial Shop Tab
@@ -130,10 +132,16 @@ public class MainMenuManager : MonoBehaviour
         shipCost = PlayerPrefs.GetInt("shipCost", 0);
         shipUpCost.text = shipCost.ToString();
 
+        //Retreivable value to spawn new ships depending on level
+        shipAmount = shipLevel;
+
         incomeLevel = PlayerPrefs.GetInt("incomeLevel", 0);
         incomeUpLevel.text = incomeLevel.ToString();
         incomeCost = PlayerPrefs.GetInt("incomeCost", 0);
         incomeUpCost.text = incomeCost.ToString();
+
+        //Retrievable value to modify how much currency to obtain on currency object collision 
+        incomeAmount = Mathf.Pow(1.1f, incomeLevel);
         
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -165,6 +173,7 @@ public class MainMenuManager : MonoBehaviour
         PlayerPrefs.SetInt("incomeCost", incomeCost);
     }
 
+    //Adds ships per level increase
     public void shipUp()
     {
          shipLevel = shipLevel + 1;
