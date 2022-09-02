@@ -42,7 +42,7 @@ public class MapLoader : MonoBehaviour
         // One or two asteroids between spaces any where between that
         // or collectable
         // Asyeroid = 0, collectable = 1
-        float zPos = 42.0f;
+        float zPos = 15f + 42.0f;
         for (int i = 0; i < mapLevel[level].numGatesSpawners - 1; i++)
         {
             int astOrCol = UnityEngine.Random.Range(0, 2);
@@ -190,7 +190,7 @@ public class MapLoader : MonoBehaviour
         Vector3 result = new Vector3(
             float.Parse(sArray[0]),
             float.Parse(sArray[1]),
-            float.Parse(sArray[2])
+            float.Parse(sArray[2]) + 15f
         );
 
         return result;

@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Carrier.transform.position = new Vector3(0,4.07819986f,-15);
+            Carrier.transform.position = new Vector3(0,4.07819986f,10.37f);
             Maploader.GetComponent<MapLoader>().destoryMap();
             Maploader.SetActive(false);
             GameOverUI.SetActive(false);

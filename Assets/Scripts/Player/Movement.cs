@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
     void Start() {
         // _player = GameObject.Find("Carrier").transform;
         // _position = _player.position;
-        transform.position = new Vector3(0f,4.07819986f,-15f);
+        transform.position = new Vector3(0f,4.07819986f,10.37f);
         bounds = 7;
 
         float z = GameObject.Find("MapLoader").GetComponent<MapLoader>().toCenterZPos;
