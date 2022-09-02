@@ -50,21 +50,11 @@ public class Spawn : MonoBehaviour
         _rotation = _transform.rotation;
     }
 
-    // public void Init()
-    // {
-    //     _transform = transform;
-    //     _player = GetComponent<Player>();
-    //     gM = GameObject.Find("GameManager").GetComponent<GameManager>();
-        
-    //     Vibration.Init();
-
-    //     _position = _transform.position; // Balls
-    //     _rotation = _transform.rotation;
-
-    //     _count = 0;
-        
-    //     // SpawnShip(4);
-    // }
+    public void Init()
+    {
+        int ships = PlayerPrefs.GetInt("shipLevel", 0);
+        SpawnShip(ships + 1);
+    }
 
     private void EditShip(GameObject go, bool isShip, int ring, int direction)
     {

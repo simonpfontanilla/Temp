@@ -53,11 +53,9 @@ public class GameManager : MonoBehaviour
             UpgradeHolder.SetActive(false);
             GameOverUI.SetActive(true);
             Carrier.GetComponent<MeshRenderer>().enabled = false;
-            Carrier.transform.position = new Vector3(0,4.07819986f,-15);
             Carrier.GetComponent<Movement>().reset();
 
-            Maploader.GetComponent<MapLoader>().destoryMap();
-            Maploader.SetActive(false);
+            Carrier.GetComponent<Movement>().autoMove = false;
             
             orbit.SetActive(false);
             directionalLight.SetActive(false);
@@ -66,6 +64,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Carrier.transform.position = new Vector3(0,4.07819986f,-15);
+            Maploader.GetComponent<MapLoader>().destoryMap();
+            Maploader.SetActive(false);
             GameOverUI.SetActive(false);
             Carrier.GetComponent<MeshRenderer>().enabled = true;
             Carrier_MainUI.SetActive(true);

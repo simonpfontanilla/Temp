@@ -148,10 +148,11 @@ public class StartGame : MonoBehaviour
         Maploader.SetActive(true);
         Maploader.GetComponent<MapLoader>().create();
         Carrier.SetActive(true);
-        // Carrier.GetComponent<Spawn>().Init();
         orbit.SetActive(true);
         directionalLight.SetActive(true);
         Carrier.GetComponent<Movement>().enabled = true;
+        Carrier.GetComponent<Movement>().autoMove = true;
+        Carrier.GetComponent<Spawn>().Init();
         canvas.SetActive(true);
         Vibration.VibratePop();
         Debug.Log("Vibrate Start");

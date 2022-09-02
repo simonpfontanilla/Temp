@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0010285678, g: 0.0010285678, b: 0.0010285678, a: 1}
+  m_IndirectSpecularColor: {r: 0.99999905, g: 0, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6761,8 +6761,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1864191341}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1650}
+  m_LocalScale: {x: 0.008, y: 0.008, z: 0.008}
   m_Children:
   - {fileID: 1340311069}
   - {fileID: 1427411725}
@@ -7752,6 +7752,7 @@ MonoBehaviour:
   bigGateEndingPos: {x: 0, y: 0, z: 0}
   toCenterPos: {x: 0, y: 0, z: 0}
   moveToCenter: 0
+  goThroughEnemy: 0
   autoMove: 0
   speed: 20
   autoMoveMulti: 1

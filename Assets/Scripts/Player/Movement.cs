@@ -16,7 +16,8 @@ public class Movement : MonoBehaviour
     private Vector3 delta;
 
     [SerializeField] private Vector3 centerPosition, bigGateEndingPos, toCenterPos;
-    [SerializeField] private bool moveToCenter = false, autoMove = false;
+    [SerializeField] private bool moveToCenter = false, goThroughEnemy = false;
+    public bool autoMove = true;
 
     [SerializeField] public float speed = 10, autoMoveMulti = 1;
     [SerializeField] public float strafeSpeed = 2f;    //some sideways movement amount
@@ -44,15 +45,15 @@ public class Movement : MonoBehaviour
             else
             {
                 moveToCenter = false;
-                autoMove = true;
+                goThroughEnemy = true;
             }
         }
-        else if (autoMove)
+        else if (goThroughEnemy)
         {
             if ((int)Vector3.Distance(transform.position, bigGateEndingPos) > 0)
                 transform.position = Vector3.Lerp(transform.position, bigGateEndingPos, Time.deltaTime);
         }
-        else
+        else if (autoMove)
         {
             if (transform.position.x > bounds)
             {
@@ -121,7 +122,7 @@ public class Movement : MonoBehaviour
 
     public void reset()
     {
-        moveToCenter = autoMove = false;
+        moveToCenter = goThroughEnemy = false;
         // get game camera and set it as child if detached
     }
 }
