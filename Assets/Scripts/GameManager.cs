@@ -37,43 +37,43 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void GameOver(bool check)
+    public void Game(bool win)
     {
-        if (check)
-        {            
-            UICamera.SetActive(true);
-            light1.SetActive(true);
-            light2.SetActive(true);
-            HUDCanvas.SetActive(true);
-            HUDCanvas.GetComponent<StartGame>().enabled = false;
+        light1.SetActive(true);
+        light2.SetActive(true);
+        HUDCanvas.SetActive(true);
+        HUDCanvas.GetComponent<StartGame>().enabled = false;
 
-            Carrier_MainUI.SetActive(false);
-            Store_Panel.SetActive(false);
-            StartMenu_Active.SetActive(false);
-            UpgradeHolder.SetActive(false);
-            GameOverUI.SetActive(true);
-            Carrier.GetComponent<MeshRenderer>().enabled = false;
-            Carrier.GetComponent<Movement>().reset();
+        Carrier_MainUI.SetActive(false);
+        Store_Panel.SetActive(false);
+        StartMenu_Active.SetActive(false);
+        UpgradeHolder.SetActive(false);
 
-            Carrier.GetComponent<Movement>().autoMove = false;
-            
-            orbit.SetActive(false);
-            directionalLight.SetActive(false);
-
-            // rest map
-        }
+        if (win)
+            GameWinUI.SetActive(true);
         else
-        {
-            Carrier.transform.position = new Vector3(0,4.07819986f,10.37f);
-            Maploader.GetComponent<MapLoader>().destoryMap();
-            Maploader.SetActive(false);
-            GameOverUI.SetActive(false);
-            Carrier.GetComponent<MeshRenderer>().enabled = true;
-            Carrier_MainUI.SetActive(true);
-            Store_Panel.SetActive(true);
-            StartMenu_Active.SetActive(true);
-            UpgradeHolder.SetActive(true);
-            HUDCanvas.GetComponent<StartGame>().enabled = true;
-        }
+            GameOverUI.SetActive(true);
+
+        Carrier.GetComponent<MeshRenderer>().enabled = false;
+        Carrier.GetComponent<Movement>().reset();
+        Carrier.GetComponent<Movement>().autoMove = false;
+        orbit.SetActive(false);
+        directionalLight.SetActive(false);
+    }
+
+    public void resetUI()
+    {
+        Carrier.transform.position = new Vector3(0,4.07819986f,10.37f);
+        // rest map
+        Maploader.GetComponent<MapLoader>().destoryMap();
+        Maploader.SetActive(false);
+        GameOverUI.SetActive(false);
+        GameWinUI.SetActive(false);
+        Carrier.GetComponent<MeshRenderer>().enabled = true;
+        Carrier_MainUI.SetActive(true);
+        Store_Panel.SetActive(true);
+        StartMenu_Active.SetActive(true);
+        UpgradeHolder.SetActive(true);
+        HUDCanvas.GetComponent<StartGame>().enabled = true;
     }
 }

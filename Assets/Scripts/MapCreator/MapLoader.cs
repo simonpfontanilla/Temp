@@ -19,14 +19,12 @@ public class MapLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // GameManager gM = gameManagerObject.GetComponent<GameManager>();
-        // createMap(LoadResourceTextfile(), gM.level);
     }
 
     public void create()
     {
         GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        createMap(LoadResourceTextfile(), gM.level);
+        createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel());
     }
 
     private void createMap(List<MapLevelClass> mapLevel, int level)

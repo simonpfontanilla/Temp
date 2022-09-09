@@ -16,7 +16,8 @@ public abstract class Player : MonoBehaviour
 
     public void Update()
     {
-        
+        if (PlayerPrefs.GetInt("currency", 0) != _currency && PlayerPrefs.GetInt("currency", 0) != 0)
+            _currency = PlayerPrefs.GetInt("currency", 0);
     }
 
     public void OnCollisionEnter(Collision other){

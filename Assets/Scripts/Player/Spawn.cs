@@ -179,7 +179,7 @@ public class Spawn : MonoBehaviour
             }
 
             if (amt <= 0)
-                gM.GameOver(true);
+                gM.Game(false);
 
             if (amt > _player.Children.Count)
             {
@@ -216,7 +216,7 @@ public class Spawn : MonoBehaviour
 
             _count = UpdateCount(_ship);
             
-            gM.GameOver(true);
+            gM.Game(false);
         }
         else if (other.gameObject.tag == "Currency")
         {
@@ -227,7 +227,12 @@ public class Spawn : MonoBehaviour
             Destroy(other.gameObject);
             GameObject currency = Instantiate(curr, _transform.position + new Vector3(0, 1, 0), Quaternion.identity).gameObject;
             Move (currency);
-            _player.Currency += 1;
+
+            float incomeAmount = Mathf.Pow(1.1f, PlayerPrefs.GetInt("incomeLevel", 0));
+
+            _player.Currency = (int)(_player.Currency * incomeAmount);
+
+            PlayerPrefs.SetInt("currency", _player.Currency);
         }
         else if (other.gameObject.tag == "CenterCarrier")
         {   
@@ -262,7 +267,7 @@ public class Spawn : MonoBehaviour
             }
 
             if (amt <= 0)
-                gM.GameOver(true);
+                gM.Game(false);
             
             while (_player.Children.Count != amt)
             {
@@ -286,6 +291,8 @@ public class Spawn : MonoBehaviour
             gM.playerPrefsHolder.increaseLevel();
             Debug.Log(gM.playerPrefsHolder.getLevel());
             // Open game win ui
+
+            gM.Game(true);
             // reset level
         }
     }
