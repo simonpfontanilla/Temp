@@ -6,8 +6,8 @@ public class PanelOpener : MonoBehaviour
 {
     [SerializeField]
     GameObject panel;
-    [SerializeField]
-    GameObject carrierMain;
+    // [SerializeField]
+    // GameObject carrierMain;
     [SerializeField]
     GameObject storePanel;
     [SerializeField]
@@ -18,10 +18,10 @@ public class PanelOpener : MonoBehaviour
     public void OpenPanel(){
         if(panel != null){
             bool isActive = panel.activeSelf;
-            carrierMain.SetActive(isActive);
+            // carrierMain.SetActive(isActive);
             storePanel.SetActive(isActive);
             startMenuActive.SetActive(isActive);
-            upgradeHolder.SetActive(isActive);
+            // upgradeHolder.SetActive(isActive);
             panel.SetActive(!isActive);
         }
     }

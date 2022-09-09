@@ -2889,7 +2889,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
-  carrierMain: {fileID: 0}
   storePanel: {fileID: 0}
   startMenuActive: {fileID: 0}
   upgradeHolder: {fileID: 0}
