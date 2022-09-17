@@ -24,14 +24,14 @@ public class DropdownMenu : MonoBehaviour
     public void swipeOut()
     {
 
-        Debug.Log("Game Started, swipe initiated");
+        // Debug.log("Game Started, swipe initiated");
         settingsAnim.SetBool("SlideOut", true);
     }
 
     //Will be an alternator that will apply to one button, check to see the state then decide what animation to perform
     public void toggleDropdown()
     {
-        Debug.Log("The state of the settings toggle: "+dropdownState);
+        // Debug.log("The state of the settings toggle: "+dropdownState);
         if(dropdownState == false)
         {
             openDropdown();
@@ -47,7 +47,7 @@ public class DropdownMenu : MonoBehaviour
 
     public void openDropdown()
     {
-        Debug.Log("The length of array is " + buttonPrefab.Length);
+        // Debug.log("The length of array is " + buttonPrefab.Length);
         /*for(int i =0; i<buttonPrefab.Length;i++)
        {
          GameObject button =  (GameObject)Instantiate(buttonPrefab[i],Vector3.zero,Quaternion.identity);
@@ -76,13 +76,13 @@ public class DropdownMenu : MonoBehaviour
         {
             // Destroy(button, 0.5f);
             button.SetActive(true);
-            Debug.Log("Button has been toggled ACTIVE");
+            // Debug.log("Button has been toggled ACTIVE");
         
 
         }
         // yield return new WaitForSeconds(5);
         settingsAnim.SetTrigger("OpenSettings");
-        Debug.Log("Animation start!");
+        // Debug.log("Animation start!");
         settingsAnim.SetBool("Open", true);
         yield return null;
         // yield return new WaitForSeconds(5);
@@ -101,7 +101,7 @@ public class DropdownMenu : MonoBehaviour
        // Debug.Log("The current animation state is "+settingsAnim.GetCurrentAnimatorStateInfo(0));
         if (settingsAnim.GetCurrentAnimatorStateInfo(0).IsName("IdleDrop"))
         {
-            Debug.Log("IdleDrop State reached");
+            // Debug.log("IdleDrop State reached");
         buttonPrefab[0].GetComponent<Image>().enabled = false;
         buttonPrefab[1].GetComponent<Image>().enabled = false;
         buttonPrefab[2].GetComponent<Image>().enabled = false;
@@ -112,7 +112,7 @@ public class DropdownMenu : MonoBehaviour
 
         else
         {
-            Debug.Log("IdleDrop has not been reached");
+            // Debug.log("IdleDrop has not been reached");
         }
     }
 
@@ -122,7 +122,7 @@ public class DropdownMenu : MonoBehaviour
         {
             // Destroy(button, 0.5f);
             button.SetActive(false);
-            Debug.Log("Button has been toggled inactive");
+            // Debug.log("Button has been toggled inactive");
             yield return new WaitForSeconds(0.5f);
 
         }

@@ -155,7 +155,7 @@ public class StartGame : MonoBehaviour
         Carrier.GetComponent<Spawn>().Init();
         canvas.SetActive(true);
         Vibration.VibratePop();
-        Debug.Log("Vibrate Start");
+        // Debug.log("Vibrate Start");
     }
 
     public void EnableUI(){

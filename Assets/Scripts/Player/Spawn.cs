@@ -140,7 +140,7 @@ public class Spawn : MonoBehaviour
         if (other.gameObject.tag == "Respawn")
         {
             Vibration.VibratePop();
-            Debug.Log("Vibrate Good StarGate");
+            // Debug.log("Vibrate Good StarGate");
 
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
@@ -164,7 +164,7 @@ public class Spawn : MonoBehaviour
         else if (other.gameObject.tag == "Finish")
         {
             Vibration.Vibrate();
-            Debug.Log("Vibrate Bad StarGate");
+            // Debug.log("Vibrate Bad StarGate");
 			
             canvas.SetActive(false);
 			
@@ -202,7 +202,7 @@ public class Spawn : MonoBehaviour
         else if (other.gameObject.tag == "Asteroids")
         {
             Vibration.VibratePop();
-            Debug.Log("Vibrate Asteroids");
+            // Debug.log("Vibrate Asteroids");
 
             // Call gameover
 
@@ -255,7 +255,7 @@ public class Spawn : MonoBehaviour
         if (other.gameObject.tag == "EnemyShip")
         {
             Vibration.VibratePop();
-            Debug.Log("Vibrate Enemy");
+            // Debug.log("Vibrate Enemy");
 
             int amt = _count;
             amt -= 5;

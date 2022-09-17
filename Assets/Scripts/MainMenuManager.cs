@@ -114,7 +114,7 @@ public class MainMenuManager : MonoBehaviour
     {
         totalCurrency = totalCurrency + 50;
         PlayerPrefs.SetInt("currency", totalCurrency);
-        Debug.Log("Currency added!");
+        // Debug.log("Currency added!");
     }
 
     // Update is called once per frame
@@ -178,30 +178,30 @@ public class MainMenuManager : MonoBehaviour
     {
          shipLevel = shipLevel + 1;
         PlayerPrefs.SetInt("shipLevel", shipLevel);
-        Debug.Log("Ship level is "+shipLevel);
+        // Debug.log("Ship level is "+shipLevel);
 
         totalCurrency = totalCurrency - shipCost;
         PlayerPrefs.SetInt("currency", totalCurrency);
-        Debug.Log("Total currency is: " + totalCurrency);
+        // Debug.log("Total currency is: " + totalCurrency);
 
         shipCost = shipCost + 20;
         PlayerPrefs.SetInt("shipCost", shipCost);
-        Debug.Log("Ship cost is "+shipCost);
+        // Debug.log("Ship cost is "+shipCost);
     }
 
     public void incomeUp()
     {
         incomeLevel = incomeLevel +1;
         PlayerPrefs.SetInt("incomeLevel", incomeLevel);
-        Debug.Log("Income level is "+incomeLevel);
+        // Debug.log("Income level is "+incomeLevel);
 
         totalCurrency = totalCurrency - incomeCost;
         PlayerPrefs.SetInt("currency", totalCurrency);
-        Debug.Log("Total currency is: " + totalCurrency);
+        // Debug.log("Total currency is: " + totalCurrency);
 
         incomeCost = incomeCost + 20;
         PlayerPrefs.SetInt("incomeCost", incomeCost);
-        Debug.Log("Income cost is "+incomeCost);
+        // Debug.log("Income cost is "+incomeCost);
     }
 
     public void screenSlideOut()
@@ -219,7 +219,7 @@ public class MainMenuManager : MonoBehaviour
     public void setInitialTab()
     {
         initialShopTab.Select();
-        Debug.Log("Ship skin selected by default");
+        // Debug.log("Ship skin selected by default");
     }
 
     private async void InitShop()
@@ -234,7 +234,7 @@ public class MainMenuManager : MonoBehaviour
         //Assign the references
         if (panel1 == null || panel2 == null || panel3 == null)
         {
-            Debug.Log("At least one of the panels is not assigned");
+            // Debug.log("At least one of the panels is not assigned");
         }
         //For every children transform under panel1, find button and add onClick method
         int i = 0;
@@ -334,12 +334,12 @@ public class MainMenuManager : MonoBehaviour
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             //Apply skin/material change here
             currentShipSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentShipSkinValue);
             //ShipGameObject.Material = ShipMat[currentShipSkinValue];
 
             mShip.material = shipMat[currentShipSkinValue];
@@ -348,41 +348,41 @@ public class MainMenuManager : MonoBehaviour
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentShipSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
         else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentShipSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
         else if (currentIndex >= 23 && currentIndex < 29)
         {
             totalCurrency = totalCurrency - 2-0;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentShipSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
          else if (currentIndex >= 29 && currentIndex < 34)
         {
             totalCurrency = totalCurrency - 250;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentShipSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentShipSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentShipSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentShipSkinValue);
         }
 
     }
@@ -396,52 +396,52 @@ public class MainMenuManager : MonoBehaviour
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentCarrierSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
             //CarrierGameObject.Material = CarrierMat[currentCarrierSkinValue];
         }
         else if (currentIndex >= 11 && currentIndex < 19)
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentCarrierSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
         else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentCarrierSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
         else if (currentIndex >= 23 && currentIndex < 29)
         {
             totalCurrency = totalCurrency - 2-0;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentCarrierSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
          else if (currentIndex >= 29 && currentIndex < 34)
         {
             totalCurrency = totalCurrency - 250;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentCarrierSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentCarrierSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentCarrierSkinValue);
         }
 
     }
@@ -455,52 +455,52 @@ public class MainMenuManager : MonoBehaviour
         {
             totalCurrency = totalCurrency - 50;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentTrailSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentTrailSkinValue);
             //TrailGameObject.Material = TrailMat[currentTrailSkinValue];
         }
         else if (currentIndex >= 11 && currentIndex < 19)
         {
             totalCurrency = totalCurrency - 100;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentTrailSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
         else if (currentIndex >= 19 && currentIndex < 23)
         {
             totalCurrency = totalCurrency - 150;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentTrailSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
         else if (currentIndex >= 23 && currentIndex < 29)
         {
             totalCurrency = totalCurrency - 2-0;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentTrailSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
          else if (currentIndex >= 29 && currentIndex < 34)
         {
             totalCurrency = totalCurrency - 250;
             PlayerPrefs.SetInt("currency", totalCurrency);
-            Debug.Log("Total currency is: " + totalCurrency);
+            // Debug.log("Total currency is: " + totalCurrency);
 
             currentTrailSkinValue = currentIndex;
             PlayerPrefs.SetInt("ShipSkinVal", currentTrailSkinValue);
-            Debug.Log("Current Ship Skin Index is: "+ currentTrailSkinValue);
+            // Debug.log("Current Ship Skin Index is: "+ currentTrailSkinValue);
         }
 
     }
@@ -510,7 +510,7 @@ public class MainMenuManager : MonoBehaviour
     {
         //throw new NotImplementedException();
 
-        Debug.Log("Selecting item from Panel 1: Item #" + currentIndex);
+        // Debug.log("Selecting item from Panel 1: Item #" + currentIndex);
         purchaseItemPanel1(currentIndex);
         //Simulate purchase
 
@@ -519,25 +519,25 @@ public class MainMenuManager : MonoBehaviour
     private void OnPanel2Select(int currentIndex)
     {
         // throw new NotImplementedException();
-        Debug.Log("Selecting item from Panel 2: Item #" + currentIndex);
+        // Debug.log("Selecting item from Panel 2: Item #" + currentIndex);
         purchaseItemPanel2(currentIndex);
     }
 
     private void OnPanel3Select(int currentIndex)
     {
         // throw new NotImplementedException();
-        Debug.Log("Selecting item from Panel 3: Item #" + currentIndex);
+        // Debug.log("Selecting item from Panel 3: Item #" + currentIndex);
         purchaseItemPanel3(currentIndex);
     }
 
     public void OnPanel1BuySet()
     {
-        Debug.Log("Buy/Set Panel1");
+        // Debug.log("Buy/Set Panel1");
     }
 
     public void OnPanel2BuySet()
     {
-        Debug.Log("Buy/Set Panel2");
+        // Debug.log("Buy/Set Panel2");
     }
 
 

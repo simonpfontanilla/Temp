@@ -35,6 +35,12 @@ public class GameManager : MonoBehaviour
         {
             level = 0;
         }
+
+        if (playerPrefsHolder.getLevel() != level)
+        {
+            level = playerPrefsHolder.getLevel();
+            levelText.text = "Level " + level.ToString();
+        }
     }
 
     public void Game(bool win)
