@@ -12,10 +12,10 @@ public class GameManager : MonoBehaviour
     public int level = 0;
 
     // UI
-    public GameObject UICamera, light1, light2,
+    public GameObject light1, light2,
         HUDCanvas, Carrier,
         Maploader, orbit, directionalLight,
-        Carrier_MainUI, Store_Panel, StartMenu_Active,
+        Store_Panel, StartMenu_Active,
         UpgradeHolder, GameOverUI, GameWinUI;
     
     [SerializeField] private TextMeshProUGUI levelText;
@@ -44,7 +44,6 @@ public class GameManager : MonoBehaviour
         HUDCanvas.SetActive(true);
         HUDCanvas.GetComponent<StartGame>().enabled = false;
 
-        Carrier_MainUI.SetActive(false);
         Store_Panel.SetActive(false);
         StartMenu_Active.SetActive(false);
         UpgradeHolder.SetActive(false);
@@ -70,7 +69,6 @@ public class GameManager : MonoBehaviour
         GameOverUI.SetActive(false);
         GameWinUI.SetActive(false);
         Carrier.GetComponent<MeshRenderer>().enabled = true;
-        Carrier_MainUI.SetActive(true);
         Store_Panel.SetActive(true);
         StartMenu_Active.SetActive(true);
         UpgradeHolder.SetActive(true);
