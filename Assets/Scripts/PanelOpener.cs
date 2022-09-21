@@ -5,24 +5,24 @@ using UnityEngine;
 public class PanelOpener : MonoBehaviour
 {
     [SerializeField]
-    GameObject panel;
-    // [SerializeField]
-    // GameObject carrierMain;
+    MeshRenderer carrierMesh;
+    [SerializeField]
+    GameObject supportUsPage;
     [SerializeField]
     GameObject storePanel;
     [SerializeField]
     GameObject startMenuActive;
     [SerializeField]
-    GameObject upgradeHolder;
+    GameObject carrier;
 
     public void OpenPanel(){
-        if(panel != null){
-            bool isActive = panel.activeSelf;
-            // carrierMain.SetActive(isActive);
+        if(supportUsPage != null){
+            bool isActive = supportUsPage.activeSelf;
+            carrierMesh.enabled = isActive;
+            supportUsPage.SetActive(!isActive);
             storePanel.SetActive(isActive);
             startMenuActive.SetActive(isActive);
-            // upgradeHolder.SetActive(isActive);
-            panel.SetActive(!isActive);
+            // carrier.SetActive(!isActive);
         }
     }
 }
