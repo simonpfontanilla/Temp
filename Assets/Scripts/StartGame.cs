@@ -143,8 +143,13 @@ public class StartGame : MonoBehaviour
     public void DisableUI(){
         HUDCanvas.SetActive(false);
         UICamera.SetActive(false);
-        light1.SetActive(false);
-        light2.SetActive(false);
+        // light1.SetActive(false);
+        // light2.SetActive(false);
+        // light1.GetComponent<Light>().color = new Color(0x9a, 0x9a, 0x9a, 0xFF);
+        // light2.GetComponent<Light>().color = new Color(0x9a, 0x9a, 0x9a, 0xFF);
+        float color = 0.745283f;
+        light1.GetComponent<Light>().color = new Color(color, color, color, 1f);
+        light2.GetComponent<Light>().color = new Color(color, color, color, 1f);
         Maploader.SetActive(true);
         Maploader.GetComponent<MapLoader>().create();
         Carrier.SetActive(true);

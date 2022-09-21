@@ -167,7 +167,6 @@ public class Spawn : MonoBehaviour
             Vibration.Vibrate();
             // Debug.log("Vibrate Bad StarGate");
 			
-            canvas.SetActive(false);
 			
             string text = other.gameObject.GetComponentInChildren<TextMeshPro>().text;
             int amt = _count;
@@ -179,8 +178,10 @@ public class Spawn : MonoBehaviour
                 amt /= Int32.Parse(text.Split(' ')[1]);
             }
 
-            if (amt <= 0)
+            if (amt <= 0){
+                canvas.SetActive(false);
                 gM.Game(false);
+            }
 
             if (amt > _player.Children.Count)
             {
@@ -293,6 +294,7 @@ public class Spawn : MonoBehaviour
             gM.playerPrefsHolder.increaseLevel();
             Debug.Log(gM.playerPrefsHolder.getLevel());
             // Open game win ui
+            canvas.SetActive(false);
 
             gM.Game(true);
             // reset level
