@@ -51,7 +51,7 @@ public class ShipSpacing_test : MonoBehaviour
     }
 
     void MoveShips(int index, int count){
-        //Debug.Log("new loop" + " index: " + index + " count: " + count + " prevCount: " + prevCount);
+        // Debug.Log("new loop" + " index: " + index + " count: " + count + " prevCount: " + prevCount);
         for(int i = index; i < count; i++){
             if(sphere){ //sphere
                 Vector3 newPos = Random.onUnitSphere * sphereSize;

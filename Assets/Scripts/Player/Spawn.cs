@@ -116,6 +116,7 @@ public class Spawn : MonoBehaviour
             GameObject go = Instantiate(spawnedShips, _position, _rotation).gameObject;
             EditShip(go, true, ring, direction);
             go.transform.position = _transform.position;
+            go.transform.Rotate(0.0f, -90.0f, -90.0f, Space.Self); //rotation fix
 
             temp.GetComponent<MeshRenderer>().enabled = false;
             go.GetComponent<Follow>().enabled = false;
@@ -203,7 +204,7 @@ public class Spawn : MonoBehaviour
         {
             Vibration.VibratePop();
             // Debug.log("Vibrate Asteroids");
-
+            canvas.SetActive(false);
             // Call gameover
 
             while (_player.Children.Count != 0)
@@ -268,6 +269,7 @@ public class Spawn : MonoBehaviour
 
             if (amt <= 0)
                 gM.Game(false);
+                canvas.SetActive(false);
             
             while (_player.Children.Count != amt)
             {
@@ -313,11 +315,13 @@ public class Spawn : MonoBehaviour
         Color alpha = go.GetComponent<SpriteRenderer>().color;
         for (int i = 0; i <= 60; i++)
         {
-            go.transform.position += new Vector3(0, 0.03f, 0);
+            go.transform.position += new Vector3(0, 0.003f, 0.09f);
+            // go.transform.position = Vector3.Lerp(go.transform.position, _ship.transform.position, 0.5f);
             alpha.a -= 0.02f;
             go.GetComponent<SpriteRenderer>().color = alpha;
             go.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().color = alpha;
-            yield return new WaitForFixedUpdate();
+            // yield return new WaitForFixedUpdate();
+            yield return null;
         }
         Destroy (go); // Don't go bacon my heart
     }
