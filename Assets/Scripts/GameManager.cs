@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         Store_Panel, StartMenu_Active,
         UpgradeHolder, GameOverUI, GameWinUI;
     
-    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI levelText, GameTitle;
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour
         Carrier.GetComponent<Movement>().autoMove = false;
         orbit.SetActive(false);
         directionalLight.SetActive(false);
+
+        if (GameTitle.enabled)
+            GameTitle.enabled = false;
     }
 
     public void resetUI()
