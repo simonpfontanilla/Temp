@@ -107,8 +107,8 @@ public class MapLoader : MonoBehaviour
 
         // enemy
         int enemyCount = (int)(mapLevel[level].maxShips * difficultyLevel[UnityEngine.Random.Range(0, 5)]);
-        // Debug.Log("max ships " + mapLevel[level].maxShips);
-        // Debug.Log("enemy count " + enemyCount);
+        Debug.Log("max ships " + mapLevel[level].maxShips);
+        Debug.Log("enemy count " + enemyCount);
 
         zPos += 22;
         List<GameObject> enemies = new List<GameObject>();
