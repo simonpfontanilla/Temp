@@ -16,15 +16,44 @@ public class MapLoader : MonoBehaviour
     [SerializeField] private GameObject enemy;
     public float centerToPosition, toCenterZPos, bigGateEndingZPos;
 
+    public bool test = false;
+    public int level = 0;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (test)
+            createMap(LoadResourceTextfile(), level);
+    }
+
+    public void Update()
+    {
+        if (test)
+        {
+            if (Input.GetKey("left"))
+            {
+                if (level - 1 > -1)
+                {
+                    destoryMap();
+                    createMap(LoadResourceTextfile(), level--);
+                }
+            }
+            else if (Input.GetKey("right"))
+            {
+                if (level + 1 < 101)
+                {
+                    destoryMap();
+                    createMap(LoadResourceTextfile(), level++);
+                }
+            }
+        }
     }
 
     public void create()
     {
         GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel() - 1);
+        createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel());
+        // createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel() - 1);
     }
 
     private void createMap(List<MapLevelClass> mapLevel, int level)
@@ -78,7 +107,8 @@ public class MapLoader : MonoBehaviour
 
         // enemy
         int enemyCount = (int)(mapLevel[level].maxShips * difficultyLevel[UnityEngine.Random.Range(0, 5)]);
-        // Debug.Log(mapLevel[level].maxShips);
+        // Debug.Log("max ships " + mapLevel[level].maxShips);
+        // Debug.Log("enemy count " + enemyCount);
 
         zPos += 22;
         List<GameObject> enemies = new List<GameObject>();

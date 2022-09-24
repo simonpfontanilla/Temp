@@ -72,6 +72,13 @@ public class GameManager : MonoBehaviour
     public void resetUI()
     {
         Carrier.transform.position = new Vector3(0,4.07819986f,10.37f);
+
+        if (GameObject.FindGameObjectWithTag("MainCamera").transform.parent == null)
+        {
+            GameObject.FindGameObjectWithTag("MainCamera").transform.parent = Carrier.transform;
+            GameObject.FindGameObjectWithTag("MainCamera").transform.position = new Vector3(0,10.3501997f,-0.718000412f);
+        }
+
         // rest map
         Maploader.GetComponent<MapLoader>().destoryMap();
         Maploader.SetActive(false);
