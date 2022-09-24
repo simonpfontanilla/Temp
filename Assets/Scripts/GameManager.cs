@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerChild playerScript;
     public PlayerPrefsHolder playerPrefsHolder = new PlayerPrefsHolder();
 
-    public int level = 0;
+    public int level = 1;
 
     // UI
     public GameObject light1, light2,
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            level = 0;
+            level = 1;
         }
 
         if (playerPrefsHolder.getLevel() != level)

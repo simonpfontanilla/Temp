@@ -24,7 +24,7 @@ public class MapLoader : MonoBehaviour
     public void create()
     {
         GameManager gM = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel());
+        createMap(LoadResourceTextfile(), gM.playerPrefsHolder.getLevel() - 1);
     }
 
     private void createMap(List<MapLevelClass> mapLevel, int level)
