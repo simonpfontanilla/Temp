@@ -9,7 +9,7 @@ public class ClearChildren : MonoBehaviour
     {
 
     }
-
+    // deletes ships at the beginning of each level
     public void Clear(){
         foreach(Transform child in orbit){
             Destroy(child.gameObject);
